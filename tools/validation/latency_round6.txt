@@ -1,0 +1,28 @@
+Bank: 2238 index ms: 1163.97
+Measured searches: 702 mean ms: 10.48 p95 ms: 21.73 max ms: 48.13
+Scale: one copy
+TRAP TOP "Count the number of suppliers per city" SQL3-033 critical warnings: 0 listed avoid: false
+TRAP TOP "Employee who processed the lowest number of orders across all months combined in 2006" MOCK-07 critical warnings: 1 listed avoid: true
+TRAP TOP "Employee who processed the highest number of orders in each month of 2006" SQL4-046 critical warnings: 0 listed avoid: false
+TRAP TOP "Employees who have always processed an order for a customer from the same city they are based in" MOCK-08 critical warnings: 1 listed avoid: true
+TRAP TOP "Retrieve 2 orders which have the 6th and 7th highest shipping fee, include ties" VAR-031 critical warnings: 0 listed avoid: false
+TRAP TOP "Find the employees that always created a purchase order" LAB-17 critical warnings: 1 listed avoid: true
+TRAP TOP "Find catalogue products with a standard cost above at least one non-NULL Seafood standard cost." SQL3-056 critical warnings: 1 listed avoid: false
+TRAP TOP "Find catalogue products with a standard cost above every non-NULL Seafood standard cost." SQL3-055 critical warnings: 0 listed avoid: false
+TRAP TOP "Pick the two least expensive distinct price levels per category, including ties." none critical warnings: 0 listed avoid: false
+TRAP TOP "Pick exactly one category with the largest catalogue product count, breaking ties alphabetically." none critical warnings: 0 listed avoid: false
+TRAP TOP "Find clients covering some but not every item ordered by customer 1." TH3-005 critical warnings: 0 listed avoid: false
+TRAP TOP "Show items that have a Waste inventory movement and have also been ordered." VAR-085 critical warnings: 0 listed avoid: false
+TRAP TOP "Show procurement detail rows already received, with vendor and product descriptions." none critical warnings: 0 listed avoid: false
+TRAP TOP "Count inventory movements for each year, not for each month, by named transaction type." SQL3-022 critical warnings: 0 listed avoid: false
+TRAP TOP "Summarize invoice counts and Amount Due by order month instead of invoice month." none critical warnings: 0 listed avoid: false
+TRAP TOP "Produce a running total of fees for each employee rather than each customer." none critical warnings: 0 listed avoid: false
+TRAP TOP "Show third distinct highest standard cost per category, including ties." SQL4-001 critical warnings: 0 listed avoid: false
+TRAP TOP "Identify adjacent gaps of at least thirty days between customer orders." SQL4-017 critical warnings: 0 listed avoid: false
+TRAP TOP "Identify adjacent gaps of fewer than thirty days between customer orders." SQL3-040 critical warnings: 0 listed avoid: false
+TRAP TOP "Show items whose Purchased quantity exceeds Sold quantity, not the reverse." SQL3-089 critical warnings: 1 listed avoid: true
+TRAP TOP "Allocate each order's shipping fee equally among its lines, ignoring line values." SQL3-094 critical warnings: 1 listed avoid: true
+TRAP TOP "Choose two purchase orders per supplier by Submitted Date, not Creation Date." none critical warnings: 0 listed avoid: false
+TRAP TOP "Show the largest single Sold transaction across all items combined, dropping ties." none critical warnings: 0 listed avoid: false
+TRAP TOP "Calculate a three-calendar-day moving average, not a three-order moving average." SQL3-079 critical warnings: 0 listed avoid: false
+Stricter safety view: returned trap tops: 17 with critical warnings: 6 (not an accuracy metric; unlisted alternatives are not assumed correct)

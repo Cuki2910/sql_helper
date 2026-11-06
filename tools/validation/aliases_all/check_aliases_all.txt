@@ -1,0 +1,2 @@
+PASS generated paraphrases preserve recognized conditions
+PASS 2375 entries, 7365 aliases, protected SQL/literals/numbers/operators unchanged

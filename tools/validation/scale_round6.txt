@@ -1,0 +1,3 @@
+Bank: 6714 index ms: 3532.24
+Measured searches: 702 mean ms: 30.72 p95 ms: 63.69 max ms: 103.02
+Scale: three copies with distinct IDs; questions unchanged

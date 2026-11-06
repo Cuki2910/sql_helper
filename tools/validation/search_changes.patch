@@ -1,0 +1,48 @@
+--- baseline/js/search.js
++++ js/search.js
+@@ -52,7 +52,7 @@
+     s = String(s == null ? '' : s).toLowerCase().replace(/[“”„]/g, '"').replace(/[‘’`]/g, ' ').replace(/_/g, ' ');
+     s = s.replace(/\b(one|two|three|four|five|six|seven|eight|nine|ten)\b/g, (m) => NUMWORDS[m]);
+     s = s.replace(/\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b/g, (m) => ORD[m]);
+-    for (const [re, rep] of PHRASES) s = s.replace(re, rep);
++    for (const [re, rep] of PHRASES) s = s.replace(re, rep).replace(/\s+/g, ' ');
+     return s.replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+   }
+ 
+@@ -146,7 +146,8 @@
+     c.nullMention = /\bnull\b|\bmissing\b|\bnot yet shipped\b|\bnot shipped\b/.test(t);
+     c.asc = /\b(ascending|asc|alphabetical|alphabetically)\b/.test(t);
+     c.desc = /\b(descending|desc)\b/.test(t);
+-    c.every = /\b(every|for all|all of the)\b/.test(t);
++    const quantified = t.replace(/\bfor every (?:product categor\w*|customers?|employees?|shippers?|suppliers?|products?|orders?)\b/g, ' ');
++    c.every = /\b(every|for all|all of the)\b/.test(quantified);
+     c.any = /\b(any|some|at least 1|at least one)\b/.test(t) && !c.every;
+     c.perMonth = /\b(per month|each month|monthly|by month|for each month|every month)\b/.test(t);
+     c.combined = /\b(combined|overall|in total|across all|all months)\b/.test(t);
+@@ -163,7 +164,7 @@
+     const dm = t.match(/\b(?:different|distinct|unique)\s+(?:product\s+)?(categor\w*|products?|customers?|employees?|countr\w*|cit(?:y|ies)|shippers?|suppliers?|states?)/);
+     c.distinctOf = dm ? dm[1].replace(/ies$/, 'y').replace(/s$/, '').replace(/^categor.*/, 'category').replace(/^countr.*/, 'country') : '';
+     const mon = new Set(t.match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\b/g) || []);
+-    if (/\bfirst quarter\b|\bq1\b/.test(t)) mon.add('q1'); if (/\bsecond quarter\b|\bq2\b/.test(t)) mon.add('q2');
++    if (/\b(?:first|1) quarter\b|\bq1\b/.test(t)) mon.add('q1'); if (/\b(?:second|2) quarter\b|\bq2\b/.test(t)) mon.add('q2');
+     c.months = mon;
+     c.having = /\bhaving\b/.test(t); c.where = /\bwhere\b/.test(t);
+     return c;
+@@ -325,7 +326,7 @@
+       const fixMap = new Map(fixes.map((f) => [f[0], f[1]]));
+       const fixedText = fixes.length ? qn.split(' ').map((w) => fixMap.get(stem(w)) || w).join(' ') : query;
+       const qCons = constraints(fixedText);
+-      const taskCue = /^\s*(find|show|list|return|retrieve|get|compute|count|display|give|calculate|produce|build|write)\b/i.test(query);
++      const taskCue = /^\s*(find|show|list|return|retrieve|get|compute|count|display|give|calculate|produce|build|write)\b/i.test(query) || /\b(report|pivot|directory)\b/i.test(query);
+       const theoryCue = /\b(difference|differ|differs|vs|versus|why|what is|what are|which is better|which one|explain)\b/i.test(query);
+       const qSch = detectSchema(fixedText, schemaIdx);
+       const qPat = detectPatterns(fixedText, qSch.tabs.size);
+@@ -381,7 +382,7 @@
+         score *= Math.pow(W.critPenalty, nCrit) * Math.pow(W.minorPenalty, nMin);
+         if (exact) score = 1;
+         if (theoryCue && e.kind === 'sql') score *= 0.9;
+-        if (taskCue && !theoryCue && e.kind === 'theory') score *= 0.9;
++        if (taskCue && !theoryCue && e.kind === 'theory') score *= 0.65;
+         if (e.source === 'original') score *= 1.02;
+         if (/^COMBO-/.test(e.id)) score *= 0.96; // structural-rewrite verification is weaker than hand-written independent alternatives
+         if (e.kind === 'sql' && e.verification && e.verification.status !== 'execution-verified') score *= 0.97;

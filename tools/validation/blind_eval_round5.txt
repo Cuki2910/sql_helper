@@ -1,0 +1,22 @@
+OOS-ANSWERED 1 Which customers have placed orders handled by more than three different employees? | SQL3-012
+OOS-ANSWERED 3 For each product category, list the three most expensive products, with ties broken by product id | LAB-15
+OOS-ANSWERED 5 Percentage of total revenue contributed by each customer | SQL3-092
+MISS 6 Show products that were never sold | got LAB-21 | want VAR-014 | rank 2
+OOS-ANSWERED 7 Customers whose latest order is older than all other customers' latest orders | MOCK-01
+OOS-ANSWERED 8 Rank suppliers by total purchase value and show the position next to each name | SQL3-004
+MISS 9 List months of 2006 in which no order was placed, including the empty ones | got SQL3-018 | want SQL3-043 | rank 2
+OOS-ANSWERED 10 Orders whose total value is higher than the average order total | SQL3-058
+MISS 11 Compare each order's date with the date of the same customer's previous order and show the number of days between them | got A4-20 | want SQL3-040|SQL3-028 | rank -
+MISS 12 Which customers bought every product that customer 5 bought? | got TH3-007 | want SQL3-051 | rank -
+OOS-ANSWERED 13 Number of orders shipped late versus on time per shipper | VAR-039
+OOS-ANSWERED 14 Second highest priced product in every category | SQL3-031
+OOS-ANSWERED 15 Products ordered by clients from more than one country | COMBO-1356
+OOS-ANSWERED 17 Employees whose sales exceed the average sales of all employees | COMBO-0414
+OOS-ANSWERED 18 Orders that include both a discounted line and a non-discounted line | A3-11
+OOS-ANSWERED 21 Top selling product by quantity within each quarter of 2006 | SQL3-095
+OOS-ANSWERED 23 Remove duplicate customer records keeping the one with the smallest id | TH-54
+OOS-ANSWERED 25 Three-month moving average of monthly order totals | SQL3-036
+OOS-ANSWERED 29 Products whose reorder level is above the quantity currently in stock | SQL3-081
+OOS-ANSWERED 30 Lines where the unit price charged differs from the list price | A3-11
+in-scope 5: R@1 1/5  R@3 3/5
+out-of-scope 25: no answer 8, answered with warning 1, answered silently 16

@@ -1,0 +1,5 @@
+Independent MySQL CLI audit
+SQL entries: 2212 statuses: {'execution-verified': 2212}
+Main/alternative executions: 4424 additional answer executions: 5
+Empty primary results: 17 VAR-011, VAR-041, VAR-085, VAR-091, SQL3-008, SQL3-046, SQL3-056, SQL3-089, SQL6-005, SQL6-043, SQL6-044, SQL8-002, SQL4-028, SQL4-036, SQL5-022, SQL5-030, SQL5-047
+Mismatches: 0

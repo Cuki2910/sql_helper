@@ -1,0 +1,30 @@
+PASS SQL6-038
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: SQL6-009: wrong first result
++ actual - expected
+
++ 'A4-08'
+- 'SQL6-009'
+
+    at Object.<anonymous> (/Users/cuki2910/Desktop/sql_helper/tests/check_paraphrase_search.js:31:12)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1674:12)
+    at require (node:internal/modules/helpers:157:16)
+    at Object.<anonymous> (/private/tmp/sql-helper-aliases-eval.js:12:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'A4-08',
+  expected: 'SQL6-009',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

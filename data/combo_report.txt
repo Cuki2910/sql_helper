@@ -1,0 +1,214 @@
+candidates 1918, kept 1712
+dup-existing: 10
+error: 0
+differs: 0
+empty: 112
+all-rows: 36
+dup-question: 0
+dup-result: 48
+  [dup-existing] Find the customer with the highest total sales value (include ties).
+  [dup-existing] Find the customer with the lowest total sales value (include ties).
+  [dup-existing] Find the employee with the highest total sales value (include ties).
+  [dup-existing] Find the employee with the lowest total sales value (include ties).
+  [dup-existing] Find the shipper with the highest total sales value (include ties).
+  [dup-existing] Find the shipper with the lowest total sales value (include ties).
+  [dup-existing] Find the product with the highest total sales value (include ties).
+  [dup-existing] Find the product with the lowest total sales value (include ties).
+  [dup-existing] Find the product category with the highest total sales value (include ties).
+  [dup-existing] Find the product category with the lowest total sales value (include ties).
+  [empty] Find the customers whose total quantity ordered is exactly 80. Consider only orders placed in March 2006.
+  [empty] Find the customers whose total quantity ordered is exactly 80. Consider only orders placed in April 2006.
+  [empty] Find the customers whose total sales value is exactly 2400.
+  [empty] Find the customers whose total sales value is exactly 4700.
+  [empty] Find the customers whose total sales value is exactly 1200. Consider only orders placed in March 2006.
+  [empty] Find the customers whose total sales value is exactly 1700. Consider only orders placed in March 2006.
+  [empty] Find the customers whose total sales value is exactly 1400. Consider only orders placed in April 2006.
+  [empty] Find the customers whose total sales value is exactly 3700. Consider only orders placed in April 2006.
+  [empty] Find the customers whose total sales value is exactly 1000. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the customers whose total sales value is exactly 1600. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the customers whose total sales value is exactly 900. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the customers whose total sales value is exactly 3600. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the customers whose number of different product categories ordered is more than 4. Consider only orders placed in March 2006.
+  [empty] Find the customers whose number of different product categories ordered is more than 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the employees whose number of orders is more than 3. Consider only orders placed in April 2006.
+  [empty] Find the employees whose number of orders is more than 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the employees whose total quantity ordered is exactly 600.
+  [empty] Find the employees whose total quantity ordered is exactly 100. Consider only orders placed in April 2006.
+  [empty] Find the employees whose total quantity ordered is exactly 310. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the employees whose total sales value is exactly 3800.
+  [empty] Find the employees whose total sales value is exactly 6400.
+  [empty] Find the employees whose total sales value is exactly 700. Consider only orders placed in March 2006.
+  [empty] Find the employees whose total sales value is exactly 1800. Consider only orders placed in April 2006.
+  [empty] Find the employees whose total sales value is exactly 3500. Consider only orders placed in April 2006.
+  [empty] Find the employees whose total sales value is exactly 2300. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the employees whose total sales value is exactly 15500. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the employees whose total sales value is exactly 3500. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the employees whose total sales value is exactly 4500. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the employees whose number of different products ordered is more than 4. Consider only orders placed in April 2006.
+  [empty] Find the employees whose number of different products ordered is more than 7. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the employees whose number of different product categories ordered is more than 4. Consider only orders placed in April 2006.
+  [empty] Find the employees whose number of different customers served is more than 3. Consider only orders placed in April 2006.
+  [empty] Find the employees whose number of different customers served is more than 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose number of orders is more than 3. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose number of orders is more than 6. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose number of orders is more than 9. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the shippers whose total quantity ordered is exactly 1220.
+  [empty] Find the shippers whose total quantity ordered is exactly 220. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose total quantity ordered is more than 470. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose total quantity ordered is more than 490. Consider only orders placed in April 2006.
+  [empty] Find the shippers whose total quantity ordered is exactly 590. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose total quantity ordered is more than 630. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the shippers whose total sales value is exactly 16100.
+  [empty] Find the shippers whose total sales value is more than 26600.
+  [empty] Find the shippers whose total sales value is at least 26600.
+  [empty] Find the shippers whose total sales value is exactly 26600.
+  [empty] Find the shippers whose total sales value is exactly 1300. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose total sales value is more than 15300. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose total sales value is at least 15300. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose total sales value is exactly 15300. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose total sales value is exactly 7300. Consider only orders placed in April 2006.
+  [empty] Find the shippers whose total sales value is exactly 7400. Consider only orders placed in April 2006.
+  [empty] Find the shippers whose total sales value is exactly 6000. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose total sales value is more than 15800. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose total sales value is at least 15800. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose total sales value is exactly 15800. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose total sales value is exactly 10000. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the shippers whose total sales value is exactly 10800. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the shippers whose number of different products ordered is more than 4. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose number of different products ordered is more than 8. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose number of different products ordered is more than 10. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the shippers whose number of different product categories ordered is more than 9. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the shippers whose number of different customers served is more than 3. Consider only orders placed in March 2006.
+  [empty] Find the shippers whose number of different customers served is more than 6. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the shippers whose number of different customers served is more than 6. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the ship cities whose total quantity ordered is exactly 80. Consider only orders placed in March 2006.
+  [empty] Find the ship cities whose total quantity ordered is exactly 80. Consider only orders placed in April 2006.
+  [empty] Find the ship cities whose total quantity ordered is exactly 160. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the ship cities whose total sales value is exactly 2900.
+  [empty] Find the ship cities whose total sales value is exactly 4900.
+  [empty] Find the ship cities whose total sales value is exactly 1200. Consider only orders placed in March 2006.
+  [empty] Find the ship cities whose total sales value is exactly 1700. Consider only orders placed in March 2006.
+  [empty] Find the ship cities whose total sales value is exactly 1400. Consider only orders placed in April 2006.
+  [empty] Find the ship cities whose total sales value is exactly 3700. Consider only orders placed in April 2006.
+  [empty] Find the ship cities whose total sales value is exactly 1000. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the ship cities whose total sales value is exactly 1700. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the ship cities whose total sales value is exactly 1600. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the ship cities whose total sales value is exactly 3800. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the ship cities whose number of different product categories ordered is more than 4. Consider only orders placed in March 2006.
+  [empty] Find the ship cities whose number of different product categories ordered is more than 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the products whose number of orders is more than 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the products whose total quantity ordered is exactly 60.
+  [empty] Find the products whose total sales value is exactly 800.
+  [empty] Find the products whose total sales value is exactly 200. Consider only orders placed in March 2006.
+  [empty] Find the products whose total sales value is exactly 800. Consider only orders placed in March 2006.
+  [empty] Find the products whose total sales value is exactly 400. Consider only orders placed in April 2006.
+  [empty] Find the products whose total sales value is exactly 1500. Consider only orders placed in April 2006.
+  [empty] Find the products whose total sales value is exactly 500. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the products whose total sales value is exactly 800. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the products whose total sales value is exactly 1900. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the products whose number of different customers served is more than 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the product categories whose number of orders is more than 3. Consider only orders placed in April 2006.
+  [empty] Find the product categories whose total quantity ordered is exactly 100.
+  [empty] Find the product categories whose total quantity ordered is exactly 180.
+  [empty] Find the product categories whose total quantity ordered is exactly 50. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the product categories whose total sales value is exactly 1600.
+  [empty] Find the product categories whose total sales value is exactly 2800.
+  [empty] Find the product categories whose total sales value is exactly 200. Consider only orders placed in March 2006.
+  [empty] Find the product categories whose total sales value is exactly 700. Consider only orders placed in March 2006.
+  [empty] Find the product categories whose total sales value is exactly 2300. Consider only orders placed in April 2006.
+  [empty] Find the product categories whose total sales value is exactly 600. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the product categories whose total sales value is exactly 1400. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the product categories whose total sales value is exactly 1100. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the product categories whose total sales value is exactly 2300. Consider only orders placed in the second quarter of 2006 (April to June).
+  [empty] Find the product categories whose number of different products ordered is more than 4.
+  [empty] Find the product categories whose number of different products ordered is more than 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [empty] Find the product categories whose number of different customers served is more than 3. Consider only orders placed in April 2006.
+  [empty] Find the shippers that shipped no orders.
+  [empty] Find the shippers that shipped no orders in March 2006.
+  [empty] Find the shippers that shipped no orders in April 2006.
+  [empty] Find the shippers that shipped no orders in the first quarter of 2006 (January to March).
+  [empty] Find the shippers that shipped no orders in the second quarter of 2006 (April to June).
+  [all-rows] Find the customers whose number of different product categories ordered is at most 4. Consider only orders placed in March 2006.
+  [all-rows] Find the customers whose number of different product categories ordered is at most 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the employees whose number of orders is at most 3. Consider only orders placed in April 2006.
+  [all-rows] Find the employees whose number of orders is at most 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the employees whose number of different products ordered is at most 4. Consider only orders placed in April 2006.
+  [all-rows] Find the employees whose number of different products ordered is at most 7. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the employees whose number of different product categories ordered is at most 4. Consider only orders placed in April 2006.
+  [all-rows] Find the employees whose number of different customers served is at most 3. Consider only orders placed in April 2006.
+  [all-rows] Find the employees whose number of different customers served is at most 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the shippers whose number of orders is at most 3. Consider only orders placed in March 2006.
+  [all-rows] Find the shippers whose number of orders is at most 6. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the shippers whose number of orders is at most 9. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the shippers whose total quantity ordered is at most 470. Consider only orders placed in March 2006.
+  [all-rows] Find the shippers whose total quantity ordered is at most 490. Consider only orders placed in April 2006.
+  [all-rows] Find the shippers whose total quantity ordered is at most 630. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the shippers whose total sales value is fewer than 26600.
+  [all-rows] Find the shippers whose total sales value is at most 26600.
+  [all-rows] Find the shippers whose total sales value is fewer than 15300. Consider only orders placed in March 2006.
+  [all-rows] Find the shippers whose total sales value is at most 15300. Consider only orders placed in March 2006.
+  [all-rows] Find the shippers whose total sales value is fewer than 15800. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the shippers whose total sales value is at most 15800. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the shippers whose number of different products ordered is at most 4. Consider only orders placed in March 2006.
+  [all-rows] Find the shippers whose number of different products ordered is at most 8. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the shippers whose number of different products ordered is at most 10. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the shippers whose number of different product categories ordered is at most 9. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the shippers whose number of different customers served is at most 3. Consider only orders placed in March 2006.
+  [all-rows] Find the shippers whose number of different customers served is at most 6. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the shippers whose number of different customers served is at most 6. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the ship cities whose number of different product categories ordered is at most 4. Consider only orders placed in March 2006.
+  [all-rows] Find the ship cities whose number of different product categories ordered is at most 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the products whose number of orders is at most 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the products whose number of different customers served is at most 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [all-rows] Find the product categories whose number of orders is at most 3. Consider only orders placed in April 2006.
+  [all-rows] Find the product categories whose number of different products ordered is at most 4.
+  [all-rows] Find the product categories whose number of different products ordered is at most 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [all-rows] Find the product categories whose number of different customers served is at most 3. Consider only orders placed in April 2006.
+  [dup-result] Find the customers whose number of different product categories ordered is exactly 4. Consider only orders placed in March 2006.
+  [dup-result] Find the customers whose number of different product categories ordered is more than 2. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the customers whose number of different product categories ordered is at least 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the customers whose number of different product categories ordered is exactly 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the employees whose number of orders is exactly 3. Consider only orders placed in April 2006.
+  [dup-result] Find the employees whose number of orders is exactly 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the employees whose total sales value is at least 15500. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the employees whose number of different products ordered is exactly 4. Consider only orders placed in April 2006.
+  [dup-result] Find the employees whose number of different products ordered is exactly 7. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the employees whose number of different products ordered is more than 6. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the employees whose number of different product categories ordered is exactly 4. Consider only orders placed in April 2006.
+  [dup-result] Find the employees whose number of different customers served is exactly 3. Consider only orders placed in April 2006.
+  [dup-result] Find the employees whose number of different customers served is exactly 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the shippers whose number of orders is exactly 3. Consider only orders placed in March 2006.
+  [dup-result] Find the shippers whose number of orders is exactly 6. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the shippers whose number of orders is exactly 9. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the shippers whose total quantity ordered is at least 1220.
+  [dup-result] Find the shippers whose total quantity ordered is at most 1220.
+  [dup-result] Find the shippers whose total quantity ordered is at least 470. Consider only orders placed in March 2006.
+  [dup-result] Find the shippers whose total quantity ordered is fewer than 470. Consider only orders placed in March 2006.
+  [dup-result] Find the shippers whose total quantity ordered is exactly 470. Consider only orders placed in March 2006.
+  [dup-result] Find the shippers whose total quantity ordered is exactly 490. Consider only orders placed in April 2006.
+  [dup-result] Find the shippers whose total quantity ordered is at least 590. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the shippers whose total quantity ordered is at most 590. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the shippers whose total quantity ordered is exactly 630. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the shippers whose total sales value is more than 7400. Consider only orders placed in April 2006.
+  [dup-result] Find the shippers whose total sales value is at least 7400. Consider only orders placed in April 2006.
+  [dup-result] Find the shippers whose total sales value is fewer than 7400. Consider only orders placed in April 2006.
+  [dup-result] Find the shippers whose total sales value is at most 7400. Consider only orders placed in April 2006.
+  [dup-result] Find the shippers whose number of different products ordered is exactly 4. Consider only orders placed in March 2006.
+  [dup-result] Find the shippers whose number of different products ordered is exactly 8. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the shippers whose number of different products ordered is exactly 10. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the shippers whose number of different product categories ordered is exactly 9. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the shippers whose number of different customers served is exactly 3. Consider only orders placed in March 2006.
+  [dup-result] Find the shippers whose number of different customers served is exactly 6. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the shippers whose number of different customers served is exactly 6. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the ship cities whose number of different product categories ordered is exactly 4. Consider only orders placed in March 2006.
+  [dup-result] Find the ship cities whose number of different product categories ordered is more than 2. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the ship cities whose number of different product categories ordered is at least 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the ship cities whose number of different product categories ordered is exactly 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the products whose number of orders is exactly 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the products whose number of different customers served is exactly 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the product categories whose number of orders is exactly 3. Consider only orders placed in April 2006.
+  [dup-result] Find the product categories whose number of different products ordered is exactly 4.
+  [dup-result] Find the product categories whose number of different products ordered is exactly 4. Consider only orders placed in the first quarter of 2006 (January to March).
+  [dup-result] Find the product categories whose number of different products ordered is at most 2. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the product categories whose number of different products ordered is fewer than 3. Consider only orders placed in the second quarter of 2006 (April to June).
+  [dup-result] Find the product categories whose number of different customers served is exactly 3. Consider only orders placed in April 2006.

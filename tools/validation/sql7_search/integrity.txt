@@ -1,0 +1,9 @@
+Baseline hashed files changed only as allowed: js/data_bank.js, data/bank.json, js/search.js
+SQL7 source unchanged: tools/bank_sql7.py
+SQL7 entries unchanged except aliases: 44/44
+Original aliases preserved: 88/88
+Added natural aliases: 132 (3 per entry, 44 entries)
+Forbidden alias terms (zz_, scratch, SQLSTATE): 0
+Heldout/eval/protected baseline hashes: unchanged
+Frozen 15-write/15-SELECT test SHA-256: unchanged
+Packaged search.js/data_bank.js match sources: yes

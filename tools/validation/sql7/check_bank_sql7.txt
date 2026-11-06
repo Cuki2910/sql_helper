@@ -1,0 +1,17 @@
+PASS SQL7-001: SQL7-001; critical=0
+PASS SQL7-002: SQL7-002; critical=0
+PASS SQL7-004: SQL7-004; critical=0
+MISS SQL7-005: none; critical=0
+PASS SQL7-007: SQL7-007; critical=0
+PASS SQL7-008: SQL7-008; critical=0
+PASS SQL7-011: SQL7-011; critical=1
+MISS SQL7-013: SQL7-014; critical=0
+PASS SQL7-016: SQL7-016; critical=0
+PASS SQL7-017: SQL7-017; critical=1
+PASS SQL7-021: SQL7-021; critical=0
+PASS SQL7-024: SQL7-024; critical=0
+PASS SQL7-026: SQL7-026; critical=1
+PASS SQL7-030: SQL7-030; critical=0
+PASS SQL7-040: SQL7-040; critical=0
+SQL7 retrieval regression: 13/15; silent write mismatch: 0
+PASS write-intent warnings with retrieval-only candidates

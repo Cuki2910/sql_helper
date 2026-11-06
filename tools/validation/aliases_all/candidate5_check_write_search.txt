@@ -1,0 +1,31 @@
+SQL7-001	SQL7-001	0.2619	SQL7-001	I am inserting two delivery companies together. What does the multirow statement look like?
+SQL7-002	SQL7-002	0.3178	SQL7-002	Archive only the orders dated earlier than March 2006 with an insert from a query.
+SQL7-004	SQL7-004	0.6270	SQL7-004,SQL7-005	For beverages, updating price by ten percent must also put the reorder point at 30.
+SQL7-011	SQL7-011	0.5142	SQL7-011	Deleting products that were never included on an order, preferably with NOT EXISTS.
+SQL7-013	SQL7-013	0.3439	SQL7-013,SQL7-015	I need REPLACE for a duplicate ID; any unspecified fields should go back to defaults.
+SQL7-017	SQL7-017	0.2787	SQL7-017	I want a function for employee names formatted surname comma given name.
+SQL7-019	MOCK-09	0.2876	MOCK-09	The function should return the discounted bill for one order and zero if it has no lines.
+SQL7-020	SQL7-020	0.5858	SQL7-020,SQL7-021,TH3-035	Before inserting a price, a trigger should turn negatives and missing values into zero.
+SQL7-021	SQL7-021	0.3778	SQL7-021	On updating a price, the trigger must refuse negatives instead of silently fixing them.
+SQL7-023	NONE	-		A procedure receives a staff number and returns all orders assigned to that person.
+SQL7-024	SQL7-024	0.4888	SQL7-024	An order number goes IN to my procedure; its total must come back OUT.
+SQL7-026	NONE	-		Use a cursor to accumulate beverage catalogue prices until there are no more rows.
+SQL7-035	TH3-053	0.3044	TH3-053	Adding a CHECK should prevent amounts below zero without removing the amount column.
+SQL7-031	TH-25	0.3733	TH-25,SQL7-037,SQL7-030	Add a foreign key so a child row survives parent deletion with its reference cleared.
+SQL7-040	SQL7-040	0.3209	SQL7-040,TH5-010	Transfer funds inside a transaction, undo just the second attempt with a savepoint, then keep the earlier work.
+SELECT	A3-07	write=false	List employee first and last names alphabetically.
+SELECT	NONE	write=false	Show each order and its discounted total, without defining a routine.
+SELECT	LAB-15	write=false	Find the most expensive product in each category.
+SELECT	VAR-009	write=false	Show customers who have never placed an order.
+SELECT	SQL4-006	write=false	Count orders for every employee, including employees with none.
+SELECT	VAR-056	write=false	List beverages with List Price above 20.
+SELECT	VAR-081	write=false	Show orders placed in January 2006.
+SELECT	TH-51	write=false	Use ROW_NUMBER window function to rank products by price.
+SELECT	A4-04	write=false	Calculate average List Price for each category.
+SELECT	SQL4-044	write=false	Show the three customers with highest total spending.
+SELECT	SQL3-065	write=false	List products and their supplier company names.
+SELECT	TH5-004	write=false	Count order details belonging to each order.
+SELECT	COMBO-0003	write=false	Show countries with at least two customers.
+SELECT	A4-08	write=false	Find products that were not ordered at all.
+SELECT	TH-19	write=false	Use the SUM aggregate function for revenue per customer.
+{"top1":10,"top3":10,"none":2,"selectToSql7":0}

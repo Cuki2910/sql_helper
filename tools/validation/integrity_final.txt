@@ -1,0 +1,10 @@
+Existing question/answer UTF-8 bytes and related links unchanged: 1983
+Original-source entries unchanged in content: 85
+Round1-to-final SQL result evidence differences: []
+Bundled copy matches: js/data_bank.js
+Bundled copy matches: js/search.js
+Bundled copy matches: js/data_schema.js
+Bundled copy matches: js/app.js
+Bundled copy matches: js/store.js
+Generated bank JSON and JS payload identical: PASS
+Final data/bank.json SHA256: b8ace2b22eb0a7cd715a78c6f761eae1bceae53ce0f71e2d55b173577a17632d

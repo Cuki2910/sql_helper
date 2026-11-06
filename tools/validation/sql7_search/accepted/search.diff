@@ -1,0 +1,15 @@
+--- a/js/search.js
++++ b/js/search.js
+@@ -201,8 +201,10 @@
+     if (/\bsum\b/.test(t)) agg.add('sum');
+     if (/\bcount\b/.test(t) && !(/\bcount number (days?|hours?|minutes?|seconds?|weeks?|months?|years?|rows?|decimals?|characters?|digits?)\b/.test(t) && !/\bcount (?!number)/.test(t))) agg.add('count');
+     c.agg = agg;
+-    // data-changing statement vs plain SELECT: a DELETE/UPDATE/DDL answer must not be offered for a retrieval question (and vice versa)
+-    c.write = /\b(delete|remove|insert|update|upsert|replace|truncate|alter|drop|raise|commit|rollback)\b|\bstart (a )?transaction\b|\bcreate\b.*\b(tables?|view|index|function|procedure|trigger)\b|\badd (a |an |the )?new (row|shipper)\b|\badd (a |an )?column\b[^.]*\bto the \w+ table|\bon duplicate key\b/.test(t);
++    // ponytail: lexical intent, not SQL parsing; unqualified functions and negated DDL remain ambiguous. Upgrade to statement-aware classification when needed.
++    const writeText = t.replace(/\b(?:built in|window|aggregate) functions?\b/g, ' ');
++    const schemaWrite = /\badd(?:s|ed|ing)?\b[^.;?!]*\b(constraints?|checks?|index(?:es)?|indices|keys?)\b|\badd(?:s|ed|ing)?\b(?![^.;?!]*\b(?:computed|calculated|output|results?|reports?|ratios?|percent(?:age)?)\b)[^.;?!]*\bcolumns?\b|\badd(?:s|ed|ing)?\b[^.;?!]*\b(rows?|records?)\b[^.;?!]*\b(?:to|into)\b|\bremov(?:es|ed|ing)\b[^.;?!]*\b(rows?|records?|fields?|columns?|constraints?|checks?|index(?:es)?|indices|keys?)\b/i.test(scoped);
++    c.write = schemaWrite || /\b(delet(?:e[sd]?|ing)|remove|insert(?:s|ed|ing)?|updat(?:e[sd]?|ing)|upsert(?:s|ed|ing)?|replac(?:e[sd]?|ing)|truncat(?:e[sd]?|ing)|alter(?:s|ed|ing)?|drop(?:s|ped|ping)?|rais(?:e[sd]?|ing)|commit(?:s|ted|ting)?|roll(?:back| back|ed back|ing back))\b|\bstart (a )?transaction\b|\bcreate\b.*\b(tables?|view|index|function|procedure|trigger)\b|\badd(?:s|ed|ing)? (a |an |the )?new (rows?|shippers?)\b|\b(triggers?|functions?|procedures?|cursors?|savepoints?)\b|\btransfer(?:s|red|ring)?\b.*\btransactions?\b|\bon duplicate key\b/.test(writeText);
+     c.perCat = /\b(?:in|within|per|for) (?:each|every) (?:product )?categor|\bper (?:product )?categor|\bwithin (?:its|their|the same) (?:product )?categor/.test(t);
+     c.allocEq = /\b(equal|equally|evenly)\b/.test(t);
+     c.allocProp = /\bproportion\w*|\bpro rata\b|\bprorata\b|\bvalue share\b|\bshare of\b/.test(t);

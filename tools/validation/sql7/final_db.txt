@@ -1,0 +1,5 @@
+mysql8028 8.0.28 : 20 table hashes unchanged; shippers=3 products=45 orders=48; zz tables/triggers/functions/procedures=0
+mysql97 9.7.2 : 20 table hashes unchanged; shippers=3 products=45 orders=48; zz tables/triggers/functions/procedures=0
+Final gates: build PROBLEM=0, unverified=0; integrity Errors=0; both audits Mismatches=0; Recall@1=84.6%, silent traps=0, unrelated=0/15
+Native MySQL fixture stopped.
+sql-helper-bank-8028-20261106

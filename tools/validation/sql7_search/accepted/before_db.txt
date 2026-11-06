@@ -1,0 +1,7 @@
+9.7.2
+shippers	3
+products	45
+orders	48
+customers	29
+order details	58
+employees	9

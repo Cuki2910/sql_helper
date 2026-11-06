@@ -1,0 +1,49 @@
+bank entries: 2238   held-out cases: 234 (195 scored retrieval, 24 traps, 15 unrelated)
+Recall@1: 80.5% (157/195)   Recall@3: 86.2%   MRR: 0.835
+Incorrect top match (answered but wrong): 12.3% (22/179)
+  of which with NO critical-constraint warning: 21
+  (info) strict misses whose top entry has the identical verified result set as an expected entry: 0
+Trap cases (similar wording, different requirement) handled (no match or critical warning): 24/24; silent wrong: 0
+Unrelated questions wrongly answered: 0/15
+Latency ms: mean 9.77  p95 19.72  max 26.75
+Per category Recall@1: paraphrase 10/12 | reorder 3/3 | typo 3/3 | operator 5/6 | table 4/5 | negation 7/7 | sql 9/9 | theory 10/12 | lab 23/30 | combo 12/13 | theory2 32/35 | sql3 19/40 | theory3 20/20
+
+Failures:
+  MISS@1 | Which employee handled the most orders in 2006 in total? | got VAR-065 | want MOCK-07 | rank -
+  MISS@1 | Which pairs of products are bought together in the same order most often? Use a self join | got TH-16 | want MOCK-15 | rank 2
+  MISS@1 | Find customers who placed orders for products from more than 5 different categories | got VAR-001 | want VAR-002|MOCK-12 | rank 2
+  MISS@1 | Find the 3 orders with the lowest shipping fee | got VAR-055 | want VAR-025 | rank 2
+  MISS@1 | Why is NOT IN dangerous when the subquery contains NULL? | got TH3-005 | want TH-05 | rank 2
+  MISS@1 | What is the difference between COUNT(*) and COUNT(column)? | got TH-30 | want TH-06 | rank 2
+  MISS@1 | Show every customer with the number of orders they placed, customers with zero orders must appear with 0 | got SQL3-074 | want LAB-08 | rank 2
+  MISS@1 | Why does COUNT(*) give a wrong result when counting orders per customer with a LEFT JOIN? | got TH3-007 | want LAB-08 | rank -
+  MISS@1 | Emulate FULL OUTER JOIN of shippers and orders using LEFT JOIN, RIGHT JOIN and UNION | got TH-44 | want LAB-09 | rank 4
+  MISS@1 | Show the most expensive product in every category, including ties, with a correlated subquery | got MOCK-10 | want LAB-15 | rank -
+  MISS@1 | Split the Supplier IDs text column on semicolons and count how many suppliers each product has | got TH3-031 | want LAB-24 | rank -
+  MISS@1 | Stock on hand report from inventory transactions with a Reorder or OK action | got none | want LAB-33 | rank -
+  MISS@1 | Products whose list price is greater than the average list price of their category, show the category average too | got VAR-056 | want A4-18|VAR-088 | rank 4
+  MISS@1 | Customers with at most 2 orders | got VAR-035 | want COMBO-0005 | rank 2
+  MISS@1 | Why does YEAR(date) = 2006 not use the index? | got MOCK-09 | want TH-30 | rank -
+  MISS@1 | Best way to protect queries from injection attacks | got none | want TH-71 | rank -
+  MISS@1 | What is the difference between a view and a table? | got TH-20 | want TH-70 | rank 2
+  MISS@1 | Break down discounted line revenue by client, carrier and merchandise category, keeping their identifiers. | got none | want SQL3-001 | rank -
+  MISS@1 | Show invoice dates alongside the purchasing company and the staff member responsible for the order. | got none | want SQL3-003 | rank -
+  MISS@1 | Summarize procurement expenditure for each vendor and item using ordered units times unit cost. | got none | want SQL3-004 | rank -
+  MISS@1 | Connect inventory ledger records to their type labels, item names and the client on the linked sales order. | got TH3-059 | want SQL3-005 | rank 3
+  MISS@1 | Identify sales lines charged below the catalogue price, showing the client and transaction date. | got none | want SQL3-008 | rank -
+  MISS@1 | Find the clients jointly served by the greatest number of distinct staff members, retaining ties. | got SQL3-092 | want SQL3-012 | rank -
+  MISS@1 | For each employee produce separate first-quarter 2006 counts for dispatched and undispatched orders, even for inactive employees. | got none | want SQL3-014 | rank -
+  MISS@1 | Show procurement detail rows awaiting receipt, with vendor and product descriptions. | got none | want SQL3-023 | rank -
+  MISS@1 | For every client's order show its immediate next order, breaking timestamp ties by order identifier. | got none | want SQL3-028 | rank -
+  MISS@1 | Return all items at the second distinct highest standard cost within their category. | got A4-01 | want SQL3-031 | rank -
+  MISS@1 | Pick exactly the two least expensive items in each category, resolving price ties with item ID. | got none | want SQL3-032 | rank -
+  MISS@1 | Compare each month's discounted sales with the preceding observed month's discounted sales, leaving the initial change NULL. | got SQL4-010 | want SQL3-037 | rank -
+  MISS@1 | Generate a 2006 monthly order-count calendar that includes months with no orders. | got TH3-021 | want SQL3-043 | rank 2
+  MISS@1 | Find clients covering the entire set of items ordered by customer 1; extra items are allowed. | got none | want SQL3-051 | rank -
+  MISS@1 | Which orders cover all the items on the lowest numbered order with detail lines? Extra products may appear. | got none | want SQL3-054 | rank -
+  MISS@1 | For vendors show the ordered and received procurement quantities separately, keeping vendors with no lines. | got none | want SQL3-064 | rank -
+  MISS@1 | For each invoice compare its Shipping field with the linked order's Shipping Fee, including the numerical difference. | got none | want SQL3-071 | rank -
+  MISS@1 | List ordered items with their Sold ledger quantities and explain any difference without assuming the two systems reconcile. | got TH3-059 | want SQL3-081 | rank -
+  MISS@1 | Report items whose aggregate Sold quantity exceeds aggregate Purchased quantity; no opening stock assumption. | got none | want SQL3-089 | rank -
+  MISS@1 | Allocate an order's shipping charge proportionally to its lines' gross values without rounding before allocation. | got none | want SQL3-094 | rank -
+  MISS@1 | Compare each category's average list price with the unweighted average of category averages. | got A4-04 | want SQL3-100 | rank 2

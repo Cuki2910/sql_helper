@@ -1,0 +1,44 @@
+New entries: 349 {'sql': 258, 'theory': 91}
+Statuses: {'execution-verified': 258, 'reference-text': 91}
+New empty results: 9 ['SQL3-008', 'SQL3-046', 'SQL3-056', 'SQL3-089', 'SQL4-028', 'SQL4-036', 'SQL5-022', 'SQL5-030', 'SQL5-047']
+Existing entry content preserved: 1983 / 1983
+Held-out prefix unchanged: 146 ; preregistered additions unchanged: 88
+Normalized duplicate groups: existing 0 involving new 0
+Engine-normalized duplicate groups involving new: []
+Near-text candidates (token Jaccard >= 0.65; manual semantic review required):
+NEAR ('SQL3-055', 'SQL3-056') 0.667
+NEAR ('SQL4-050', 'VAR-009') 0.750
+NEAR ('SQL5-030', 'SQL5-031') 0.920
+NEAR ('SQL5-030', 'SQL5-032') 0.920
+NEAR ('SQL5-030', 'SQL5-033') 0.786
+NEAR ('SQL5-031', 'SQL5-032') 0.920
+NEAR ('SQL5-031', 'SQL5-033') 0.852
+NEAR ('SQL5-032', 'SQL5-033') 0.786
+NEAR ('SQL5-036', 'SQL5-037') 0.808
+NEAR ('SQL5-038', 'SQL5-039') 0.829
+NEAR ('SQL5-040', 'SQL5-041') 0.692
+NEAR ('SQL5-047', 'SQL5-048') 0.875
+NEAR ('SQL5-047', 'SQL5-049') 0.742
+NEAR ('SQL5-050', 'SQL5-051') 0.654
+NEAR ('SQL5-053', 'SQL5-054') 0.810
+NEAR ('SQL7-002', 'SQL7-003') 0.765
+NEAR ('SQL7-013', 'SQL7-014') 0.684
+NEAR ('SQL7-013', 'SQL7-015') 0.667
+NEAR ('SQL7-014', 'SQL7-015') 0.667
+NEAR ('SQL7-026', 'SQL7-027') 0.652
+NEAR ('SQL7-029', 'SQL7-030') 0.833
+NEAR ('SQL7-029', 'SQL7-031') 0.800
+NEAR ('SQL7-030', 'SQL7-031') 0.875
+NEAR ('SQL7-038', 'SQL7-039') 0.765
+Same nonempty result-hash candidates involving new (intent must be reviewed):
+HASH ['MOCK-15', 'SQL5-028']
+HASH ['VAR-015', 'COMBO-1704', 'SQL3-022']
+HASH ['VAR-103', 'SQL4-027']
+HASH ['SQL3-025', 'SQL3-052']
+HASH ['SQL6-025', 'SQL5-010']
+HASH ['SQL5-050', 'SQL5-052']
+Nonempty result-hash candidate groups: 6
+Identical structural feature signatures: []
+Protected file hashes checked: 17
+Errors: 0
+exit=0

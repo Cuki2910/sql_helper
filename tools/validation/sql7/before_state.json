@@ -1,0 +1,82 @@
+{
+  "customers": {
+    "rows": 29,
+    "sha256": "61bf466052096d44557500fe733306df3be7938c1fe353ee13b1686464bfa914"
+  },
+  "employee privileges": {
+    "rows": 1,
+    "sha256": "329e455b429bf2b37bc84cfd9f5a2ccbfadf9a022eea556e708fc102a6d6f4a0"
+  },
+  "employees": {
+    "rows": 9,
+    "sha256": "c35ef0526f1ff54d06f0593b3436e16a1efaa5cdafe2d926288ddf81df3c8138"
+  },
+  "inventory transaction types": {
+    "rows": 4,
+    "sha256": "dde70b6ac59288d628e4315c5841db5df7eac7af4f3db7eda66469f2d6deebd8"
+  },
+  "inventory transactions": {
+    "rows": 102,
+    "sha256": "bf370464e1bc226b4eb8fcef4d1bd714af8c49b6f97f0dca488da6cc333493d0"
+  },
+  "invoices": {
+    "rows": 35,
+    "sha256": "757a444ac76ebbbd181d05dc71b98907fa172fb867dba935edeb3fee2f3a1562"
+  },
+  "order details": {
+    "rows": 58,
+    "sha256": "0b21a009826d9c326e3c8a32cdf707b117b2fd3f7c40abdff9dcc3ae5e75c127"
+  },
+  "order details status": {
+    "rows": 6,
+    "sha256": "0f9815b7109cddd37b6f628916d64c0a972f16a2aa6b902fc5b925142a31726e"
+  },
+  "orders": {
+    "rows": 48,
+    "sha256": "980bd6b4bb570a69050d18364d425d2a821fd1e2fdbd4d24bf0499cd15b700fd"
+  },
+  "orders status": {
+    "rows": 4,
+    "sha256": "9d9a3397df17f3343ff06ffc730054a61342c76aa87bb37e572885d501594c01"
+  },
+  "orders tax status": {
+    "rows": 2,
+    "sha256": "9a18afdc41fb4349db66da13888e017fe4c107f8a692ebb830913994185759a5"
+  },
+  "privileges": {
+    "rows": 1,
+    "sha256": "f0544be52273fbde207ff1ed11c30b64506411ae688a8569bd8b00eaf4a2214f"
+  },
+  "products": {
+    "rows": 45,
+    "sha256": "08a251407f3706212f7ed9da2c834d4442254714af08993810a475292d740b43"
+  },
+  "purchase order details": {
+    "rows": 55,
+    "sha256": "83d5407e58def7fae7d4ff22077f61aa1378974ed598ade1f593a9ec81b63ea4"
+  },
+  "purchase order status": {
+    "rows": 4,
+    "sha256": "268bbf0bf117025c46e4769700dc64be06fe81abd84c2a44801de6fbf02f6a0d"
+  },
+  "purchase orders": {
+    "rows": 28,
+    "sha256": "8ad7c48383d05852734e5ba1771c3159577f2ee198219f6df343176312110e31"
+  },
+  "sales reports": {
+    "rows": 5,
+    "sha256": "89984564ed7fad2738ec44fbb174d3e820ca6aff51ccaf41d64bb387a0d5955a"
+  },
+  "shippers": {
+    "rows": 3,
+    "sha256": "b48296cd84d9a0887417f2f942a4d41e083424bf067e835054d1e3c3fea527b8"
+  },
+  "strings": {
+    "rows": 62,
+    "sha256": "f7c42ca19145720c3b8a396ff4860ce9d3f80c7d8f0a2c328e271c1781ebd589"
+  },
+  "suppliers": {
+    "rows": 10,
+    "sha256": "66f2938dd55687966b7f4e597de58b20e8f7babe4359337af9413393cb8feadb"
+  }
+}

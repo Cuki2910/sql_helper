@@ -1,0 +1,696 @@
+{
+ "version": 1,
+ "built": "2026-11-05",
+ "patterns": [
+  {
+   "id": "select_filter",
+   "name": "Basic SELECT and filtering",
+   "problem": "List rows/columns that satisfy simple conditions.",
+   "template": "SELECT `Company`, `City`\nFROM customers\nWHERE `State/Province` = 'WA'\n  AND `City` <> 'Seattle';",
+   "tables": [
+    "customers"
+   ],
+   "columns": [
+    "customers.Company",
+    "customers.City",
+    "customers.State/Province"
+   ],
+   "explanation": "WHERE filters rows before any grouping. Quote identifiers that contain spaces or \"/\" with backticks; string literals use single quotes.",
+   "mistakes": [
+    "Using double quotes for strings (MySQL may read them as identifiers in ANSI mode).",
+    "Forgetting backticks around `Last Name`.",
+    "Using = NULL instead of IS NULL."
+   ],
+   "notWhen": [
+    "When the condition needs an aggregate: use HAVING."
+   ],
+   "tags": [
+    "where",
+    "filter",
+    "select"
+   ]
+  },
+  {
+   "id": "order_limit",
+   "name": "ORDER BY and LIMIT",
+   "problem": "Sort the result and keep only the first rows.",
+   "template": "SELECT *\nFROM products\nORDER BY `List Price` DESC, ID\nLIMIT 5;",
+   "tables": [
+    "products"
+   ],
+   "columns": [
+    "products.List Price"
+   ],
+   "explanation": "ORDER BY sorts, LIMIT cuts after sorting. Add a tie-breaker column so the output is deterministic.",
+   "mistakes": [
+    "LIMIT without ORDER BY gives arbitrary rows.",
+    "Ties at the cut-off are silently dropped.",
+    "Writing ORDER BY a DESC, b when both must be DESC."
+   ],
+   "notWhen": [
+    "When ties must all be returned: use a subquery on the threshold value or RANK()/DENSE_RANK()."
+   ],
+   "tags": [
+    "order by",
+    "limit",
+    "top n",
+    "sort"
+   ]
+  },
+  {
+   "id": "distinct",
+   "name": "DISTINCT / unique values",
+   "problem": "Return each value only once.",
+   "template": "SELECT DISTINCT `Ship Country/Region`\nFROM orders;",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Ship Country/Region"
+   ],
+   "explanation": "DISTINCT removes duplicate result rows (whole row, not first column). COUNT(DISTINCT x) counts different values of x.",
+   "mistakes": [
+    "Believing DISTINCT applies to only the first selected column.",
+    "Using DISTINCT to hide a wrong join that multiplies rows.",
+    "COUNT(DISTINCT a, b) is not the same as two separate counts."
+   ],
+   "notWhen": [
+    "When per-group aggregates are also needed: use GROUP BY."
+   ],
+   "tags": [
+    "distinct",
+    "unique",
+    "duplicates"
+   ]
+  },
+  {
+   "id": "aggregate",
+   "name": "Aggregate functions",
+   "problem": "COUNT / SUM / AVG / MIN / MAX over a set of rows.",
+   "template": "SELECT COUNT(*) AS n, AVG(`Shipping Fee`) AS avg_fee, MAX(`Shipping Fee`) AS max_fee\nFROM orders\nWHERE `Ship Country/Region` = 'USA';",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Shipping Fee",
+    "orders.Ship Country/Region"
+   ],
+   "explanation": "Aggregates collapse rows into one value; NULLs are ignored by every aggregate except COUNT(*).",
+   "mistakes": [
+    "COUNT(*) vs COUNT(col): the latter skips NULLs.",
+    "AVG over a column with NULLs ignores them (not treated as 0).",
+    "Mixing non-aggregated columns without GROUP BY."
+   ],
+   "notWhen": [
+    "When a value per group is needed: add GROUP BY."
+   ],
+   "tags": [
+    "count",
+    "sum",
+    "avg",
+    "min",
+    "max",
+    "aggregate"
+   ]
+  },
+  {
+   "id": "group_having",
+   "name": "GROUP BY and HAVING",
+   "problem": "Aggregate per group and filter on the aggregate.",
+   "template": "SELECT `Customer ID`, COUNT(*) AS n_orders\nFROM orders\nGROUP BY `Customer ID`\nHAVING COUNT(*) > 2;",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Customer ID"
+   ],
+   "explanation": "GROUP BY forms groups; HAVING filters groups after aggregation (WHERE filters rows before). More than N => > N, at least N => >= N.",
+   "mistakes": [
+    "Putting an aggregate in WHERE.",
+    "> vs >= (more than vs at least).",
+    "Grouping by a name that is not unique (group by the ID too).",
+    "Selecting columns that are not in GROUP BY."
+   ],
+   "notWhen": [
+    "When filtering on a plain column: use WHERE (cheaper)."
+   ],
+   "tags": [
+    "group by",
+    "having",
+    "per group",
+    "each"
+   ]
+  },
+  {
+   "id": "inner_join",
+   "name": "INNER JOIN",
+   "problem": "Combine rows from related tables; only matching rows survive.",
+   "template": "SELECT o.`Order ID`, c.`Company`\nFROM orders AS o\nJOIN customers AS c ON c.ID = o.`Customer ID`;",
+   "tables": [
+    "orders",
+    "customers"
+   ],
+   "columns": [
+    "orders.Customer ID",
+    "customers.ID"
+   ],
+   "explanation": "JOIN ... ON links the foreign key to the primary key. Rows without a partner are dropped.",
+   "mistakes": [
+    "Missing ON clause (cartesian product).",
+    "Joining on the wrong key (the dump declares no FK constraints).",
+    "Fan-out: joining one-to-many then summing a parent column."
+   ],
+   "notWhen": [
+    "When unmatched rows must be kept: LEFT JOIN."
+   ],
+   "tags": [
+    "join",
+    "inner join"
+   ]
+  },
+  {
+   "id": "left_join",
+   "name": "LEFT JOIN (keep unmatched)",
+   "problem": "Keep all rows of the left table even without a match.",
+   "template": "SELECT c.ID, c.`Company`, COUNT(o.`Order ID`) AS n_orders\nFROM customers AS c\nLEFT JOIN orders AS o ON o.`Customer ID` = c.ID\nGROUP BY c.ID, c.`Company`;",
+   "tables": [
+    "customers",
+    "orders"
+   ],
+   "columns": [
+    "customers.ID",
+    "orders.Customer ID"
+   ],
+   "explanation": "Unmatched left rows get NULLs on the right. COUNT(right.key) gives 0 for them; COUNT(*) would give 1.",
+   "mistakes": [
+    "Filtering the right table in WHERE turns the LEFT JOIN into an INNER JOIN (put the condition in ON).",
+    "COUNT(*) instead of COUNT(right.col)."
+   ],
+   "notWhen": [
+    "When only matching rows are wanted: INNER JOIN."
+   ],
+   "tags": [
+    "left join",
+    "outer join",
+    "including those without"
+   ]
+  },
+  {
+   "id": "subquery",
+   "name": "Subquery (scalar / derived table)",
+   "problem": "Use the result of one query inside another.",
+   "template": "SELECT *\nFROM products\nWHERE `List Price` > (SELECT AVG(`List Price`) FROM products);",
+   "tables": [
+    "products"
+   ],
+   "columns": [
+    "products.List Price"
+   ],
+   "explanation": "A scalar subquery returns one value; a derived table in FROM needs an alias.",
+   "mistakes": [
+    "Scalar subquery returning more than one row (error).",
+    "Missing alias on derived table."
+   ],
+   "notWhen": [
+    "When it can be a plain join without losing clarity."
+   ],
+   "tags": [
+    "subquery",
+    "nested",
+    "derived table"
+   ]
+  },
+  {
+   "id": "exists",
+   "name": "EXISTS",
+   "problem": "Keep rows for which a related row exists.",
+   "template": "SELECT c.*\nFROM customers AS c\nWHERE EXISTS (SELECT 1 FROM orders AS o WHERE o.`Customer ID` = c.ID);",
+   "tables": [
+    "customers",
+    "orders"
+   ],
+   "columns": [
+    "customers.ID",
+    "orders.Customer ID"
+   ],
+   "explanation": "EXISTS stops at the first match and is NULL-safe; no duplicates from the outer table.",
+   "mistakes": [
+    "Forgetting the correlation condition (EXISTS always true)."
+   ],
+   "notWhen": [
+    "When you need columns from the inner table: JOIN."
+   ],
+   "tags": [
+    "exists",
+    "semi join"
+   ]
+  },
+  {
+   "id": "not_exists",
+   "name": "NOT EXISTS / anti-join",
+   "problem": "Keep rows with NO related row.",
+   "template": "SELECT c.*\nFROM customers AS c\nWHERE NOT EXISTS (SELECT 1 FROM orders AS o WHERE o.`Customer ID` = c.ID);",
+   "tables": [
+    "customers",
+    "orders"
+   ],
+   "columns": [
+    "customers.ID",
+    "orders.Customer ID"
+   ],
+   "explanation": "NOT EXISTS is the safe anti-join. Equivalent: LEFT JOIN ... WHERE right.key IS NULL.",
+   "mistakes": [
+    "NOT IN with a subquery that returns NULL gives an empty result.",
+    "Inner join + <> does NOT express \"never\"."
+   ],
+   "notWhen": [],
+   "tags": [
+    "not exists",
+    "never",
+    "without",
+    "no orders",
+    "anti join"
+   ]
+  },
+  {
+   "id": "in_notin",
+   "name": "IN / NOT IN",
+   "problem": "Membership test against a list or subquery.",
+   "template": "SELECT *\nFROM products\nWHERE ID IN (SELECT `Product ID` FROM `order details`);",
+   "tables": [
+    "products",
+    "order details"
+   ],
+   "columns": [
+    "products.ID",
+    "order details.Product ID"
+   ],
+   "explanation": "IN tests against a set. NOT IN is dangerous when the set contains NULL (comparison becomes UNKNOWN for every row).",
+   "mistakes": [
+    "NOT IN + NULL in subquery => no rows.",
+    "Large IN-lists are slow compared with a join."
+   ],
+   "notWhen": [
+    "Negation with nullable columns: use NOT EXISTS."
+   ],
+   "tags": [
+    "in",
+    "not in"
+   ]
+  },
+  {
+   "id": "correlated",
+   "name": "Correlated subquery",
+   "problem": "Inner query references the outer row.",
+   "template": "SELECT p.*\nFROM products AS p\nWHERE p.`List Price` > (SELECT AVG(q.`List Price`) FROM products AS q WHERE q.Category = p.Category);",
+   "tables": [
+    "products"
+   ],
+   "columns": [
+    "products.List Price",
+    "products.Category"
+   ],
+   "explanation": "The inner query runs per outer row (logically). Typical for \"greater than the average of its own group\".",
+   "mistakes": [
+    "Using the same alias in both levels.",
+    "Forgetting the correlation => global average."
+   ],
+   "notWhen": [
+    "Big tables: a window function or a join to a grouped derived table is usually faster."
+   ],
+   "tags": [
+    "correlated",
+    "compared to its own group"
+   ]
+  },
+  {
+   "id": "self_join",
+   "name": "SELF JOIN",
+   "problem": "Join a table to itself to compare rows or form pairs.",
+   "template": "SELECT a.`Product ID` AS p1, b.`Product ID` AS p2, COUNT(*) AS together\nFROM `order details` AS a\nJOIN `order details` AS b ON a.`Order ID` = b.`Order ID` AND a.`Product ID` < b.`Product ID`\nGROUP BY a.`Product ID`, b.`Product ID`\nORDER BY together DESC;",
+   "tables": [
+    "order details"
+   ],
+   "columns": [
+    "order details.Order ID",
+    "order details.Product ID"
+   ],
+   "explanation": "Two aliases of one table. Use < (not <>) on the key so each unordered pair appears once and no row pairs with itself.",
+   "mistakes": [
+    "<> returns each pair twice.",
+    "Missing the self-pair exclusion."
+   ],
+   "notWhen": [],
+   "tags": [
+    "self join",
+    "pairs",
+    "together",
+    "same"
+   ]
+  },
+  {
+   "id": "cond_agg",
+   "name": "Conditional aggregation",
+   "problem": "Several filtered aggregates in one pass (pivot-like).",
+   "template": "SELECT `Employee ID`,\n       SUM(CASE WHEN `Shipped Date` IS NULL THEN 1 ELSE 0 END) AS not_shipped,\n       SUM(CASE WHEN `Shipped Date` IS NOT NULL THEN 1 ELSE 0 END) AS shipped\nFROM orders\nGROUP BY `Employee ID`;",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Employee ID",
+    "orders.Shipped Date"
+   ],
+   "explanation": "SUM(CASE WHEN cond THEN x ELSE 0 END) or COUNT(CASE WHEN cond THEN 1 END) counts/sums only matching rows per group.",
+   "mistakes": [
+    "COUNT(CASE ... ELSE 0 END) counts every row (0 is not NULL).",
+    "Using WHERE would filter away the other categories."
+   ],
+   "notWhen": [],
+   "tags": [
+    "case when",
+    "conditional",
+    "pivot",
+    "breakdown"
+   ]
+  },
+  {
+   "id": "date",
+   "name": "Date manipulation",
+   "problem": "Filter or group by year/month/day.",
+   "template": "SELECT DATE_FORMAT(`Order Date`, '%Y-%m') AS ym, COUNT(*) AS n\nFROM orders\nWHERE `Order Date` >= '2006-01-01' AND `Order Date` < '2007-01-01'\nGROUP BY ym;",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Order Date"
+   ],
+   "explanation": "Prefer a half-open range (>= start AND < next start) over YEAR(col)=2006: it can use an index. DATE_FORMAT builds YYYY-MM keys.",
+   "mistakes": [
+    "BETWEEN with datetime misses the last day after 00:00:00.",
+    "Functions on the column disable index use.",
+    "Mixing %m (month) and %i (minute) in DATE_FORMAT."
+   ],
+   "notWhen": [],
+   "tags": [
+    "date",
+    "month",
+    "year",
+    "between"
+   ]
+  },
+  {
+   "id": "topn_rank",
+   "name": "Ranking and Top-N (incl. Nth)",
+   "problem": "Top N rows, Nth highest, ranking with or without ties.",
+   "template": "SELECT *\nFROM orders\nORDER BY `Shipping Fee` DESC, `Order ID`\nLIMIT 3 OFFSET 5;  -- 6th..8th row\n\n-- ties-aware: DENSE_RANK() OVER (ORDER BY `Shipping Fee` DESC) BETWEEN 6 AND 8",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Shipping Fee"
+   ],
+   "explanation": "LIMIT/OFFSET ranks by ROW position; RANK/DENSE_RANK rank by VALUE and treat equal values as tied. Decide which one the question means.",
+   "mistakes": [
+    "OFFSET is 0-based: 6th row => OFFSET 5.",
+    "Ignoring ties.",
+    "Nth highest value vs Nth row."
+   ],
+   "notWhen": [],
+   "tags": [
+    "top",
+    "rank",
+    "nth",
+    "highest",
+    "offset"
+   ]
+  },
+  {
+   "id": "multi_agg",
+   "name": "Multiple-table aggregation",
+   "problem": "Join several tables then aggregate.",
+   "template": "SELECT c.ID, c.`Company`, SUM(od.`Unit Price` * od.Quantity) AS total\nFROM customers AS c\nJOIN orders AS o ON o.`Customer ID` = c.ID\nJOIN `order details` AS od ON od.`Order ID` = o.`Order ID`\nGROUP BY c.ID, c.`Company`;",
+   "tables": [
+    "customers",
+    "orders",
+    "order details"
+   ],
+   "columns": [
+    "customers.ID",
+    "orders.Customer ID",
+    "order details.Order ID"
+   ],
+   "explanation": "Follow the key chain customers -> orders -> order details -> products. Aggregate at the end, group by the entity key.",
+   "mistakes": [
+    "Summing an orders column after joining order details (fan-out, double counting).",
+    "Grouping by name only."
+   ],
+   "notWhen": [],
+   "tags": [
+    "join",
+    "aggregate",
+    "total",
+    "per customer"
+   ]
+  },
+  {
+   "id": "optimization",
+   "name": "Query optimization",
+   "problem": "Make a query use indexes and read less data.",
+   "template": "-- non-sargable\nSELECT * FROM orders WHERE YEAR(`Order Date`) = 2006;\n-- sargable + only needed columns\nSELECT `Order ID`, `Customer ID`, `Order Date`\nFROM orders\nWHERE `Order Date` >= '2006-01-01' AND `Order Date` < '2007-01-01';\n-- and CREATE INDEX idx_orders_date ON orders (`Order Date`);",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Order Date"
+   ],
+   "explanation": "Avoid SELECT *, avoid functions on indexed columns, filter early, index filter/join/sort columns, check with EXPLAIN.",
+   "mistakes": [
+    "Index on a column wrapped in a function is unused.",
+    "Leading-wildcard LIKE is not index-friendly."
+   ],
+   "notWhen": [],
+   "tags": [
+    "index",
+    "performance",
+    "efficient",
+    "explain",
+    "select *"
+   ]
+  },
+  {
+   "id": "null_handling",
+   "name": "NULL handling",
+   "problem": "Missing values in filters, aggregates and comparisons.",
+   "template": "SELECT COUNT(*) AS all_rows, COUNT(`Payment Type`) AS with_type,\n       SUM(`Payment Type` IS NULL) AS missing\nFROM orders;",
+   "tables": [
+    "orders"
+   ],
+   "columns": [
+    "orders.Payment Type"
+   ],
+   "explanation": "NULL = anything is UNKNOWN. Use IS NULL / IS NOT NULL, COALESCE for defaults; aggregates skip NULLs.",
+   "mistakes": [
+    "col = NULL never matches.",
+    "<> excludes NULL rows silently.",
+    "NOT IN with NULL."
+   ],
+   "notWhen": [],
+   "tags": [
+    "null",
+    "missing",
+    "coalesce",
+    "is null"
+   ]
+  },
+  {
+   "id": "division",
+   "name": "Relational division",
+   "problem": "Entities related to ALL members of a set.",
+   "template": "SELECT o.`Customer ID`\nFROM orders AS o\nJOIN `order details` AS od ON od.`Order ID` = o.`Order ID`\nJOIN products AS p ON p.ID = od.`Product ID`\nWHERE p.Category = 'Beverages'\nGROUP BY o.`Customer ID`\nHAVING COUNT(DISTINCT p.ID) = (SELECT COUNT(*) FROM products WHERE Category = 'Beverages');",
+   "tables": [
+    "orders",
+    "order details",
+    "products"
+   ],
+   "columns": [
+    "orders.Customer ID",
+    "products.Category"
+   ],
+   "explanation": "Count the distinct members each entity covers and compare with the total number of members. Alternative: double NOT EXISTS.",
+   "mistakes": [
+    "COUNT without DISTINCT.",
+    "Comparing against a count that was not restricted to the same subset."
+   ],
+   "notWhen": [],
+   "tags": [
+    "all",
+    "every",
+    "division"
+   ]
+  },
+  {
+   "id": "computed",
+   "name": "Computed columns and ratios",
+   "problem": "Derived expressions, ratios, rounding, percentages.",
+   "template": "SELECT `Product Name`, ROUND((`List Price` - `Standard Cost`) / `Standard Cost`, 4) AS `Profit Margin`\nFROM products\nWHERE (`List Price` - `Standard Cost`) / `Standard Cost` >= 0.5;",
+   "tables": [
+    "products"
+   ],
+   "columns": [
+    "products.List Price",
+    "products.Standard Cost"
+   ],
+   "explanation": "Column aliases cannot be used in WHERE; repeat the expression or use HAVING / a derived table. 50% => 0.5.",
+   "mistakes": [
+    "Alias in WHERE.",
+    "Percent written as 50 instead of 0.5.",
+    "Division by zero yields NULL in MySQL."
+   ],
+   "notWhen": [],
+   "tags": [
+    "ratio",
+    "percent",
+    "margin",
+    "round"
+   ]
+  },
+  {
+   "id": "all_any",
+   "name": "ALL / ANY comparison",
+   "problem": "Compare with every / at least one value of a subquery.",
+   "template": "SELECT * FROM products\nWHERE `List Price` > ALL (SELECT `List Price` FROM products WHERE Category = 'Beverages');",
+   "tables": [
+    "products"
+   ],
+   "columns": [
+    "products.List Price",
+    "products.Category"
+   ],
+   "explanation": "> ALL = greater than the maximum; > ANY = greater than the minimum. Equivalent to comparing with MAX()/MIN().",
+   "mistakes": [
+    "Mixing up ALL and ANY.",
+    "ALL over an empty set is true."
+   ],
+   "notWhen": [],
+   "tags": [
+    "all",
+    "any",
+    "some"
+   ]
+  },
+  {
+   "id": "set_ops",
+   "name": "UNION / UNION ALL",
+   "problem": "Stack results of several queries.",
+   "template": "SELECT `Company` FROM customers\nUNION\nSELECT `Company` FROM suppliers;",
+   "tables": [
+    "customers",
+    "suppliers"
+   ],
+   "columns": [
+    "customers.Company",
+    "suppliers.Company"
+   ],
+   "explanation": "UNION removes duplicates (extra sort/dedup); UNION ALL keeps all rows and is faster. Column counts and types must match.",
+   "mistakes": [
+    "UNION when duplicates are wanted.",
+    "Different column order between branches."
+   ],
+   "notWhen": [],
+   "tags": [
+    "union",
+    "combine"
+   ]
+  },
+  {
+   "id": "string_funcs",
+   "name": "String functions",
+   "problem": "Build or split text: CONCAT, UPPER, REPLACE, SUBSTRING_INDEX, LIKE.",
+   "template": "SELECT CONCAT(`First Name`, ' ', UPPER(`Last Name`)) AS full_name,\n       SUBSTRING_INDEX(`E-mail Address`, '@', -1) AS domain,\n       REPLACE(`Job Title`, 'Sales ', '') AS short_title\nFROM employees;",
+   "tables": [
+    "employees"
+   ],
+   "columns": [
+    "employees.First Name",
+    "employees.Last Name",
+    "employees.E-mail Address"
+   ],
+   "explanation": "CONCAT returns NULL if any argument is NULL (CONCAT_WS skips NULLs). SUBSTRING_INDEX(s, sep, n): n>0 text before the nth separator, n<0 text after the nth separator from the right. LENGTH counts bytes, CHAR_LENGTH counts characters.",
+   "mistakes": [
+    "Forgetting the space/trailing separator in REPLACE.",
+    "LENGTH vs CHAR_LENGTH.",
+    "LIKE wildcards: % any string, _ one character."
+   ],
+   "notWhen": [],
+   "tags": [
+    "concat",
+    "upper",
+    "lower",
+    "replace",
+    "substring",
+    "like",
+    "string"
+   ]
+  }
+ ],
+ "entries": [
+  {
+   "id": "SQL3-001",
+   "kind": "sql",
+   "source": "authored",
+   "sourceRef": "tools/bank_sql3.py",
+   "question": "For each customer, shipper and product category combination, return IDs, company names and discounted line revenue rounded to cents.",
+   "difficulty": 4,
+   "pattern": "inner_join",
+   "tags": [
+    "revenue",
+    "customer",
+    "shipper",
+    "category"
+   ],
+   "tables": [
+    "customers",
+    "order details",
+    "orders",
+    "products",
+    "shippers"
+   ],
+   "columns": [
+    "customers.Company",
+    "customers.ID",
+    "order details.ID",
+    "order details.Order ID",
+    "order details.Product ID",
+    "order details.Unit Price",
+    "orders.Customer ID",
+    "orders.Order ID",
+    "orders.Shipper ID",
+    "products.Category",
+    "products.ID",
+    "shippers.Company",
+    "shippers.ID"
+   ],
+   "answer": "SELECT customer.ID, customer.Company, shipper.ID, shipper.Company, product.Category, ROUND(SUM(line.Quantity*line.`Unit Price`*(1-line.Discount)),2) FROM customers customer JOIN orders ord ON ord.`Customer ID`=customer.ID JOIN shippers shipper ON shipper.ID=ord.`Shipper ID` JOIN `order details` line ON line.`Order ID`=ord.`Order ID` JOIN products product ON product.ID=line.`Product ID` GROUP BY customer.ID, customer.Company, shipper.ID, shipper.Company, product.Category;",
+   "alternative": "WITH category_sales AS (SELECT ord.`Customer ID` customer_id, ord.`Shipper ID` shipper_id, product.Category, SUM(line.Quantity*line.`Unit Price`*(1-line.Discount)) revenue FROM orders ord JOIN `order details` line ON line.`Order ID`=ord.`Order ID` JOIN products product ON product.ID=line.`Product ID` GROUP BY ord.`Customer ID`, ord.`Shipper ID`, product.Category) SELECT customer.ID, customer.Company, shipper.ID, shipper.Company, category_sales.Category, ROUND(category_sales.revenue,2) FROM category_sales JOIN customers customer ON customer.ID=category_sales.customer_id JOIN shippers shipper ON shipper.ID=category_sales.shipper_id;",
+   "explanation": "Revenue uses actual line prices after Discount; shipping and taxes are excluded. Only existing customer/assigned-shipper/category combinations appear; aggregate before joining descriptive entities in the alternative.",
+   "techniques": [
+    "five-table grouped join",
+    "preaggregated CTE"
+   ],
+   "mistakes": [],
+   "related": [
+    "SQL3-002",
+    "SQL3-003",
+    "SQL3-008"
+   ],
+   "verification": {
+    "status": "execution-verified",
+    "rows": 47,
+    "empty": false,
+    "comparison": "set",
+    "hash": "e3ff2d3688"
+   },
+   "lastUpdated": "2026-11-05"
+  }
+ ]
+}

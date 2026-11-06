@@ -1,0 +1,36 @@
+PASS Q1: MOCK-11
+PASS Q2: MOCK-13
+PASS Q3: SQL6-001
+PASS Q4: MOCK-14
+PASS Q5: SQL6-002
+PASS Q6: MOCK-08
+PASS Q7: SQL6-003
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Q8: wrong first result
++ actual - expected
+
++ 'SQL6-034'
+- 'MOCK-15'
+
+    at Object.<anonymous> (/Users/cuki2910/Desktop/sql_helper/tests/check_practice_search.js:24:10)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1674:12)
+    at require (node:internal/modules/helpers:157:16)
+    at Object.<anonymous> (/private/tmp/sql-helper-aliases-eval.js:12:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'SQL6-034',
+  expected: 'MOCK-15',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0

@@ -1,0 +1,9 @@
+[
+  "README.md",
+  "build_app.sh",
+  "tools/build_bank.py",
+  "js/data_bank.js",
+  "js/search.js",
+  "tests/heldout.json",
+  "data/bank.json"
+]

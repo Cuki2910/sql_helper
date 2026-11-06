@@ -1,0 +1,83 @@
+1. [top3-category] Give me the 3 priciest items of every product group; if prices are equal use the lower id first
+   NONE
+2. [share-customer] What fraction of all discounted sales does each client represent?
+   NONE
+3. [running-orders] Cumulative number of orders month by month
+   SQL4-009 0.58 | For each month of 2006 that has orders, show the month (YYYY-MM), its discounted revenue and th
+   VAR-082 0.50 | Count the orders per month, formatted as YYYY-MM.
+   SQL3-037 0.35 | Show discounted sales per observed order month, previous observed month sales, and the differen
+4. [running-revenue] Sales per month with a rolling sum
+   VAR-084 0.47 | Return the total quantity of each product purchased per month (YYYY-MM) from inventory transact
+   SQL3-037 0.40 | Show discounted sales per observed order month, previous observed month sales, and the differen
+   LAB-32 0.26 CRIT | Produce a category sales pivot for the first half of 2006: one row per product category that ha
+5. [above-avg-order] Which orders are bigger than the typical order?
+   NONE
+6. [above-avg-employee] Staff whose revenue beats the staff average
+   SQL4-013 0.54 | List employees whose total discounted revenue is above the average total revenue per employee, 
+7. [gap-minmax] Largest and smallest interval between two successive orders in the whole table
+   NONE
+8. [pivot-year] Order counts per employee with one column for each year
+   TH3-010 0.26 | Does ANY_VALUE choose a latest or deterministic representative row for a group?
+   TH4-010 0.26 | MySQL has no PIVOT, MEDIAN or generate_series: what do you use instead?
+   TH-38 0.25 | DATE vs DATETIME vs TIMESTAMP?
+9. [shipper-timely] How many orders each carrier delivered within a week versus later
+   NONE
+10. [q1-anti] Clients who didn't order in Jan to Mar but did in Apr to Jun
+   NONE
+11. [rank-supplier] Position of each vendor when ordered by money spent with them
+   SQL3-004 0.50 | For each supplier and product actually procured, show supplier ID/company, product ID/name and 
+12. [both-extremes] Orders that contain a very big line (50 or more units) and a tiny one (under 10)
+   SQL4-020 0.45 | Find orders that contain at least one line with Quantity 50 or more and at least one line with 
+13. [multi-city] Customers whose parcels went to several different cities
+   NONE
+14. [avg-lines] Mean number of products per order for each salesperson
+   NONE
+15. [po-shortfall] Purchase orders where what arrived is less than what we asked for
+   NONE
+16. [reorder-stock] Items whose reorder threshold is above what we currently hold
+   NONE
+17. [same-city] Clients and staff living in the same town
+   NONE
+18. [top-shipper-fee] Which shipping company has the highest total shipping cost?
+   SQL3-061 0.45 | For each purchase order show item cost subtotal and grand total including its Shipping Fee and 
+   SQL3-007 0.41 | For each customer and product category, sum quantities from shipped orders only, returning cust
+   SQL4-022 0.40 | Rank suppliers by total purchase value (quantity times unit cost over their purchase orders), h
+19. [null-ship-share] Percent of each employee's orders that still have no ship date
+   LAB-30 0.37 | Using conditional aggregation, produce one row per employee with the employee's full name, the 
+20. [median] Median order value
+   TH3-039 0.47 | How can MySQL 8.0.28 compute a median without PERCENTILE_CONT?
+   TH4-010 0.41 | MySQL has no PIVOT, MEDIAN or generate_series: what do you use instead?
+   SQL3-045 0.25 CRIT | For each employee with dated shipments show the median calendar-day order-to-shipment delay, ro
+21. [ntile] Split products into four price groups
+   SQL4-033 0.49 | Split products that have a List Price into four price groups of nearly equal size with the chea
+   TH3-041 0.23 | Does adding ID to a DENSE_RANK window preserve price ties?
+22. [group-concat] One line per category listing all its product names
+   LAB-15 0.50 | Using a correlated subquery, find the most expensive product in each category (if several produ
+   SQL3-011 0.43 | Which catalogue categories have the highest product count? Return each tied category and its co
+   SQL3-001 0.24 CRIT | For each customer, shipper and product category combination, return IDs, company names and disc
+23. [first-order] How many new clients placed their first order in each month?
+   SQL4-011 0.76 | For each month count the customers whose first order (earliest Order Date) falls in that month;
+   SQL3-096 0.38 | Return each customer active in at least two different order months, with the number of active y
+   TH3-019 0.27 | How do you group ISO weeks correctly across a calendar-year boundary?
+24. [dml-insert] Add a new shipper called 'Shipping Company D'
+   SQL4-048 0.60 | Add a new shipper with ID 4 and Company 'Shipping Company D' to the shippers table.
+25. [dml-update] Raise the price of all Beverages by ten percent
+   SQL3-027 0.37 | Find unordered pairs of products in the same category whose positive list prices differ by at m
+   SQL4-049 0.35 CRIT | Raise the List Price of every product in the Beverages category by ten percent.
+   A3-06 0.27 | List products whose categories are Pasta, Soups, or Beverages and List Price is greater than $1
+26. [dml-delete] Delete customers who never placed an order
+   VAR-009 0.67 | Find customers who have never placed an order.
+   COMBO-1678 0.49 | Find the customers that placed no orders.
+   SQL4-050 0.43 CRIT | Delete every customer who has never placed an order.
+27. [ddl-view] Create a view that shows each customer with the total they spent
+   SQL4-055 0.65 | Create a view customer_spend that shows each customer's ID, company and total discounted spendi
+   TH4-005 0.27 | What is a view, and when can you update through it?
+28. [ddl-ctas] Make an archive table of the orders placed before March
+   SQL4-054 0.27 CRIT | Create a table orders_archive containing all orders placed before 2006-03-01.
+   TH-79 0.26 | Which is faster: JOIN or subquery, and what makes a query slow?
+   TH4-009 0.22 | Is a CHECK constraint enforced in MySQL 8.0.28?
+29. [dml-upsert] Insert the shipper, or change its name if that ID already exists
+   SQL4-052 0.61 | Insert the shippers (1, 'Renamed Co') and (4, 'New Co'): update the Company if the ID already e
+   TH-66 0.24 | INSERT ... ON DUPLICATE KEY UPDATE vs REPLACE?
+30. [dml-dups] Remove the extra rows that share a product code, keeping the lowest id
+   SQL4-053 0.67 | Remove duplicate products that share a Product Code, keeping the product with the smallest ID f

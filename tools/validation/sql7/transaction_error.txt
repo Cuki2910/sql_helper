@@ -1,0 +1,2 @@
+sql unexpected SQLSTATE 45001 rethrown; caught in same connection; balances restored to 100.00/50.00
+alt unexpected SQLSTATE 45001 rethrown; caught in same connection; balances restored to 100.00/50.00

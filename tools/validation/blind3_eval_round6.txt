@@ -1,0 +1,6 @@
+MISS order-status-count | got SQL5-002 | want SQL5-001 | rank 3
+MISS line-status | got none | want SQL5-002 | rank -
+MISS po-status | got SQL3-063 | want SQL5-003 | rank -
+MISS cross-matrix | got LAB-10 | want SQL5-013 | rank 2
+MISS min-reorder-null | got COMBO-1415 | want SQL5-023 | rank 5
+blind3 22: R@1 17/22  R@3 19/22  no-answer 1

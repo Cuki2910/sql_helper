@@ -1,0 +1,2 @@
+SQL Reference Finder.app/Contents/Info.plist: OK
+JSON, browser bank and packaged resources match; 2334 entries; unverified=0

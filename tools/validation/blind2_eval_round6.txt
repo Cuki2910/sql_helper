@@ -1,0 +1,14 @@
+MISS top3-category | got none | want SQL4-001 | rank -
+MISS share-customer | got none | want SQL4-005 | rank -
+MISS pivot-year | got TH3-010 | want SQL4-018 | rank -
+MISS shipper-timely | got none | want SQL4-019 | rank -
+MISS q1-anti | got none | want SQL4-025 | rank -
+MISS rank-supplier | got SQL3-004 | want SQL4-022 | rank 2
+MISS multi-city | got none | want SQL4-028 | rank -
+MISS avg-lines | got TH-52 | want SQL4-021 | rank -
+MISS po-shortfall | got none | want SQL4-034 | rank -
+MISS reorder-stock | got none | want SQL4-015 | rank -
+MISS top-shipper-fee | got SQL3-061 | want SQL4-008 | rank -
+MISS null-ship-share | got LAB-30 | want SQL4-007 | rank -
+MISS ddl-ctas | got TH-79 | want SQL4-054 | rank 3
+blind2 in-scope 29: R@1 16/29  R@3 18/29  no-answer 7

@@ -1,0 +1,27 @@
+bank entries: 2143   held-out cases: 146 (135 scored retrieval, 6 traps, 5 unrelated)
+Recall@1: 88.1% (119/135)   Recall@3: 94.1%   MRR: 0.915
+Incorrect top match (answered but wrong): 11.2% (15/134)
+  of which with NO critical-constraint warning: 14
+  (info) strict misses whose top entry has the identical verified result set as an expected entry: 0
+Trap cases (similar wording, different requirement) handled (no match or critical warning): 6/6; silent wrong: 0
+Unrelated questions wrongly answered: 0/5
+Latency ms: mean 11.90  p95 26.55  max 118.25
+Per category Recall@1: paraphrase 10/12 | reorder 3/3 | typo 3/3 | operator 5/6 | table 4/5 | negation 7/7 | sql 9/9 | theory 10/12 | lab 24/30 | combo 12/13 | theory2 32/35
+
+Failures:
+  MISS@1 | Which employee handled the most orders in 2006 in total? | got VAR-065 | want MOCK-07 | rank -
+  MISS@1 | Which pairs of products are bought together in the same order most often? Use a self join | got TH-16 | want MOCK-15 | rank 2
+  MISS@1 | Find customers who placed orders for products from more than 5 different categories | got VAR-001 | want VAR-002|MOCK-12 | rank 2
+  MISS@1 | Find the 3 orders with the lowest shipping fee | got VAR-055 | want VAR-025 | rank 2
+  MISS@1 | Why is NOT IN dangerous when the subquery contains NULL? | got TH3-005 | want TH-05 | rank 2
+  MISS@1 | What is the difference between COUNT(*) and COUNT(column)? | got TH-30 | want TH-06 | rank 2
+  MISS@1 | Show every customer with the number of orders they placed, customers with zero orders must appear with 0 | got SQL3-074 | want LAB-08 | rank 2
+  MISS@1 | Why does COUNT(*) give a wrong result when counting orders per customer with a LEFT JOIN? | got TH3-007 | want LAB-08 | rank -
+  MISS@1 | Emulate FULL OUTER JOIN of shippers and orders using LEFT JOIN, RIGHT JOIN and UNION | got TH-44 | want LAB-09 | rank 4
+  MISS@1 | Show the most expensive product in every category, including ties, with a correlated subquery | got MOCK-10 | want LAB-15 | rank -
+  MISS@1 | Split the Supplier IDs text column on semicolons and count how many suppliers each product has | got TH3-031 | want LAB-24 | rank -
+  MISS@1 | Products whose list price is greater than the average list price of their category, show the category average too | got VAR-056 | want A4-18|VAR-088 | rank 4
+  MISS@1 | Customers with at most 2 orders | got VAR-035 | want COMBO-0005 | rank 2
+  MISS@1 | Why does YEAR(date) = 2006 not use the index? | got MOCK-09 | want TH-30 | rank -
+  MISS@1 | Best way to protect queries from injection attacks | got none | want TH-71 | rank -
+  MISS@1 | What is the difference between a view and a table? | got TH-20 | want TH-70 | rank 2

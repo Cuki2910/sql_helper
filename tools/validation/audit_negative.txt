@@ -1,0 +1,7 @@
+Independent MySQL CLI audit
+SQL entries: 1 statuses: {'execution-verified': 1}
+Main/alternative executions: 2 additional answer executions: 0
+Empty primary results: 0 
+Mismatches: 1
+MISMATCH SQL3-001 rows stored=47 recomputed=46
+Expected exit=1; actual exit=1

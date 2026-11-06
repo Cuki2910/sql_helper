@@ -1,0 +1,41 @@
+--------------
+SHOW TABLES LIKE 'zz%'
+--------------
+
+Empty set (0.001 sec)
+
+--------------
+SHOW TRIGGERS
+--------------
+
+Empty set (0.000 sec)
+
+--------------
+SHOW FUNCTION STATUS WHERE Db='northwind'
+--------------
+
+Empty set (0.000 sec)
+
+--------------
+SHOW PROCEDURE STATUS WHERE Db='northwind'
+--------------
+
+Empty set (0.000 sec)
+
+--------------
+SELECT 'shippers' AS table_name, COUNT(*) AS row_count FROM shippers UNION ALL SELECT 'products', COUNT(*) FROM products UNION ALL SELECT 'orders', COUNT(*) FROM orders UNION ALL SELECT 'customers', COUNT(*) FROM customers UNION ALL SELECT 'order details', COUNT(*) FROM `order details` UNION ALL SELECT 'employees', COUNT(*) FROM employees
+--------------
+
++---------------+-----------+
+| table_name    | row_count |
++---------------+-----------+
+| shippers      |         3 |
+| products      |        45 |
+| orders        |        48 |
+| customers     |        29 |
+| order details |        58 |
+| employees     |         9 |
++---------------+-----------+
+6 rows in set (0.001 sec)
+
+Bye

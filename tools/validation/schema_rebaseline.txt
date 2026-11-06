@@ -1,0 +1,4 @@
+data/schema.json re-extracted by the user (tools/extract_schema.py rerun, 2026-11-05 17:29:56) after round 5.
+old sha256 bf319352c999d103c59bcae3339ba1b4ccca585f508b6f73d4ff76f140c10c20
+new sha256 c7c8167c6c6064ac93cbb53a16793b8aea0539d2659a418b7d23574b64c09690
+Checked: 20 tables, equal to the table list of the loaded dump; js/data_schema.js mirrors it. Content not diffed against the old file (no copy kept).

@@ -1,0 +1,87 @@
+--- baseline/tools/build_bank.py
++++ tools/build_bank.py
+@@ -7,6 +7,8 @@
+ from bank_mock import MOCK, MOCK_THEORY
+ from bank_theory import THEORY
+ from bank_theory2 import THEORY2
++from bank_theory3 import THEORY3
++from bank_sql3 import SQL3
+ from bank_variations import all_variations
+ from bank_combo import generate as gen_combo
+ from bank_lab import LAB, A3, A3_TXT, A3_PTS, A4, A4_TXT
+@@ -31,7 +33,7 @@
+     if e: return dict(status='unverified', note='alt query failed: ' + e)
+     same = (a == b) if cmp == 'ordered' else (sorted(a) == sorted(b))
+     if not same: return dict(status='unverified', note='main and alt results differ', rows=len(a))
+-    return dict(status='execution-verified', rows=len(a), empty=len(a) == 0,
++    return dict(status='execution-verified', rows=len(a), empty=len(a) == 0, comparison=cmp,
+                 hash=hashlib.sha1('\n'.join(a if cmp == 'ordered' else sorted(a)).encode()).hexdigest()[:10])
+ 
+ def used_tables(sql):
+@@ -83,15 +85,20 @@
+ 
+ def add_lab(prefix, n, text, ref, m):
+     extras = []
++    extra_results = []
+     for x in m['extra']:
+         r, e = run(x)
+         if e and 'INTERSECT' not in x and 'EXCEPT' not in x: problems.append((prefix + '%02d' % n, 'extra failed: ' + e))
+         extras.append(x)
++        extra_results.append(dict(rows=len(r), hash=hashlib.sha1('\n'.join(sorted(r)).encode()).hexdigest()[:10]) if not e else dict(error=e))
+     ans = m['sql'] + ''.join('\n\n-- also asked / related:\n' + x for x in extras)
+     tabs = used_tables(m['sql'])
+     add(dict(id=prefix + '%02d' % n, kind='sql', source='original', sourceRef=ref, question=text, difficulty=m['difficulty'], pattern=m['pattern'], tags=m['tags'],
+              tables=tabs, columns=used_cols(m['sql'], tabs), answer=ans, alternative=m['alt'], explanation=m['explanation'], mistakes=m['mistakes'], related=[]),
+         m['sql'], m['alt'], m['cmp'])
++    if extras:
++        bank[-1]['verification']['scope'] = 'primary statement before -- also asked / related:'
++        bank[-1]['verification']['additionalResults'] = extra_results
+ 
+ lab = json.load(open('data/lab_questions.json'))
+ for q in lab['questions']:
+@@ -146,7 +153,7 @@
+              question=c['q'], difficulty=c['diff'], pattern=c['pattern'], tags=c['tags'], tables=tabs, columns=used_cols(c['sql'], tabs),
+              answer=c['sql'], alternative=c['alt'], explanation=c['why'], mistakes=[], related=[]),
+         None)
+-    bank[-1]['verification'] = dict(status='execution-verified', rows=len(ra), hash=hashlib.sha1('\n'.join(ra if c['cmp'] == 'ordered' else sorted(ra)).encode()).hexdigest()[:10],
++    bank[-1]['verification'] = dict(status='execution-verified', rows=len(ra), empty=False, comparison=c['cmp'], hash=hashlib.sha1('\n'.join(ra if c['cmp'] == 'ordered' else sorted(ra)).encode()).hexdigest()[:10],
+                                     note='alternative is a structural rewrite (derived table / window), weaker than a hand-written independent query')
+ with open('data/combo_report.txt', 'w') as f:
+     f.write('candidates %d, kept %d\n' % (len(cands), kept))
+@@ -155,22 +162,32 @@
+         for x in v[:200]: f.write('  [%s] %s\n' % (k, x))
+ print('combo: candidates %d kept %d dropped %s' % (len(cands), kept, {k: len(v) for k, v in drop.items()}))
+ 
+-for t in THEORY + THEORY2:
++for entry in SQL3:
++    tabs = used_tables(entry['sql'])
++    add(dict(id=entry['id'], kind='sql', source='authored', sourceRef='tools/bank_sql3.py',
++             question=entry['question'], difficulty=entry['difficulty'], pattern=entry['pattern'],
++             tags=entry['tags'], tables=tabs, columns=used_cols(entry['sql'], tabs), answer=entry['sql'],
++             alternative=entry['alt'], explanation=entry['explanation'], techniques=entry['techniques'], mistakes=[], related=[]),
++        entry['sql'], entry['alt'], entry['cmp'])
++
++for t in THEORY + THEORY2 + THEORY3:
+     ok = True
+     for s in t['examples']:
+         r, e = run(s)
+         if e: ok = False; problems.append((t['id'], 'example failed: ' + e))
+     # cleanup possible temp index
+     run("DROP INDEX idx_tmp_orders_date ON orders") if any('idx_tmp_orders_date' in s for s in t['examples']) else None
+-    bank.append(dict(id=t['id'], kind='theory', source='authored', sourceRef='tools/bank_theory.py', question=t['question'], difficulty=1, pattern=t['pattern'],
++    bank.append(dict(id=t['id'], kind='theory', source='authored', sourceRef='tools/bank_theory3.py' if t in THEORY3 else 'tools/bank_theory.py', question=t['question'], difficulty=1, pattern=t['pattern'],
+                      tags=t['tags'], tables=[], columns=[], answer=t['answer'], examples=t['examples'], explanation='', mistakes=t['mistakes'], related=[],
+-                     verification=dict(status='reference-text', note='Authored; example queries %s' % ('executed OK' if ok else 'FAILED')), lastUpdated=TODAY))
++                     verification=dict(status='reference-text', note=('Authored; no runnable example (application-level concurrency policy)' if t in THEORY3 and not t['examples'] else 'Authored; example queries %s' % ('executed OK' if ok else 'FAILED'))), lastUpdated=TODAY))
+ 
+ # related: same pattern, SQL, nearest by tag overlap (deterministic)
+ sqls = [b for b in bank if b['kind'] == 'sql']
++new_sql_ids = {entry['id'] for entry in SQL3}
+ for b in bank:
+     if b['kind'] != 'sql': continue
+-    cands = [c for c in sqls if c['id'] != b['id'] and c['pattern'] == b['pattern']]
++    cands = [c for c in sqls if c['id'] != b['id'] and c['pattern'] == b['pattern']
++             and (b['id'] in new_sql_ids or c['id'] not in new_sql_ids)]
+     cands.sort(key=lambda c: (-len(set(c['tags']) & set(b['tags'])), c['id']))
+     b['related'] = [c['id'] for c in cands[:3]]
+ 

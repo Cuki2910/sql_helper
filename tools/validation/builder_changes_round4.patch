@@ -1,0 +1,22 @@
+--- /tmp/build_bank.orig.py	2026-11-05 16:36:11
++++ tools/build_bank.py	2026-11-05 16:41:10
+@@ -9,6 +9,9 @@
+ from bank_theory2 import THEORY2
+ from bank_theory3 import THEORY3
+ from bank_sql3 import SQL3
++from bank_aliases import ALIASES
++from bank_aliases_theory import ALIASES_TH
++ALIASES = {**ALIASES, **ALIASES_TH}
+ from bank_variations import all_variations
+ from bank_combo import generate as gen_combo
+ from bank_lab import LAB, A3, A3_TXT, A3_PTS, A4, A4_TXT
+@@ -191,6 +194,9 @@
+     cands.sort(key=lambda c: (-len(set(c['tags']) & set(b['tags'])), c['id']))
+     b['related'] = [c['id'] for c in cands[:3]]
+ 
++for b in bank:  # retrieval-only paraphrases; never part of verification
++    if b['id'] in ALIASES: b['aliases'] = ALIASES[b['id']]
++assert set(ALIASES) <= {b['id'] for b in bank}, 'alias for unknown id'
+ os.makedirs('data', exist_ok=True)
+ out = dict(version=1, built=TODAY, patterns=PATTERNS, entries=bank)
+ json.dump(out, open('data/bank.json', 'w'), indent=1, ensure_ascii=False)

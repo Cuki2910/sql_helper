@@ -1,0 +1,23 @@
+OOS-ANSWERED 1 Which customers have placed orders handled by more than three different employees? | SQL4-027
+OOS-ANSWERED 2 Running total of sales amount per month during 2006 | SQL4-009
+OOS-ANSWERED 3 For each product category, list the three most expensive products, with ties broken by product id | LAB-15
+OOS-ANSWERED 5 Percentage of total revenue contributed by each customer | SQL3-092
+MISS 6 Show products that were never sold | got LAB-21 | want VAR-014 | rank 2
+OOS-ANSWERED 8 Rank suppliers by total purchase value and show the position next to each name | SQL4-022
+OOS-ANSWERED 10 Orders whose total value is higher than the average order total | SQL4-012
+MISS 11 Compare each order's date with the date of the same customer's previous order and show the number of days between them | got A4-20 | want SQL3-040|SQL3-028 | rank -
+MISS 12 Which customers bought every product that customer 5 bought? | got TH3-007 | want SQL3-051 | rank -
+OOS-ANSWERED 13 Number of orders shipped late versus on time per shipper | VAR-039
+OOS-ANSWERED 14 Second highest priced product in every category | SQL3-100
+OOS-ANSWERED 15 Products ordered by clients from more than one country | COMBO-1356
+OOS-ANSWERED 17 Employees whose sales exceed the average sales of all employees | SQL4-013
+OOS-ANSWERED 18 Orders that include both a discounted line and a non-discounted line | SQL4-003
+OOS-ANSWERED 19 Show the shortest and longest gap in days between consecutive orders overall | SQL4-016
+OOS-ANSWERED 21 Top selling product by quantity within each quarter of 2006 | SQL4-004
+OOS-ANSWERED 23 Remove duplicate customer records keeping the one with the smallest id | TH6-010
+OOS-ANSWERED 24 Average number of line items per order for each employee | TH5-004
+OOS-ANSWERED 25 Three-month moving average of monthly order totals | SQL4-010
+OOS-ANSWERED 29 Products whose reorder level is above the quantity currently in stock | SQL4-015
+OOS-ANSWERED 30 Lines where the unit price charged differs from the list price | SQL4-036
+in-scope 5: R@1 2/5  R@3 3/5
+out-of-scope 25: no answer 3, answered with warning 4, answered silently 18

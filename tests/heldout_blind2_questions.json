@@ -1,0 +1,122 @@
+[
+ {
+  "slug": "top3-category",
+  "q": "Give me the 3 priciest items of every product group; if prices are equal use the lower id first"
+ },
+ {
+  "slug": "share-customer",
+  "q": "What fraction of all discounted sales does each client represent?"
+ },
+ {
+  "slug": "running-orders",
+  "q": "Cumulative number of orders month by month"
+ },
+ {
+  "slug": "running-revenue",
+  "q": "Sales per month with a rolling sum"
+ },
+ {
+  "slug": "above-avg-order",
+  "q": "Which orders are bigger than the typical order?"
+ },
+ {
+  "slug": "above-avg-employee",
+  "q": "Staff whose revenue beats the staff average"
+ },
+ {
+  "slug": "gap-minmax",
+  "q": "Largest and smallest interval between two successive orders in the whole table"
+ },
+ {
+  "slug": "pivot-year",
+  "q": "Order counts per employee with one column for each year"
+ },
+ {
+  "slug": "shipper-timely",
+  "q": "How many orders each carrier delivered within a week versus later"
+ },
+ {
+  "slug": "q1-anti",
+  "q": "Clients who didn't order in Jan to Mar but did in Apr to Jun"
+ },
+ {
+  "slug": "rank-supplier",
+  "q": "Position of each vendor when ordered by money spent with them"
+ },
+ {
+  "slug": "both-extremes",
+  "q": "Orders that contain a very big line (50 or more units) and a tiny one (under 10)"
+ },
+ {
+  "slug": "multi-city",
+  "q": "Customers whose parcels went to several different cities"
+ },
+ {
+  "slug": "avg-lines",
+  "q": "Mean number of products per order for each salesperson"
+ },
+ {
+  "slug": "po-shortfall",
+  "q": "Purchase orders where what arrived is less than what we asked for"
+ },
+ {
+  "slug": "reorder-stock",
+  "q": "Items whose reorder threshold is above what we currently hold"
+ },
+ {
+  "slug": "same-city",
+  "q": "Clients and staff living in the same town"
+ },
+ {
+  "slug": "top-shipper-fee",
+  "q": "Which shipping company has the highest total shipping cost?"
+ },
+ {
+  "slug": "null-ship-share",
+  "q": "Percent of each employee's orders that still have no ship date"
+ },
+ {
+  "slug": "median",
+  "q": "Median order value"
+ },
+ {
+  "slug": "ntile",
+  "q": "Split products into four price groups"
+ },
+ {
+  "slug": "group-concat",
+  "q": "One line per category listing all its product names"
+ },
+ {
+  "slug": "first-order",
+  "q": "How many new clients placed their first order in each month?"
+ },
+ {
+  "slug": "dml-insert",
+  "q": "Add a new shipper called 'Shipping Company D'"
+ },
+ {
+  "slug": "dml-update",
+  "q": "Raise the price of all Beverages by ten percent"
+ },
+ {
+  "slug": "dml-delete",
+  "q": "Delete customers who never placed an order"
+ },
+ {
+  "slug": "ddl-view",
+  "q": "Create a view that shows each customer with the total they spent"
+ },
+ {
+  "slug": "ddl-ctas",
+  "q": "Make an archive table of the orders placed before March"
+ },
+ {
+  "slug": "dml-upsert",
+  "q": "Insert the shipper, or change its name if that ID already exists"
+ },
+ {
+  "slug": "dml-dups",
+  "q": "Remove the extra rows that share a product code, keeping the lowest id"
+ }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "no": 1,
+    "q": "Return the Product Code, Product Name, Category, List Price, Standard Cost, and Profit Margin of products whose Profit Margin is at least 50%. Calculate Profit Margin as (List Price - Standard Cost) / Standard Cost. Exclude products whose Standard Cost is zero or NULL. Sort by Profit Margin in descending order.",
+    "expected": "MOCK-11"
+  },
+  {
+    "no": 2,
+    "q": "For each order, calculate TotalValue as the sum of Unit Price multiplied by Quantity across its order details. Return Order ID, TotalValue, Shipping Fee, and ShippingRatio, calculated as Shipping Fee divided by TotalValue. Include only orders with a positive TotalValue whose Shipping Fee exceeds 15% of TotalValue. Round ShippingRatio to 4 decimal places for display.",
+    "expected": "MOCK-13"
+  },
+  {
+    "no": 3,
+    "q": "For each customer, calculate TotalOrderValue and TotalShippingFee for orders placed during 2006. Calculate each order's value as the sum of Unit Price multiplied by Quantity, without applying discounts. Count each order's Shipping Fee only once. Return customer ID, First Name, Last Name, TotalOrderValue, TotalShippingFee, and ShippingRatio. Include only customers with a positive TotalOrderValue whose TotalShippingFee exceeds 15% of TotalOrderValue. Round ShippingRatio to 4 decimal places.",
+    "expected": "SQL6-001"
+  },
+  {
+    "no": 4,
+    "q": "Using inventory transactions, calculate the total quantity sold for each product in each month. Use Transaction Created Date to determine the month and include only transactions whose transaction type is 'Sold'. Return Month in YYYY-MM format, Product ID, Product Name, and TotalQuantity. Sort by Month ascending, then TotalQuantity descending.",
+    "expected": "MOCK-14"
+  },
+  {
+    "no": 5,
+    "q": "Using inventory transactions, find products whose total quantity sold exceeds 100 within an individual month of 2006. Include only transactions whose transaction type is 'Sold', and use Transaction Created Date for filtering and grouping. Return Month in YYYY-MM format, Product ID, Product Name, and TotalQuantity. Sort by Month ascending, then TotalQuantity descending.",
+    "expected": "SQL6-002"
+  },
+  {
+    "no": 6,
+    "q": "Find employees who have never processed an order for a customer based in the same city as the employee. Return employee ID, First Name, Last Name, and City. Include employees who have never processed any orders. Sort by employee ID ascending.",
+    "expected": "MOCK-08"
+  },
+  {
+    "no": 7,
+    "q": "Find employees who processed at least one order during 2006 but did not process any orders during that year for customers based in the same city as the employee. Return employee ID, First Name, and Last Name. Orders outside 2006 must not affect either condition. Sort by employee ID ascending.",
+    "expected": "SQL6-003"
+  },
+  {
+    "no": 8,
+    "q": "Find the pair or pairs of different products that appeared together in the greatest number of distinct orders. Return Product1ID, Product2ID, and OrdersTogether. Display each unordered pair only once, with Product1ID smaller than Product2ID. Include all pairs tied for the highest OrdersTogether.",
+    "expected": "MOCK-15"
+  },
+  {
+    "no": 9,
+    "q": "Return all columns for the orders occupying positions 6, 7, and 8 when ranked by Shipping Fee in descending order. Break Shipping Fee ties by Order ID in ascending order. Return at most 3 orders.",
+    "expected": "MOCK-06"
+  },
+  {
+    "no": 10,
+    "q": "Return ID, Product Name, and List Price for the products with the three highest distinct non-NULL List Price values. Include every product tied at any of those three price levels. Sort by List Price descending, then ID ascending.",
+    "expected": "VAR-030"
+  },
+  {
+    "no": 11,
+    "q": "Find all employees who processed the highest number of orders during 2006. Return employee ID, First Name, Last Name, and TotalOrders. Include every employee tied for the highest order count. Sort by employee ID ascending.",
+    "expected": "MOCK-07"
+  },
+  {
+    "no": 12,
+    "q": "Find customers who placed at least 3 distinct orders during 2006 and purchased products from more than 3 distinct categories across those orders. Return customer ID, First Name, Last Name, TotalOrders, and TotalCategories. Count each order only once even if it contains multiple order detail rows. Sort by TotalCategories descending, then TotalOrders descending, then customer ID ascending.",
+    "expected": "SQL6-004"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "entries": 2375,
+  "before_aliases": 879,
+  "before_covered": 391,
+  "protected_entry_content_sha256": "b15bfe5fced032ffae228e8c4810be025ff027a0d827521cbdce87137785f4b9",
+  "protected_files": {
+    "Northwind-1-1.sql": "d5a9dfabe2ba629db92f718181e994a7233289e99be717c69a59537c8e436d29",
+    "data/schema.json": "c7c8167c6c6064ac93cbb53a16793b8aea0539d2659a418b7d23574b64c09690",
+    "tests/blind2_eval.js": "e47154a1e99a629d4fe942c03ed2992a31cd60e1049d4519f7c5418cc7c3829f",
+    "tests/blind3_eval.js": "79fbffae0f156a252c8f6acde902eb765f649bc1ad4d0d7725f23270010b2fba",
+    "tests/blind_eval.js": "7c5fc9a78e9d1191a3c2fc9ffc02e4d1cadfd45e2baad4b67f787505791908b3",
+    "tests/check_bank_sql7.js": "67e6d94aaa41e59514c0fed5aeb1635f2efba26dd4526f9453b0c9fe14fb1dfe",
+    "tests/check_paraphrase_search.js": "ca8d94392c601fc90d0e5d0262d2c6d3595e03ca6a3e8b6138cb61ee65bfa83d",
+    "tests/check_practice_search.js": "078e1e1619255a5590193563ed0080523c3023e76bf641775c60c2077c7cbfe1",
+    "tests/check_write_search.js": "5e75b4b5c82d945471ef8a0f40e10822bf431e5021a651136bf1475c8b2f769c",
+    "tests/eval.js": "9e5c421ef17f52d1e47ce8f047f98abce4c467cf8aee1725ae112efa8e2d9f48",
+    "tests/heldout.json": "61820e8136f19a638cdf1f65bacd5515ce731fd0884bcd6aebd85f2fdc21d0b9",
+    "tests/heldout_blind2_questions.json": "88a79012d8efb34790f3f27d816895d2f696f4c71771ca454c0c2723ec8760e9",
+    "tests/heldout_blind3_questions.json": "c470440ecf44b212d1e4693a49d1a14b91d394cce5a13bed90b7fbb82b19b72e",
+    "tests/heldout_blind_questions.json": "06108772b12864404b3bf06b0b8d760f369b752821f7cc17559e3aeb8b31081f",
+    "tests/practice_questions.json": "b13ea4a9935d20b85a2908fedb557ea68613c74a0611af4e160c1c44943d1822"
+  },
+  "after_aliases": 7365,
+  "after_covered": 2375,
+  "all_original_aliases_retained": true,
+  "all_non_alias_entry_fields_identical": true,
+  "protected_files_unchanged": true
+}

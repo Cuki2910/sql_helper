@@ -1,0 +1,137 @@
+{
+ "source": "Northwind_SQL_Lab.docx",
+ "questions": [
+  {
+   "no": 1,
+   "text": "Summarise the product catalogue in a single row: the number of products, the number of distinct categories, and the minimum, maximum and average List Price (average rounded to 2 decimals)."
+  },
+  {
+   "no": 2,
+   "text": "In the orders table, compare COUNT(*) with COUNT(`Shipped Date`), COUNT(`Shipper ID`) and COUNT(`Payment Type`). Also return the number of orders that have not been shipped yet, computed only from these counts (no WHERE clause). In one sentence, explain why the four counts differ."
+  },
+  {
+   "no": 3,
+   "text": "Using `order details`, compute the line value of each row as Quantity * `Unit Price` * (1 - Discount). Return in one row: the total sales value, the average line value and the largest single line value (all rounded to 2 decimals)."
+  },
+  {
+   "no": 4,
+   "text": "For each product category, show the number of products and the average List Price (2 decimals). Sort by number of products descending, then by category name."
+  },
+  {
+   "no": 5,
+   "text": "For each product, compute the total quantity sold in `order details`. Show only products whose total quantity is at least 100, sorted from highest to lowest. Return the Product ID and the total quantity."
+  },
+  {
+   "no": 6,
+   "text": "Considering only orders whose `Status ID` is 3 (Closed), find the customers who have at least 3 such orders. For each, show the Customer ID, the number of closed orders, the total shipping fee (2 decimals), and the dates of their first and last closed order. Explain which condition belongs in WHERE and which belongs in HAVING."
+  },
+  {
+   "no": 7,
+   "text": "List every order placed in March 2006 with the order ID, order date, customer company, and the first and last name of the employee who took it. Sort by order date, then order ID."
+  },
+  {
+   "no": 8,
+   "text": "List every customer together with the number of orders they have placed, including customers who have never placed an order (they must show 0). Show the customers with no orders first, then sort by company. Explain why COUNT(*) would give the wrong answer here."
+  },
+  {
+   "no": 9,
+   "text": "Count orders per shipper so that the result includes (a) shippers with no orders and (b) orders that have no shipper assigned. Emulate a FULL OUTER JOIN between shippers and orders by combining a LEFT JOIN and a RIGHT JOIN with UNION. Show the shipper ID, the shipper company and the number of orders."
+  },
+  {
+   "no": 10,
+   "text": "Build a grid of every shipper combined with every payment type that appears in orders, and show how many orders used each combination, including combinations with 0 orders. Use a CROSS JOIN to build the grid, then a LEFT JOIN to count orders."
+  },
+  {
+   "no": 11,
+   "text": "Find every pair of different customers located in the same city. Show the city and both company names, list each pair only once (no reversed duplicates), and sort by city."
+  },
+  {
+   "no": 12,
+   "text": "Product Code is supposed to identify a product uniquely, but the data contains duplicates. Use a self join on products to list every pair of different products that share the same Product Code. Show the code and both product IDs and names."
+  },
+  {
+   "no": 13,
+   "text": "For every purchase order, show the purchase order ID, the supplier company, the status text from `purchase order status`, the last name of the employee who created it and the last name of the employee who approved it. All 28 purchase orders must appear, even when the creator or approver is unknown. Sort by purchase order ID."
+  },
+  {
+   "no": 14,
+   "text": "Using a scalar subquery, list the products whose List Price is above the average List Price of all products. Show the product name, the list price and the difference from the average (2 decimals), most expensive first."
+  },
+  {
+   "no": 15,
+   "text": "Using a correlated subquery, find the most expensive product in each category (if several products tie, show all of them). Show the category, product name and list price, sorted by category."
+  },
+  {
+   "no": 16,
+   "text": "Find the customers who have ordered at least one product from the 'Beverages' category. Write the query twice, once with IN and once with EXISTS, and check that both return the same rows. Show the customer ID and company."
+  },
+  {
+   "no": 17,
+   "text": "Find the employees who never created a purchase order. First try WHERE ID NOT IN (SELECT `Created By` FROM `purchase orders`) and observe the result. Then write a version with NOT EXISTS that returns the correct answer. Explain why the NOT IN version fails."
+  },
+  {
+   "no": 18,
+   "text": "Using a row subquery, find all orders placed by the same customer AND taken by the same employee as order 30 (exclude order 30 itself). Show the order ID, customer ID, employee ID and order date."
+  },
+  {
+   "no": 19,
+   "text": "Build one contact directory of all customers, employees and suppliers with the columns contact_type ('Customer', 'Employee' or 'Supplier'), company, first_name, last_name and city. Sort by contact_type, then last_name. Then write a second query that returns how many rows a UNION ALL of the customer cities and employee cities produces, and how many a UNION produces. Explain the difference."
+  },
+  {
+   "no": 20,
+   "text": "Find the product IDs that were both sold to customers (`order details`) and bought from suppliers (`purchase order details`). Write it with INTERSECT, then rewrite it with IN and confirm that both return the same rows."
+  },
+  {
+   "no": 21,
+   "text": "Find the products that were bought from suppliers but never sold to customers. Write it with EXCEPT, then rewrite it with NOT EXISTS and add the product name to the NOT EXISTS version."
+  },
+  {
+   "no": 22,
+   "text": "Produce an employee directory with: the full name in the form 'LASTNAME, First' (last name in upper case), the initials (e.g. 'NF' for Nancy Freehafer), the e-mail address in lower case, the e-mail domain (the part after '@'), and the length of the full name. Sort by last name."
+  },
+  {
+   "no": 23,
+   "text": "Product codes have the form PREFIX-NUMBER (e.g. NWTCFV-17). For each product, show the code, the prefix (the part before '-'), the number (the part after '-'), and a short name obtained by removing the text 'Northwind Traders ' from the product name. Then write a second query that counts products per prefix and shows only prefixes used by at least 3 products."
+  },
+  {
+   "no": 24,
+   "text": "The `Supplier IDs` column of products stores several supplier IDs in one text value separated by ';' (for example '2;6'). List the products that have more than one supplier, showing the product name, the raw `Supplier IDs` value, the first supplier ID, the last supplier ID and the number of suppliers. Hint: the number of suppliers equals the number of ';' characters plus one, and you can count characters with LENGTH and REPLACE."
+  },
+  {
+   "no": 25,
+   "text": "Produce a monthly order summary: for each month in which orders were placed, show the month in the format 'YYYY-MM', the month name (e.g. 'January'), the number of orders and the total shipping fee (2 decimals). Sort chronologically."
+  },
+  {
+   "no": 26,
+   "text": "For shipped orders, the lead time is the number of days between `Order Date` and `Shipped Date`. For each shipper, show the company, the number of shipped orders, the average lead time (1 decimal), the longest lead time and the number of orders shipped on the same day they were placed."
+  },
+  {
+   "no": 27,
+   "text": "The `Due Date` column of invoices is empty. For the invoices, show the invoice ID, the order ID, the invoice date formatted as 'DD/MM/YYYY', the weekday of the invoice date, a computed due date 30 days after the invoice date (DATE_ADD, formatted as 'DD/MM/YYYY'), and how many whole days have passed between that computed due date and today (CURDATE). Show only the 5 earliest invoices. Note that the last column depends on the day you run the query."
+  },
+  {
+   "no": 28,
+   "text": "Classify products into price bands using CASE: 'Budget' when List Price is below 5, 'Standard' when it is from 5 up to (but not including) 20, and 'Premium' otherwise. Show each band with the number of products and the average list price (2 decimals), ordered Budget, Standard, Premium."
+  },
+  {
+   "no": 29,
+   "text": "List the orders that have not been closed (`Status ID` <> 3). For each, show the order ID, the customer company, the shipper company or 'Not assigned' when there is none (IFNULL), the shipped date or the text 'Pending' (IFNULL), the payment state as 'Paid' or 'Unpaid' based on `Paid Date` (IF), and the order status name. Sort by order ID."
+  },
+  {
+   "no": 30,
+   "text": "Using conditional aggregation, produce one row per employee with the employee's full name, the total number of orders, and one column per order status (New, Invoiced, Shipped, Closed) holding the number of orders in that status. Add a column with the percentage of the employee's orders that are Closed (1 decimal). Include employees with no orders. Sort by total orders descending, then name."
+  },
+  {
+   "no": 31,
+   "text": "Report the top 5 customers by total sales value (Quantity * `Unit Price` * (1 - Discount)). For each, show the company, the city, the number of distinct orders, the total sales value (2 decimals), the dates of the first and last order formatted as 'YYYY-MM-DD', and a tier: 'Gold' for sales of at least 10000, 'Silver' for at least 3000, 'Bronze' otherwise. Explain why the number of orders must be counted with COUNT(DISTINCT ...)."
+  },
+  {
+   "no": 32,
+   "text": "Produce a category sales pivot for the first half of 2006: one row per product category that has sales, with one column per month from January to June holding the sales value of that month (rounded to 0 decimals), and a final column with the half-year total. Sort by the total, highest first."
+  },
+  {
+   "no": 33,
+   "text": "Build a stock report from `inventory transactions`, where `Transaction Type` 1 = Purchased (adds stock), 2 = Sold, 3 = On Hold and 4 = Waste (the last three remove stock). For every product that has at least one transaction, show the product name, the units purchased, sold and on hold, the stock on hand (purchased minus everything removed), the Reorder Level, and an action column: 'Reorder' when stock on hand is at or below the reorder level, 'OK' otherwise. List the 'Reorder' products first; within each action, sort by stock on hand and then product name."
+  }
+ ]
+}

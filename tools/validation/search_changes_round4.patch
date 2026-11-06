@@ -1,0 +1,55 @@
+--- /tmp/search.js.orig	2026-11-05 16:28:55
++++ js/search.js	2026-11-05 16:36:11
+@@ -17,6 +17,16 @@
+ 
+   // multi-word canonicalisation (order matters)
+   const PHRASES = [
++    // domain synonyms: bank/schema vocabulary is canonical, applied to both stored questions and queries
++    [/\bclient(s?)\b/g, ' customer$1 '],
++    [/\bstaff( members?)?\b/g, ' employees '],
++    [/\bvendor(s?)\b/g, ' supplier$1 '],
++    [/\bprocurement\b/g, ' purchase order '],
++    [/\bundispatched\b|\bnot (yet )?dispatched\b/g, ' not shipped '],
++    [/\bdispatch(ed)?\b/g, ' shipped '],
++    [/\b(catalogue|catalog) price\b/g, ' list price '],
++    [/\b(least expensive|lowest[- ]priced)\b/g, ' lowest price '],
++    [/(?<!line )\bitem(s?)\b/g, ' product$1 '],
+     [/greater than or equal to|larger or equal to|equal to or (greater|larger|more) than|no less than|not less than|>=|>\s*=|≥|or more\b|or higher\b|or above\b/g, ' at least '],
+     [/less than or equal to|smaller or equal to|equal to or (less|smaller|fewer) than|no more than|not more than|<=|<\s*=|≤|or less\b|or fewer\b|or below\b|up to\b/g, ' at most '],
+     [/higher than|greater than|larger than|bigger than|more than|exceeds?|exceeding|over\b|above\b|(?<![-<=])>(?!=)/g, ' more than '],
+@@ -48,6 +58,18 @@
+     [/\blargest\b|\bgreatest\b|\bbiggest\b|\bmaximum\b/g, ' highest '],
+   ];
+ 
++  // uncertain synonym guesses: shown as a minor warning (no score effect) when the query used them
++  const SYN_NOTES = [
++    [/\bclients?\b/i, "'client' read as Customers table."],
++    [/\bstaff\b/i, "'staff' read as Employees (could be Privileges/users in another schema)."],
++    [/\bvendors?\b/i, "'vendor' read as Suppliers table."],
++    [/\bprocurement\b/i, "'procurement' read as Purchase Orders."],
++    [/\b(un)?dispatch(ed)?\b|\bnot (yet )?dispatched\b/i, "'dispatched' read as shipped (Shipped Date / order status); check the exact condition."],
++    [/\b(catalogue|catalog) price\b/i, "'catalogue price' read as Products.List Price (not Standard Cost)."],
++    [/\b(least expensive|lowest[- ]priced)\b/i, "'least expensive' read as lowest List Price (could mean Standard Cost)."],
++    [/(?<!line )\bitems?\b/i, "'item' read as Product (not an order-detail line); check which is meant."],
++  ];
++
+   function norm(s) {
+     s = String(s == null ? '' : s).toLowerCase().replace(/[“”„]/g, '"').replace(/[‘’`]/g, ' ').replace(/_/g, ' ');
+     s = s.replace(/\b(one|two|three|four|five|six|seven|eight|nine|ten)\b/g, (m) => NUMWORDS[m]);
+@@ -250,6 +272,7 @@
+       const tf = new Map();
+       const add = (arr, wgt) => { for (const t of arr) tf.set(t, (tf.get(t) || 0) + wgt); };
+       add(terms(entry.question), 2);
++      for (const a of entry.aliases || []) add(terms(a), 0.8);
+       add(terms((entry.tags || []).join(' ')), 1.2);
+       add(terms(entry.pattern || ''), 0.8);
+       if (entry.kind === 'theory') { add(terms(entry.answer || ''), 0.35); }
+@@ -396,6 +419,8 @@
+       const reliable = res.filter((r) => r.exact || (r.score >= W.minScore && r.coverage >= W.minCoverage));
+       for (const r of reliable) r.label = r.exact ? 'identical after normalisation' : (r.score >= 0.7 && !r.nCrit ? 'very close wording' : (r.score >= 0.45 ? 'similar question' : 'related pattern only'));
+       const ms = (typeof performance !== 'undefined' ? performance : Date).now() - t0;
++      const synMsgs = SYN_NOTES.filter(([re]) => re.test(query)).map((x) => x[1]);
++      if (synMsgs.length) for (const r of reliable.slice(0, limit)) for (const m of synMsgs) r.warnings.push({ sev: 'minor', msg: 'Wording assumption: ' + m });
+       return { results: reliable.slice(0, limit), reliable: reliable.length > 0, ms, fixes, detected: { patterns: [...qPat], tables: [...qSch.tabs], constraints: qCons } };
+     }
+ 

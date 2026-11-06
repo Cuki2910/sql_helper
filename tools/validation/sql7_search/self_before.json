@@ -1,0 +1,581 @@
+{
+  "summary": {
+    "top1": 1,
+    "top3": 1,
+    "none": 9,
+    "selectToSql7": 0
+  },
+  "writes": [
+    {
+      "expected": "SQL7-001",
+      "question": "I am inserting two delivery companies together. What does the multirow statement look like?",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-002",
+      "question": "Archive only the orders dated earlier than March 2006 with an insert from a query.",
+      "write": true,
+      "results": [
+        {
+          "id": "SQL7-002",
+          "score": 0.25703779594061127,
+          "coverage": 0.6118266561778941,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "Your question limits the data to [march], the stored query has NO date filter: add a date range condition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": "SQL7-004",
+      "question": "For beverages, updating price by ten percent must also put the reorder point at 30.",
+      "write": false,
+      "results": [
+        {
+          "id": "SQL5-037",
+          "score": 0.3174047587755428,
+          "coverage": 0.4821931999149342,
+          "critical": 0,
+          "warnings": [
+            {
+              "sev": "minor",
+              "msg": "Number differs: yours [10, 30], stored [10, 30, 20, 2]: adjust LIMIT/OFFSET/threshold constants."
+            }
+          ]
+        },
+        {
+          "id": "SQL5-038",
+          "score": 0.24953212021002455,
+          "coverage": 0.4821931999149342,
+          "critical": 0,
+          "warnings": [
+            {
+              "sev": "minor",
+              "msg": "The stored query has a threshold condition that your question does not mention: remove it."
+            },
+            {
+              "sev": "minor",
+              "msg": "Number differs: yours [10, 30], stored [10, 30, 2]: adjust LIMIT/OFFSET/threshold constants."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expected": "SQL7-011",
+      "question": "Deleting products that were never included on an order, preferably with NOT EXISTS.",
+      "write": false,
+      "results": [
+        {
+          "id": "SQL6-009",
+          "score": 0.4428763051281841,
+          "coverage": 0.5061690546267051,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "expected": "SQL7-013",
+      "question": "I need REPLACE for a duplicate ID; any unspecified fields should go back to defaults.",
+      "write": true,
+      "results": []
+    },
+    {
+      "expected": "SQL7-017",
+      "question": "I want a function for employee names formatted surname comma given name.",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-019",
+      "question": "The function should return the discounted bill for one order and zero if it has no lines.",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-020",
+      "question": "Before inserting a price, a trigger should turn negatives and missing values into zero.",
+      "write": false,
+      "results": [
+        {
+          "id": "TH3-035",
+          "score": 0.28277854508069195,
+          "coverage": 0.4650760515387899,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "expected": "SQL7-021",
+      "question": "On updating a price, the trigger must refuse negatives instead of silently fixing them.",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-023",
+      "question": "A procedure receives a staff number and returns all orders assigned to that person.",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-024",
+      "question": "An order number goes IN to my procedure; its total must come back OUT.",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-026",
+      "question": "Use a cursor to accumulate beverage catalogue prices until there are no more rows.",
+      "write": false,
+      "results": []
+    },
+    {
+      "expected": "SQL7-035",
+      "question": "Adding a CHECK should prevent amounts below zero without removing the amount column.",
+      "write": false,
+      "results": [
+        {
+          "id": "TH3-053",
+          "score": 0.27706902186617777,
+          "coverage": 0.4796083721765038,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "expected": "SQL7-031",
+      "question": "Add a foreign key so a child row survives parent deletion with its reference cleared.",
+      "write": false,
+      "results": [
+        {
+          "id": "TH3-016",
+          "score": 0.3376552719394513,
+          "coverage": 0.5184034207708917,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "TH-25",
+          "score": 0.3344528097701059,
+          "coverage": 0.4620976804889934,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "expected": "SQL7-040",
+      "question": "Transfer funds inside a transaction, undo just the second attempt with a savepoint, then keep the earlier work.",
+      "write": false,
+      "results": []
+    }
+  ],
+  "reads": [
+    {
+      "question": "List employee first and last names alphabetically.",
+      "write": false,
+      "results": [
+        {
+          "id": "A3-07",
+          "score": 0.3932363733555634,
+          "coverage": 0.46485675546421307,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL3-003",
+          "score": 0.23568618946563155,
+          "coverage": 0.6561163224838826,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "The result subject differs: yours is about \"employee\", the stored one about \"order\"."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Show each order and its discounted total, without defining a routine.",
+      "write": false,
+      "results": []
+    },
+    {
+      "question": "Find the most expensive product in each category.",
+      "write": false,
+      "results": [
+        {
+          "id": "LAB-15",
+          "score": 0.7712755604695227,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL5-029",
+          "score": 0.7156210555756879,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL4-001",
+          "score": 0.7023924862545121,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "Show customers who have never placed an order.",
+      "write": false,
+      "results": [
+        {
+          "id": "VAR-009",
+          "score": 0.924211105816865,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "LAB-08",
+          "score": 0.6987233369244623,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "COMBO-1678",
+          "score": 0.6875967556811399,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "Count orders for every employee, including employees with none.",
+      "write": false,
+      "results": [
+        {
+          "id": "SQL4-006",
+          "score": 0.289961697735224,
+          "coverage": 0.6736731847526802,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "The result subject differs: yours is about \"order\", the stored one about \"employee\"."
+            }
+          ]
+        },
+        {
+          "id": "SQL4-039",
+          "score": 0.25339390452007676,
+          "coverage": 0.5550405898739783,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "Your question mentions table(s) [employees] that the stored solution does not use: target tables differ."
+            }
+          ]
+        },
+        {
+          "id": "SQL5-001",
+          "score": 0.23201615254808697,
+          "coverage": 0.5550405898739783,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "Your question mentions table(s) [employees] that the stored solution does not use: target tables differ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "List beverages with List Price above 20.",
+      "write": false,
+      "results": [
+        {
+          "id": "VAR-056",
+          "score": 0.5084565656262662,
+          "coverage": 0.6403825243018341,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "A3-06",
+          "score": 0.4338246002047076,
+          "coverage": 0.7097941838025088,
+          "critical": 0,
+          "warnings": [
+            {
+              "sev": "minor",
+              "msg": "Number differs: yours [20], stored [10]: adjust LIMIT/OFFSET/threshold constants."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Show orders placed in January 2006.",
+      "write": false,
+      "results": [
+        {
+          "id": "VAR-081",
+          "score": 0.3804249227600829,
+          "coverage": 1,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "Time window differs: yours [january], stored [january, march, q1]."
+            }
+          ]
+        },
+        {
+          "id": "LAB-25",
+          "score": 0.2921315523377247,
+          "coverage": 0.8266485163217819,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "Your question limits the data to year(s) [2006]; the stored question has no year filter: add the date range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Use ROW_NUMBER window function to rank products by price.",
+      "write": false,
+      "results": [
+        {
+          "id": "TH-51",
+          "score": 0.5960866642483186,
+          "coverage": 0.8898140975067403,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "TH-15",
+          "score": 0.5605940726378518,
+          "coverage": 0.8013925338601124,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "TH3-041",
+          "score": 0.4851244926365633,
+          "coverage": 0.7311975584142646,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "Calculate average List Price for each category.",
+      "write": false,
+      "results": [
+        {
+          "id": "A4-04",
+          "score": 0.7009480549085829,
+          "coverage": 0.7720708296410929,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "A4-07",
+          "score": 0.5960747961444135,
+          "coverage": 0.5948077834201858,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL6-007",
+          "score": 0.5732587060110076,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": [
+            {
+              "sev": "minor",
+              "msg": "The stored query has a threshold condition that your question does not mention: remove it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Show the three customers with highest total spending.",
+      "write": false,
+      "results": [
+        {
+          "id": "SQL4-044",
+          "score": 0.5370210597366247,
+          "coverage": 0.6983620341547128,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "COMBO-0051",
+          "score": 0.5093884656774216,
+          "coverage": 0.47900054543314463,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "COMBO-0116",
+          "score": 0.5071744647725436,
+          "coverage": 0.47900054543314463,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "List products and their supplier company names.",
+      "write": false,
+      "results": [
+        {
+          "id": "SQL3-065",
+          "score": 0.44149479439994216,
+          "coverage": 0.830383790957812,
+          "critical": 0,
+          "warnings": [
+            {
+              "sev": "minor",
+              "msg": "The stored query has a threshold condition that your question does not mention: remove it."
+            }
+          ]
+        },
+        {
+          "id": "LAB-20",
+          "score": 0.4263637533235108,
+          "coverage": 0.830383790957812,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL3-023",
+          "score": 0.32247237400432105,
+          "coverage": 1,
+          "critical": 1,
+          "warnings": [
+            {
+              "sev": "critical",
+              "msg": "The result subject differs: yours is about \"product\", the stored one about \"order\"."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Count order details belonging to each order.",
+      "write": false,
+      "results": [
+        {
+          "id": "TH5-004",
+          "score": 0.28901179097922075,
+          "coverage": 0.7772417317284211,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "Show countries with at least two customers.",
+      "write": false,
+      "results": [
+        {
+          "id": "COMBO-0003",
+          "score": 0.4500132447332713,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL4-017",
+          "score": 0.42833190456791304,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "COMBO-0235",
+          "score": 0.42705051917015496,
+          "coverage": 1,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "Find products that were not ordered at all.",
+      "write": false,
+      "results": [
+        {
+          "id": "COMBO-1703",
+          "score": 0.5237261167594911,
+          "coverage": 0.49446843946079283,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "A4-08",
+          "score": 0.4666656594206524,
+          "coverage": 0.49446843946079283,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "LAB-21",
+          "score": 0.4048059896821599,
+          "coverage": 0.49446843946079283,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "question": "Use the SUM aggregate function for revenue per customer.",
+      "write": false,
+      "results": [
+        {
+          "id": "SQL3-092",
+          "score": 0.47428904278973993,
+          "coverage": 0.5034436372708305,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "SQL3-001",
+          "score": 0.43724668553523494,
+          "coverage": 0.5594812072909797,
+          "critical": 0,
+          "warnings": []
+        },
+        {
+          "id": "TH5-004",
+          "score": 0.4290556028912591,
+          "coverage": 0.48880234531132305,
+          "critical": 0,
+          "warnings": []
+        }
+      ]
+    }
+  ]
+}

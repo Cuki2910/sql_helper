@@ -1,0 +1,5 @@
+Removed own temporary data directory: tools/validation/mysql_baseline/data
+Removed own temporary data directory: tools/validation/mysql_round1/data
+Removed own temporary data directory: tools/validation/mysql_round2/data
+Removed own temporary data directory: tools/validation/mysql_round3/data
+Temporary server shut down; preexisting /tmp/mysqlx/data retained.

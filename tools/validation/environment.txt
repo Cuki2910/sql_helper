@@ -1,0 +1,8 @@
+2026-11-05 03:00:17 +07
+Darwin MacBook-Pro-cua-Dang.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:49 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T6000 arm64
+ProductName:		macOS
+ProductVersion:		15.5
+BuildVersion:		24F74
+v24.21.0
+Python 3.9.6
+/usr/local/mysql/bin/mysql  Ver 9.7.2 for macos15 on arm64 (MySQL Community Server - GPL)

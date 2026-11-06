@@ -1,0 +1,21 @@
+ok js/app.js
+ok js/data_bank.js
+ok js/data_schema.js
+ok js/search.js
+ok js/sql_reference.js
+ok js/store.js
+ok tools/blind2_run.js
+ok tools/blind_run.js
+ok tools/check_search.js
+ok tools/measure_bank.js
+ok tests/blind2_eval.js
+ok tests/blind3_eval.js
+ok tests/blind_eval.js
+ok tests/check_sql_reference.js
+ok tests/eval.js
+ok SQL Reference Finder.app/Contents/Resources/site/js/app.js
+ok SQL Reference Finder.app/Contents/Resources/site/js/data_bank.js
+ok SQL Reference Finder.app/Contents/Resources/site/js/data_schema.js
+ok SQL Reference Finder.app/Contents/Resources/site/js/search.js
+ok SQL Reference Finder.app/Contents/Resources/site/js/sql_reference.js
+ok SQL Reference Finder.app/Contents/Resources/site/js/store.js

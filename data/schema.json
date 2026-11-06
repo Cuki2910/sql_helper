@@ -1,0 +1,1618 @@
+{
+ "database": "northwind",
+ "source": "Northwind-1-1.sql",
+ "tables": [
+  {
+   "name": "customers",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Company",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Last Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "First Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "E-mail Address",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Job Title",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Business Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Home Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Mobile Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Fax Number",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Address",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "City",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "State/Province",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "ZIP/Postal Code",
+     "type": "varchar(15)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Country/Region",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Web Page",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Notes",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Attachments",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [],
+   "rows": 29
+  },
+  {
+   "name": "employee privileges",
+   "columns": [
+    {
+     "name": "Employee ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Privilege ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    }
+   ],
+   "primaryKey": [
+    "Employee ID",
+    "Privilege ID"
+   ],
+   "indexes": [],
+   "rows": 1
+  },
+  {
+   "name": "employees",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Company",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Last Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "First Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "E-mail Address",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Job Title",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Business Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Home Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Mobile Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Fax Number",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Address",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "City",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "State/Province",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "ZIP/Postal Code",
+     "type": "varchar(15)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Country/Region",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Web Page",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Notes",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Attachments",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [],
+   "rows": 9
+  },
+  {
+   "name": "inventory transaction types",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "tinyint unsigned",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Type Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [],
+   "rows": 4
+  },
+  {
+   "name": "inventory transactions",
+   "columns": [
+    {
+     "name": "Transaction ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Transaction Type",
+     "type": "tinyint unsigned",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Transaction Created Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Transaction Modified Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Product ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Quantity",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Purchase Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Customer Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Comments",
+     "type": "varchar(255)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 102
+  },
+  {
+   "name": "invoices",
+   "columns": [
+    {
+     "name": "Invoice ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Invoice Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Due Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Tax",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Shipping",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Amount Due",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "Invoice ID"
+   ],
+   "indexes": [],
+   "rows": 35
+  },
+  {
+   "name": "order details",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Product ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Quantity",
+     "type": "decimal(18,4)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Unit Price",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Discount",
+     "type": "double(53,30)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Status ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Date Allocated",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Purchase Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Inventory ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [
+    [
+     "FK_Order_OrderDetails_idx",
+     "Order ID"
+    ]
+   ],
+   "rows": 58
+  },
+  {
+   "name": "order details status",
+   "columns": [
+    {
+     "name": "Status ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Status Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "Status ID"
+   ],
+   "indexes": [],
+   "rows": 6
+  },
+  {
+   "name": "orders",
+   "columns": [
+    {
+     "name": "Order ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Employee ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Customer ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Order Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Shipped Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Shipper ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Ship Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Ship Address",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Ship City",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Ship State/Province",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Ship ZIP/Postal Code",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Ship Country/Region",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Shipping Fee",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Taxes",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Payment Type",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Paid Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Notes",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Tax Rate",
+     "type": "double(53,30)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Tax Status",
+     "type": "tinyint unsigned",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Status ID",
+     "type": "tinyint unsigned",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "Order ID"
+   ],
+   "indexes": [],
+   "rows": 48
+  },
+  {
+   "name": "orders status",
+   "columns": [
+    {
+     "name": "Status ID",
+     "type": "tinyint unsigned",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Status Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 4
+  },
+  {
+   "name": "orders tax status",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "tinyint unsigned",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Tax Status Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 2
+  },
+  {
+   "name": "privileges",
+   "columns": [
+    {
+     "name": "Privilege ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Privilege Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "Privilege ID"
+   ],
+   "indexes": [],
+   "rows": 1
+  },
+  {
+   "name": "products",
+   "columns": [
+    {
+     "name": "Supplier IDs",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Product Code",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Product Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Description",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Standard Cost",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "List Price",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Reorder Level",
+     "type": "smallint",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Target Level",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Quantity Per Unit",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Discontinued",
+     "type": "tinyint(1)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Minimum Reorder Quantity",
+     "type": "smallint",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Category",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Attachments",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [],
+   "rows": 45
+  },
+  {
+   "name": "purchase order details",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Purchase Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Product ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Quantity",
+     "type": "decimal(18,4)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Unit Cost",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Date Received",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Posted To Inventory",
+     "type": "tinyint(1)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Inventory ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 55
+  },
+  {
+   "name": "purchase order status",
+   "columns": [
+    {
+     "name": "Status ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Status",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 4
+  },
+  {
+   "name": "purchase orders",
+   "columns": [
+    {
+     "name": "Purchase Order ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Supplier ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Created By",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Submitted Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Creation Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Status ID",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Expected Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Shipping Fee",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Taxes",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Payment Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Payment Amount",
+     "type": "decimal(30,11)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Payment Method",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Notes",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Approved By",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Approved Date",
+     "type": "datetime",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Submitted By",
+     "type": "int",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 28
+  },
+  {
+   "name": "sales reports",
+   "columns": [
+    {
+     "name": "Group By",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Display",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Title",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Filter Row Source",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Default",
+     "type": "tinyint(1)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [],
+   "indexes": [],
+   "rows": 5
+  },
+  {
+   "name": "shippers",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Company",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Last Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "First Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "E-mail Address",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Job Title",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Business Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Home Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Mobile Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Fax Number",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Address",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "City",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "State/Province",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "ZIP/Postal Code",
+     "type": "varchar(15)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Country/Region",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Web Page",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Notes",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Attachments",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [],
+   "rows": 3
+  },
+  {
+   "name": "strings",
+   "columns": [
+    {
+     "name": "String ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "String Data",
+     "type": "varchar(255)",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "String ID"
+   ],
+   "indexes": [],
+   "rows": 62
+  },
+  {
+   "name": "suppliers",
+   "columns": [
+    {
+     "name": "ID",
+     "type": "int",
+     "nullable": false,
+     "pk": true
+    },
+    {
+     "name": "Company",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Last Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "First Name",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "E-mail Address",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Job Title",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Business Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Home Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Mobile Phone",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Fax Number",
+     "type": "varchar(25)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Address",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "City",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "State/Province",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "ZIP/Postal Code",
+     "type": "varchar(15)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Country/Region",
+     "type": "varchar(50)",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Web Page",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Notes",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    },
+    {
+     "name": "Attachments",
+     "type": "text",
+     "nullable": true,
+     "pk": false
+    }
+   ],
+   "primaryKey": [
+    "ID"
+   ],
+   "indexes": [],
+   "rows": 10
+  }
+ ],
+ "relationships": [
+  {
+   "child": "orders",
+   "childCol": "Customer ID",
+   "parent": "customers",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `orders` AS c\nJOIN `customers` AS p ON c.`Customer ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 48,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "orders",
+   "childCol": "Employee ID",
+   "parent": "employees",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `orders` AS c\nJOIN `employees` AS p ON c.`Employee ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 48,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "orders",
+   "childCol": "Shipper ID",
+   "parent": "shippers",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `orders` AS c\nJOIN `shippers` AS p ON c.`Shipper ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 43,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "orders",
+   "childCol": "Status ID",
+   "parent": "orders status",
+   "parentCol": "Status ID",
+   "note": "",
+   "example": "SELECT *\nFROM `orders` AS c\nJOIN `orders status` AS p ON c.`Status ID` = p.`Status ID`;",
+   "check": {
+    "childNonNull": 48,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "orders",
+   "childCol": "Tax Status",
+   "parent": "orders tax status",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `orders` AS c\nJOIN `orders tax status` AS p ON c.`Tax Status` = p.`ID`;",
+   "check": {
+    "childNonNull": 0,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": false
+  },
+  {
+   "child": "order details",
+   "childCol": "Order ID",
+   "parent": "orders",
+   "parentCol": "Order ID",
+   "note": "indexed as FK_Order_OrderDetails_idx but no constraint",
+   "example": "SELECT *\nFROM `order details` AS c\nJOIN `orders` AS p ON c.`Order ID` = p.`Order ID`;",
+   "check": {
+    "childNonNull": 58,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "order details",
+   "childCol": "Product ID",
+   "parent": "products",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `order details` AS c\nJOIN `products` AS p ON c.`Product ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 58,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "order details",
+   "childCol": "Status ID",
+   "parent": "order details status",
+   "parentCol": "Status ID",
+   "note": "",
+   "example": "SELECT *\nFROM `order details` AS c\nJOIN `order details status` AS p ON c.`Status ID` = p.`Status ID`;",
+   "check": {
+    "childNonNull": 58,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "order details",
+   "childCol": "Purchase Order ID",
+   "parent": "purchase orders",
+   "parentCol": "Purchase Order ID",
+   "note": "",
+   "example": "SELECT *\nFROM `order details` AS c\nJOIN `purchase orders` AS p ON c.`Purchase Order ID` = p.`Purchase Order ID`;",
+   "check": {
+    "childNonNull": 15,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "order details",
+   "childCol": "Inventory ID",
+   "parent": "inventory transactions",
+   "parentCol": "Transaction ID",
+   "note": "",
+   "example": "SELECT *\nFROM `order details` AS c\nJOIN `inventory transactions` AS p ON c.`Inventory ID` = p.`Transaction ID`;",
+   "check": {
+    "childNonNull": 56,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "inventory transactions",
+   "childCol": "Transaction Type",
+   "parent": "inventory transaction types",
+   "parentCol": "ID",
+   "note": "NO column named Status; use Transaction Type -> Type Name (Sold = 2)",
+   "example": "SELECT *\nFROM `inventory transactions` AS c\nJOIN `inventory transaction types` AS p ON c.`Transaction Type` = p.`ID`;",
+   "check": {
+    "childNonNull": 102,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "inventory transactions",
+   "childCol": "Product ID",
+   "parent": "products",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `inventory transactions` AS c\nJOIN `products` AS p ON c.`Product ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 102,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "inventory transactions",
+   "childCol": "Customer Order ID",
+   "parent": "orders",
+   "parentCol": "Order ID",
+   "note": "",
+   "example": "SELECT *\nFROM `inventory transactions` AS c\nJOIN `orders` AS p ON c.`Customer Order ID` = p.`Order ID`;",
+   "check": {
+    "childNonNull": 0,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": false
+  },
+  {
+   "child": "inventory transactions",
+   "childCol": "Purchase Order ID",
+   "parent": "purchase orders",
+   "parentCol": "Purchase Order ID",
+   "note": "",
+   "example": "SELECT *\nFROM `inventory transactions` AS c\nJOIN `purchase orders` AS p ON c.`Purchase Order ID` = p.`Purchase Order ID`;",
+   "check": {
+    "childNonNull": 0,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": false
+  },
+  {
+   "child": "purchase order details",
+   "childCol": "Purchase Order ID",
+   "parent": "purchase orders",
+   "parentCol": "Purchase Order ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase order details` AS c\nJOIN `purchase orders` AS p ON c.`Purchase Order ID` = p.`Purchase Order ID`;",
+   "check": {
+    "childNonNull": 55,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase order details",
+   "childCol": "Product ID",
+   "parent": "products",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase order details` AS c\nJOIN `products` AS p ON c.`Product ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 55,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase order details",
+   "childCol": "Inventory ID",
+   "parent": "inventory transactions",
+   "parentCol": "Transaction ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase order details` AS c\nJOIN `inventory transactions` AS p ON c.`Inventory ID` = p.`Transaction ID`;",
+   "check": {
+    "childNonNull": 43,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase orders",
+   "childCol": "Supplier ID",
+   "parent": "suppliers",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase orders` AS c\nJOIN `suppliers` AS p ON c.`Supplier ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 28,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase orders",
+   "childCol": "Created By",
+   "parent": "employees",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase orders` AS c\nJOIN `employees` AS p ON c.`Created By` = p.`ID`;",
+   "check": {
+    "childNonNull": 25,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase orders",
+   "childCol": "Approved By",
+   "parent": "employees",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase orders` AS c\nJOIN `employees` AS p ON c.`Approved By` = p.`ID`;",
+   "check": {
+    "childNonNull": 25,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase orders",
+   "childCol": "Submitted By",
+   "parent": "employees",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase orders` AS c\nJOIN `employees` AS p ON c.`Submitted By` = p.`ID`;",
+   "check": {
+    "childNonNull": 28,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "purchase orders",
+   "childCol": "Status ID",
+   "parent": "purchase order status",
+   "parentCol": "Status ID",
+   "note": "",
+   "example": "SELECT *\nFROM `purchase orders` AS c\nJOIN `purchase order status` AS p ON c.`Status ID` = p.`Status ID`;",
+   "check": {
+    "childNonNull": 28,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "invoices",
+   "childCol": "Order ID",
+   "parent": "orders",
+   "parentCol": "Order ID",
+   "note": "",
+   "example": "SELECT *\nFROM `invoices` AS c\nJOIN `orders` AS p ON c.`Order ID` = p.`Order ID`;",
+   "check": {
+    "childNonNull": 35,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "employee privileges",
+   "childCol": "Employee ID",
+   "parent": "employees",
+   "parentCol": "ID",
+   "note": "",
+   "example": "SELECT *\nFROM `employee privileges` AS c\nJOIN `employees` AS p ON c.`Employee ID` = p.`ID`;",
+   "check": {
+    "childNonNull": 1,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  },
+  {
+   "child": "employee privileges",
+   "childCol": "Privilege ID",
+   "parent": "privileges",
+   "parentCol": "Privilege ID",
+   "note": "",
+   "example": "SELECT *\nFROM `employee privileges` AS c\nJOIN `privileges` AS p ON c.`Privilege ID` = p.`Privilege ID`;",
+   "check": {
+    "childNonNull": 1,
+    "orphans": 0,
+    "parentKeyDuplicates": 0
+   },
+   "dataVerified": true
+  }
+ ],
+ "notes": [
+  "The dump declares NO foreign-key constraints; relationships are inferred from names and checked against the data (see check/dataVerified).",
+  "Identifiers contain spaces, \"/\" and \"-\": always quote with backticks in MySQL.",
+  "`products`.`Supplier IDs` is a text list, not a clean foreign key.",
+  "`orders status` and `orders tax status` have no primary key."
+ ]
+}

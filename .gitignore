@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.app/
+.env
+.env.*
+!.env.example
+*.pem
+*.key

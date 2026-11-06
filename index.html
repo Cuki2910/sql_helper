@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'">
+<title>SQL Reference Finder</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>SQL Reference Finder <small>offline · deterministic · no AI</small></h1>
+</header>
+
+<div class="workspace">
+<aside class="sidebar">
+  <nav id="tabs" aria-label="Main navigation">
+    <button data-tab="search" class="on" aria-current="page">Search</button>
+    <button data-tab="sql-order" lang="vi">Thứ tự &amp; tra cứu SQL</button>
+    <button data-tab="schema" lang="vi">Northwind: Bảng &amp; Liên kết</button>
+    <button data-tab="theory">Theory</button>
+    <button data-tab="bank">Question bank</button>
+  </nav>
+</aside>
+<main>
+<section id="tab-search">
+  <textarea id="q" rows="5" placeholder="Paste the exam question here…  (Ctrl/Cmd + Enter to search)" spellcheck="false" autofocus></textarea>
+  <div class="row">
+    <button id="go" class="primary">Search</button>
+    <button id="clear">Clear</button>
+    <label><input type="checkbox" id="onlyVerified"> verified solutions only</label>
+    <span id="stat" class="muted"></span>
+  </div>
+  <div id="detected" class="muted"></div>
+  <div id="results"></div>
+</section>
+
+<section id="tab-theory" hidden>
+  <input id="tq" type="search" placeholder="Filter theory questions (e.g. where having, exists, index)…">
+  <div id="tlist"></div>
+</section>
+
+<section id="tab-sql-order" lang="vi" aria-labelledby="sql-order-title" hidden>
+  <h2 id="sql-order-title">Thứ tự &amp; tra cứu SQL</h2>
+  <p class="muted">Khung SELECT và cheat sheet MySQL 8.0: phân biệt mệnh đề, điều kiện và hàm. Không phải query nào cũng cần đủ các phần.</p>
+  <p><a href="#sql-reference-title">Tra nhanh OFFSET, DATE_FORMAT, IS NULL, EXISTS và các mẫu khác</a></p>
+  <div class="reference-grid">
+    <article class="card">
+      <h3>1. Thứ tự viết</h3>
+      <pre><code>[WITH ten_cte AS (SELECT ...)]
+SELECT [DISTINCT] ...
+FROM ...
+[INNER | LEFT | RIGHT] JOIN ... ON ...
+WHERE ...
+GROUP BY ...
+HAVING ...
+[WINDOW ten_window AS (...)]
+ORDER BY ...
+LIMIT so_dong [OFFSET so_dong_bo_qua];</code></pre>
+      <p class="note">Dấu [...] chỉ lựa chọn hoặc phần tùy chọn trong khung, không gõ nguyên dấu này vào SQL. INNER, LEFT, RIGHT là các kiểu JOIN để lựa chọn.</p>
+    </article>
+    <article class="card">
+      <h3>2. Thứ tự xử lý logic</h3>
+      <ol class="logic-order">
+        <li><code>FROM / JOIN / ON</code>: xác định nguồn, ghép bảng.</li>
+        <li><code>WHERE</code>: lọc từng dòng.</li>
+        <li><code>GROUP BY</code>: gom dòng thành nhóm.</li>
+        <li><code>HAVING</code>: lọc nhóm.</li>
+        <li><code>SELECT / window functions</code>: tính và chọn cột, xếp hạng trên các dòng sau khi lọc/nhóm.</li>
+        <li><code>DISTINCT</code>: bỏ các dòng kết quả trùng.</li>
+        <li><code>ORDER BY</code>: sắp xếp kết quả.</li>
+        <li><code>LIMIT / OFFSET</code>: bỏ qua offset dòng, lấy tối đa limit dòng.</li>
+      </ol>
+      <p class="note">Đây là mô hình logic để hiểu query, không phải thứ tự chạy vật lý của bộ tối ưu.</p>
+    </article>
+  </div>
+  <article class="card">
+    <h3>Mỗi phần trả lời câu hỏi gì?</h3>
+    <div class="table-scroll" role="region" aria-label="Ý nghĩa các mệnh đề SQL" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Mệnh đề</th><th scope="col">Mục đích</th><th scope="col">Lưu ý</th></tr></thead>
+        <tbody>
+          <tr><td><code>SELECT</code></td><td>Lấy cột nào, tính giá trị gì?</td><td>Chọn cột cần dùng thay vì mặc định SELECT *.</td></tr>
+          <tr><td><code>FROM</code></td><td>Dữ liệu nằm ở bảng nào?</td><td>Dùng alias ngắn, rõ nghĩa khi nối bảng.</td></tr>
+          <tr><td><code>JOIN ... ON</code></td><td>Cần thêm bảng nào, nối bằng cột gì?</td><td>Quan hệ một–nhiều có thể làm một đối tượng xuất hiện nhiều dòng.</td></tr>
+          <tr><td><code>WHERE</code></td><td>Giữ những dòng nào trước khi nhóm?</td><td>Không đặt COUNT/SUM của nhóm trực tiếp tại đây; dùng HAVING.</td></tr>
+          <tr><td><code>GROUP BY</code></td><td>Tính theo từng khách hàng, sản phẩm hay thời kỳ?</td><td>Trong query nhóm thông thường, cột SELECT không tổng hợp phải thuộc GROUP BY hoặc phụ thuộc hàm vào khóa nhóm.</td></tr>
+          <tr><td><code>HAVING</code></td><td>Giữ những nhóm nào?</td><td>Ví dụ HAVING COUNT(*) &gt;= 2.</td></tr>
+          <tr><td><code>WINDOW</code></td><td>Đặt tên cửa sổ dùng chung cho OVER?</td><td>Hàm ROW_NUMBER/RANK/DENSE_RANK viết trong SELECT ... OVER (...), không viết thành mệnh đề độc lập.</td></tr>
+          <tr><td><code>ORDER BY</code></td><td>Sắp xếp theo tiêu chí gì?</td><td>ASC tăng dần, DESC giảm dần. Có thể dùng alias từ SELECT.</td></tr>
+          <tr><td><code>LIMIT</code></td><td>Lấy tối đa bao nhiêu dòng?</td><td>Thêm ORDER BY và tiêu chí phá hòa để top N có thứ tự xác định.</td></tr>
+          <tr><td><code>OFFSET</code></td><td>Bỏ qua bao nhiêu dòng kết quả?</td><td>LIMIT 3 OFFSET 5 lấy vị trí 6–8 nếu đủ dòng. Không xóa dữ liệu; MySQL dùng OFFSET kèm LIMIT.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article class="card">
+    <h3>Ví dụ Northwind: 10 khách có nhiều đơn nhất từ đầu năm 2006, ít nhất 2 đơn</h3>
+    <pre><code id="sql-order-example">SELECT c.`ID`, c.`Company`, COUNT(o.`Order ID`) AS order_count
+FROM `customers` AS c
+JOIN `orders` AS o ON o.`Customer ID` = c.`ID`
+WHERE o.`Order Date` &gt;= '2006-01-01'
+GROUP BY c.`ID`, c.`Company`
+HAVING COUNT(o.`Order ID`) &gt;= 2
+ORDER BY order_count DESC, c.`ID`
+LIMIT 10;</code></pre>
+    <p class="note">WHERE lọc đơn theo ngày; GROUP BY gom theo khách; HAVING giữ khách đủ 2 đơn. Dùng backtick cho tên bảng/cột có khoảng trắng.</p>
+  </article>
+  <details class="card">
+    <summary>Ba lỗi dễ nhầm</summary>
+    <ul>
+      <li>Alias đặt trong SELECT không dùng được ở WHERE của cùng cấp query. MySQL cho dùng alias trong GROUP BY, HAVING và ORDER BY.</li>
+      <li>LEFT JOIN rồi lọc cột bảng phải trong WHERE có thể làm mất các dòng không có bản ghi ghép. Đặt điều kiện tại ON nếu cần giữ chúng.</li>
+      <li>Sau khi nối orders với order details, COUNT(*) đếm dòng chi tiết; COUNT(DISTINCT mã đơn) mới đếm các đơn khác nhau.</li>
+    </ul>
+  </details>
+  <h3 id="sql-reference-title">Cheat sheet theo nhóm</h3>
+  <p>IS NULL, EXISTS, IN, LIKE là điều kiện; DATE_FORMAT, COUNT, COALESCE là hàm. Chúng được đặt trong các mệnh đề phù hợp, không nối tuần tự như FROM rồi WHERE.</p>
+  <label class="filter-label" for="sql-ref-q">Tìm cú pháp, hàm hoặc tình huống</label>
+  <input id="sql-ref-q" type="search" placeholder="Ví dụ: offset, date format, is null, exists, đồng hạng…">
+  <p class="muted" id="sql-ref-stat" role="status" aria-live="polite"></p>
+  <div id="sql-ref-list"></div>
+</section>
+
+<section id="tab-schema" lang="vi" aria-labelledby="northwind-title" hidden>
+  <h2 id="northwind-title">Northwind: Bảng &amp; Liên kết</h2>
+  <p class="muted" id="schema-stat"></p>
+  <article class="card">
+    <h3>Đọc database theo nghiệp vụ</h3>
+    <ul>
+      <li><strong>Bán hàng:</strong> customers lưu khách hàng; orders lưu đơn; order details lưu từng dòng sản phẩm trong đơn; products mô tả sản phẩm.</li>
+      <li><strong>Nhập hàng:</strong> suppliers lưu nhà cung cấp; purchase orders lưu đơn mua; purchase order details lưu các dòng hàng mua.</li>
+      <li><strong>Vận hành:</strong> employees, shippers, invoices và inventory transactions mô tả nhân viên, giao hàng, hóa đơn, biến động kho.</li>
+      <li><strong>Tra cứu:</strong> các bảng status/type giải nghĩa mã; employee privileges là bảng nối nhân viên với quyền.</li>
+    </ul>
+    <p><strong>Một dòng không luôn là một đơn:</strong> orders có một dòng mỗi đơn; order details có một dòng mỗi mục hàng. Một đơn có thể xuất hiện nhiều lần sau JOIN. Không cộng lặp Shipping Fee của đơn trên các dòng chi tiết.</p>
+    <p class="note">Cột (column) là thuộc tính; dòng/hàng (row) là một bản ghi. Số dòng bên dưới thuộc bản dump đi kèm, không phải thống kê trực tiếp từ DB đang chạy.</p>
+  </article>
+  <details class="card">
+    <summary>Đặc điểm cần nhớ của bản Northwind này</summary>
+    <ul>
+      <li>Dump không khai báo FOREIGN KEY. Các liên kết bên dưới là suy luận; nhãn kiểm tra dữ liệu không có nghĩa DB đang cưỡng chế quan hệ.</li>
+      <li>Tên bảng/cột có khoảng trắng, dấu / hoặc dấu -. Dùng backtick trong MySQL, ví dụ <code>`order details`.`Order ID`</code>.</li>
+      <li><code>products.Supplier IDs</code> là danh sách dạng text, không phải khóa ngoại đơn để JOIN trực tiếp với suppliers.ID.</li>
+      <li><code>orders status</code>, <code>orders tax status</code> và một số bảng khác không khai báo PRIMARY KEY. Đừng mặc định cột mang tên ID luôn là khóa chính.</li>
+      <li>Cột cho phép NULL có thể thiếu dữ liệu. Dùng IS NULL thay vì = NULL; cân nhắc LEFT JOIN nếu cần giữ bản ghi chưa có liên kết.</li>
+    </ul>
+  </details>
+  <label class="filter-label" for="sq">Tìm bảng, cột hoặc nội dung mô tả</label>
+  <input id="sq" type="search" placeholder="Ví dụ: orders, Order Date, khách hàng, tồn kho…">
+  <h3>Các bảng <span class="muted">— mở bảng để xem cột và cách nối</span></h3>
+  <div id="slist"></div>
+  <h3>Liên kết giữa các bảng <span class="muted">(suy luận, không có ràng buộc FOREIGN KEY)</span></h3>
+  <div id="rels"></div>
+</section>
+
+<section id="tab-bank" hidden>
+  <div class="row">
+    <button id="bAdd" class="primary">Add entry</button>
+    <button id="bExport">Export bank (JSON)</button>
+    <button id="bBackup">Backup user data</button>
+    <label class="filebtn">Import JSON / CSV<input type="file" id="bImport" accept=".json,.csv"></label>
+    <label class="filebtn">Restore backup<input type="file" id="bRestore" accept=".json"></label>
+    <button id="bReset" class="danger">Delete my entries</button>
+  </div>
+  <p class="muted" id="bInfo"></p>
+  <div class="row">
+    <input id="bq" type="search" placeholder="Filter by id / text / pattern / tag…">
+    <select id="bStatus"><option value="">all statuses</option><option>execution-verified</option><option>executed-single</option><option>reference-text</option><option>unverified</option></select>
+    <select id="bSource"><option value="">all sources</option><option>original</option><option>generated</option><option>authored</option><option>user</option></select>
+  </div>
+  <div id="blist"></div>
+  <details><summary>Ranking weights (advanced)</summary><div id="weights" class="row"></div><button id="wReset">Reset weights</button></details>
+</section>
+</main>
+</div>
+
+<div id="modal" hidden><div id="modalBody"></div></div>
+<div id="toast" hidden></div>
+
+<script src="js/data_schema.js"></script>
+<script src="js/data_bank.js"></script>
+<script src="js/search.js"></script>
+<script src="js/store.js"></script>
+<script src="js/sql_reference.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

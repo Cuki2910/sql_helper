@@ -1,0 +1,17 @@
+PASS SQL3-030 NULL costs do not count; duplicate cheaper products do
+PASS SQL3-031 second distinct cost retains its entire rank
+PASS SQL3-032 fixed row count drops extra tied prices
+PASS SQL3-027 inclusive ten-percent threshold; category-local JSON expansion
+PASS SQL3-011 all tied category maxima
+PASS SQL3-055 empty ALL includes a NULL left operand
+PASS SQL3-056 empty ANY is false
+PASS SQL3-055 nonempty ALL ignores only explicitly excluded reference NULLs
+PASS SQL3-056 nonempty ANY needs a true comparison
+PASS SQL3-051 empty reference set qualifies inactive customers
+PASS SQL3-051 coverage requires every reference product
+PASS SQL3-060 nonempty requirement and NULL counterexample
+PASS SQL3-078 empty aggregate outputs one row of zeros
+PASS SQL3-099 equal-valued lines must not disappear; two-child fanout
+PASS SQL3-046 domain extraction policy and missing values
+PASS SQL3-098 employee with a quarter order but no detail must get zero
+PASS theory truth tables, ISO year boundary, collation padding, JSON null

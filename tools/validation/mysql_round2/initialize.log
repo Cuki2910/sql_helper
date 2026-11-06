@@ -1,0 +1,8 @@
+2026-11-04T19:49:54.342691Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-11-04T19:49:54.344793Z 0 [System] [MY-013169] [Server] /usr/local/mysql/bin/mysqld (mysqld 9.7.2) initializing of server in progress as process 93540
+2026-11-04T19:49:54.346537Z 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /Users/cuki2910/Desktop/sql_helper/tools/validation/mysql_round2/data/ is case insensitive
+2026-11-04T19:49:54.350281Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-11-04T19:49:54.399725Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-11-04T19:49:54.766559Z 5 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2026-11-04T19:49:55.070511Z 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 9.7.2).
+2026-11-04T19:49:55.608373Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.

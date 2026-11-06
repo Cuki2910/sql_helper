@@ -1,0 +1,90 @@
+[
+ {
+  "slug": "order-status-count",
+  "q": "How many orders are in each workflow stage, with stages that have no orders listed as zero?"
+ },
+ {
+  "slug": "line-status",
+  "q": "Count the order lines by their allocation state, keeping states nobody uses"
+ },
+ {
+  "slug": "po-status",
+  "q": "Number of purchase orders per approval state"
+ },
+ {
+  "slug": "no-privilege",
+  "q": "Which staff members hold no permissions at all?"
+ },
+ {
+  "slug": "emp-privilege",
+  "q": "Show each employee together with the name of the permission they were given"
+ },
+ {
+  "slug": "strings-like",
+  "q": "Find the stored messages that mention the word 'remove'"
+ },
+ {
+  "slug": "bottle-like",
+  "q": "Products packaged in bottles according to their packaging description"
+ },
+ {
+  "slug": "numeric-prefix",
+  "q": "Products whose packaging text begins with a number followed by a space"
+ },
+ {
+  "slug": "all-cities",
+  "q": "All the towns where we have a client, a vendor or an employee, each listed once"
+ },
+ {
+  "slug": "cities-both",
+  "q": "Towns that contain both a client and a staff member"
+ },
+ {
+  "slug": "right-join",
+  "q": "List every carrier with how many orders it moved, writing the join so that orders are on the left side"
+ },
+ {
+  "slug": "cross-matrix",
+  "q": "Grid of every carrier against every order stage with the number of orders in each cell"
+ },
+ {
+  "slug": "payment-null",
+  "q": "Orders per payment method, showing missing methods as 'Not recorded'"
+ },
+ {
+  "slug": "job-manager",
+  "q": "Clients whose contact has a managerial position"
+ },
+ {
+  "slug": "weekend",
+  "q": "How many orders were entered on a Saturday or Sunday?"
+ },
+ {
+  "slug": "closed-card",
+  "q": "Finished orders that were settled by credit card, with the client name"
+ },
+ {
+  "slug": "po-approval-days",
+  "q": "Average waiting time between submitting and approving a purchase order"
+ },
+ {
+  "slug": "po-unpaid",
+  "q": "Approved purchase orders that still have no payment date, with the vendor name"
+ },
+ {
+  "slug": "supplier-two-po",
+  "q": "Vendors with two or more purchase orders and the date of their latest one"
+ },
+ {
+  "slug": "invoice-before-order",
+  "q": "Invoices dated earlier than the order they belong to"
+ },
+ {
+  "slug": "waste-products",
+  "q": "Items that were written off at least once, with total quantity wasted"
+ },
+ {
+  "slug": "min-reorder-null",
+  "q": "Per category, how many products exist and for how many a minimum reorder quantity is recorded"
+ }
+]

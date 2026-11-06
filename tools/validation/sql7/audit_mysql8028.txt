@@ -1,0 +1,5 @@
+Independent MySQL CLI audit
+SQL entries: 44 statuses: {'execution-verified': 44}
+Main/alternative executions: 88 additional answer executions: 0
+Empty primary results: 0 
+Mismatches: 0

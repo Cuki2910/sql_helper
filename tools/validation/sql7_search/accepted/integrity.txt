@@ -1,0 +1,10 @@
+Accepted snapshot: only write-classification block differs from /tmp/search.js.pre_x.
+Concurrent comparison-normalization changes excluded; live source/app not modified.
+SQL7 source unchanged; built SQL7 entries unchanged except aliases: 44/44.
+Old aliases retained: 88/88; new natural aliases: 132 (3 per entry).
+Forbidden alias terms (zz_, scratch, SQLSTATE): 0.
+Heldout/eval/protected pre-edit hashes unchanged in accepted snapshot.
+minScore=0.22; minCoverage=0.45; critPenalty=0.55; write multiplier=0.75 unchanged.
+Frozen 15-write/15-SELECT test SHA-256 unchanged.
+All 30 original MISS@1 lines unchanged versus baseline.
+Snapshot app search.js/data_bank.js match accepted sources.

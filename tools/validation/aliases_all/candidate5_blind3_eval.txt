@@ -1,0 +1,6 @@
+MISS order-status-count | got SQL5-002 | want SQL5-001 | rank 2
+MISS line-status | got TH5-003 | want SQL5-002 | rank -
+MISS po-status | got SQL3-063 | want SQL5-003 | rank -
+MISS cities-both | got SQL6-025 | want SQL5-010 | rank 2
+MISS cross-matrix | got LAB-10 | want SQL5-013 | rank 2
+blind3 22: R@1 17/22  R@3 20/22  no-answer 0

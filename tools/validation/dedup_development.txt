@@ -1,0 +1,16 @@
+New entries: 160 {'sql': 100, 'theory': 60}
+Statuses: {'execution-verified': 100, 'reference-text': 60}
+New empty results: 4 ['SQL3-008', 'SQL3-046', 'SQL3-056', 'SQL3-089']
+Existing entry content preserved: 1983 / 1983
+Held-out prefix unchanged: 146 ; preregistered additions unchanged: 88
+Normalized duplicate groups: existing 0 involving new 0
+Engine-normalized duplicate groups involving new: []
+Near-text candidates (token Jaccard >= 0.65; manual semantic review required):
+NEAR ('SQL3-055', 'SQL3-056') 0.667
+Same nonempty result-hash candidates involving new (intent must be reviewed):
+HASH ['VAR-015', 'COMBO-1704', 'SQL3-022']
+HASH ['SQL3-025', 'SQL3-052']
+Nonempty result-hash candidate groups: 2
+Identical structural feature signatures: []
+Protected file hashes checked: 18
+Errors: 0

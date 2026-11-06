@@ -1,0 +1,80 @@
+{
+ "intro": "Using the Northwind database, write SQL statement to:",
+ "questions": [
+  {
+   "no": 1,
+   "points": 1,
+   "text": "Return the list of customers (Last Name, First Name, Job Title), sort them by Last Name, then First Name, both by descending order."
+  },
+  {
+   "no": 2,
+   "points": 1,
+   "text": "How many distinct countries/regions has each employee shipped orders to?"
+  },
+  {
+   "no": 3,
+   "points": 1,
+   "text": "Retrieve the average discount applied to orders shipped to USA."
+  },
+  {
+   "no": 4,
+   "points": 1,
+   "text": "Return the State/Province with only one customer and the customer details (First Name, Last Name) in those states."
+  },
+  {
+   "no": 5,
+   "points": 1,
+   "text": "You need to retrieve unique product categories in the Northwind Database. Which query is better? Explain why.\nQuery 1 (Using DISTINCT):\nSELECT DISTINCT Category FROM Products;\nQuery 2 (Using GROUP BY):\nSELECT Category FROM Products GROUP BY Category;."
+  },
+  {
+   "no": 6,
+   "points": 2,
+   "text": "Retrieve (all columns) 3 orders which have the 6th, 7th, and 8th highest shipping fee."
+  },
+  {
+   "no": 7,
+   "points": 1,
+   "text": "Retrieves the employee who processed the highest number of orders across all months combined in 2006."
+  },
+  {
+   "no": 8,
+   "points": 1,
+   "text": "Which employees have never processed an order for a customer from the same city they are based in?"
+  },
+  {
+   "no": 9,
+   "points": 1,
+   "text": "Consider the following query, when you want to get some information in the Orders table like “order_id, customer_id, order_date”:\nSELECT * FROM Orders WHERE `Order Date` >= '2006-04-25';\nWhy is this inefficient? How can you improve it?"
+  },
+  {
+   "no": 10,
+   "points": 1,
+   "text": "You need to retrieve the top 10 most expensive products in the Northwind Database. Which query is better? Explain why.\nQuery 1:\nSELECT * FROM Products\nORDER BY `List Price` DESC\nLIMIT 10;\nQuery 2:\nSELECT * FROM Products\nWHERE `List Price` >= (SELECT MIN(`List Price`) FROM\n(SELECT `List Price` FROM Products ORDER BY `List Price` DESC LIMIT 10) t);"
+  },
+  {
+   "no": 11,
+   "points": 1,
+   "text": "Return all the Product Code, Product Name, Category, List Price, Standard Cost and Profit Margin (which can be computed as (List Price - Standard Cost)/ Standard Cost) of products, with Profit Margin larger or equal to 50%. The table products should contain all the needed information for this query."
+  },
+  {
+   "no": 12,
+   "points": 2,
+   "text": "Find customers who placed orders for products from more than 3 different categories (Hint: You might need to take a look at several tables)"
+  },
+  {
+   "no": 13,
+   "points": 2,
+   "text": "Given the Total Value can be computed as SUM of Unit Price * Quantity, retrieve Order ID, Total Value and Shipping Fee of each order, then only display those with Shipping Fee > 15% of Total Value. You should also return a column showing the ratio between Shipping Fee and Total Value (i.e., Shipping Fee/ Total Value), this column should be rounded to 4 decimal places."
+  },
+  {
+   "no": 14,
+   "points": 2,
+   "text": "From the inventory transactions table, write an SQL query to compute the total quantity of each product (Product ID) for each month, using the Transaction Created Date column as the date of the transaction. The result should also include Product name, and you should only include inventory transactions with status = ‘Sold’. There should be 4 columns in your results:\nMonth: The month in which the transactions occurred, in the format 'YYYY-MM'.\nProduct ID: The ID of the product.\nProduct Name: The name of the product.\nTotal Quantity: The total quantity of the inventory sold in that month."
+  },
+  {
+   "no": 15,
+   "points": 2,
+   "text": "Find products that have been ordered together most frequently (Hint: Using seft join)."
+  }
+ ]
+}

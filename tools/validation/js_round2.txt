@@ -1,0 +1,13 @@
+node --check PASS SQL Reference Finder.app/Contents/Resources/site/js/app.js
+node --check PASS SQL Reference Finder.app/Contents/Resources/site/js/search.js
+node --check PASS SQL Reference Finder.app/Contents/Resources/site/js/store.js
+node --check PASS SQL Reference Finder.app/Contents/Resources/site/js/data_schema.js
+node --check PASS SQL Reference Finder.app/Contents/Resources/site/js/data_bank.js
+node --check PASS tests/eval.js
+node --check PASS js/app.js
+node --check PASS js/search.js
+node --check PASS js/store.js
+node --check PASS js/data_schema.js
+node --check PASS js/data_bank.js
+node --check PASS tools/measure_bank.js
+node --check PASS tools/check_search.js

@@ -1,0 +1,2 @@
+combo: candidates 1918 kept 1712 dropped {'dup-existing': 10, 'error': 0, 'differs': 0, 'empty': 112, 'all-rows': 36, 'dup-question': 0, 'dup-result': 48}
+2376 entries; {'execution-verified': 2200, 'reference-text': 176}

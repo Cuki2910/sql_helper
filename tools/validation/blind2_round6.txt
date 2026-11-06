@@ -1,0 +1,85 @@
+1. [top3-category] Give me the 3 priciest items of every product group; if prices are equal use the lower id first
+   NONE
+2. [share-customer] What fraction of all discounted sales does each client represent?
+   NONE
+3. [running-orders] Cumulative number of orders month by month
+   SQL4-009 0.60 | For each month of 2006 that has orders, show the month (YYYY-MM), its discounted revenue and th
+   VAR-082 0.50 | Count the orders per month, formatted as YYYY-MM.
+   SQL3-037 0.35 | Show discounted sales per observed order month, previous observed month sales, and the differen
+4. [running-revenue] Sales per month with a rolling sum
+   SQL4-009 0.54 | For each month of 2006 that has orders, show the month (YYYY-MM), its discounted revenue and th
+   VAR-083 0.48 | For each employee, count the orders placed per month (YYYY-MM).
+   VAR-082 0.48 | Count the orders per month, formatted as YYYY-MM.
+5. [above-avg-order] Which orders are bigger than the typical order?
+   SQL4-012 0.74 | List orders whose discounted line total is above the average discounted total of all orders; sh
+   SQL3-057 0.74 | Find orders whose Shipping Fee exceeds the average Shipping Fee of that same customer; return c
+   SQL3-058 0.72 | Find orders with gross line totals above their employee own average order gross total; show emp
+6. [above-avg-employee] Staff whose revenue beats the staff average
+   SQL4-013 0.54 | List employees whose total discounted revenue is above the average total revenue per employee, 
+7. [gap-minmax] Largest and smallest interval between two successive orders in the whole table
+   SQL4-016 0.53 | Considering all orders in Order Date then Order ID sequence, return the smallest and the larges
+8. [pivot-year] Order counts per employee with one column for each year
+   TH3-010 0.26 | Does ANY_VALUE choose a latest or deterministic representative row for a group?
+   TH-38 0.25 | DATE vs DATETIME vs TIMESTAMP?
+   TH-30 0.24 | What does "sargable" mean?
+9. [shipper-timely] How many orders each carrier delivered within a week versus later
+   NONE
+10. [q1-anti] Clients who didn't order in Jan to Mar but did in Apr to Jun
+   NONE
+11. [rank-supplier] Position of each vendor when ordered by money spent with them
+   SQL3-004 0.50 | For each supplier and product actually procured, show supplier ID/company, product ID/name and 
+   SQL4-022 0.43 | Rank suppliers by total purchase value (quantity times unit cost over their purchase orders), h
+12. [both-extremes] Orders that contain a very big line (50 or more units) and a tiny one (under 10)
+   SQL4-020 0.52 | Find orders that contain at least one line with Quantity 50 or more and at least one line with 
+13. [multi-city] Customers whose parcels went to several different cities
+   NONE
+14. [avg-lines] Mean number of products per order for each salesperson
+   TH-52 0.30 | How do you get the top N rows per group?
+   TH3-007 0.22 | Why do sums inflate when order details and invoices are both joined to orders?
+15. [po-shortfall] Purchase orders where what arrived is less than what we asked for
+   NONE
+16. [reorder-stock] Items whose reorder threshold is above what we currently hold
+   NONE
+17. [same-city] Clients and staff living in the same town
+   SQL4-029 0.67 | List customers located in the same city as at least one employee; each customer once, with ID, 
+   VAR-092 0.24 CRIT | Find the pairs of customers who live in the same city (each pair once).
+18. [top-shipper-fee] Which shipping company has the highest total shipping cost?
+   SQL3-061 0.45 | For each purchase order show item cost subtotal and grand total including its Shipping Fee and 
+   SQL3-007 0.40 | For each customer and product category, sum quantities from shipped orders only, returning cust
+   LAB-26 0.40 | For shipped orders, the lead time is the number of days between `Order Date` and `Shipped Date`
+19. [null-ship-share] Percent of each employee's orders that still have no ship date
+   LAB-30 0.37 | Using conditional aggregation, produce one row per employee with the employee's full name, the 
+20. [median] Median order value
+   TH3-039 0.47 | How can MySQL 8.0.28 compute a median without PERCENTILE_CONT?
+   SQL4-024 0.28 CRIT | Compute the median discounted total over all orders that have at least one line (the average of
+   SQL3-045 0.26 CRIT | For each employee with dated shipments show the median calendar-day order-to-shipment delay, ro
+21. [ntile] Split products into four price groups
+   SQL4-033 0.49 | Split products that have a List Price into four price groups of nearly equal size with the chea
+22. [group-concat] One line per category listing all its product names
+   SQL4-032 0.53 | For each product category return one row with all its product names in alphabetical order separ
+   LAB-15 0.50 | Using a correlated subquery, find the most expensive product in each category (if several produ
+   SQL3-011 0.43 | Which catalogue categories have the highest product count? Return each tied category and its co
+23. [first-order] How many new clients placed their first order in each month?
+   SQL4-011 0.76 | For each month count the customers whose first order (earliest Order Date) falls in that month;
+   SQL3-096 0.39 | Return each customer active in at least two different order months, with the number of active y
+   TH3-019 0.27 | How do you group ISO weeks correctly across a calendar-year boundary?
+24. [dml-insert] Add a new shipper called 'Shipping Company D'
+   SQL4-048 0.60 | Add a new shipper with ID 4 and Company 'Shipping Company D' to the shippers table.
+25. [dml-update] Raise the price of all Beverages by ten percent
+   SQL4-049 0.77 | Raise the List Price of all products in the Beverages category by ten percent.
+26. [dml-delete] Delete customers who never placed an order
+   SQL4-050 0.91 | Delete customers who have never placed an order.
+   TH-18 0.30 | What is the difference between DELETE, TRUNCATE and DROP?
+   TH4-002 0.30 | How do you run UPDATE and DELETE safely?
+27. [ddl-view] Create a view that shows each customer with the total they spent
+   SQL4-055 0.65 | Create a view customer_spend that shows each customer's ID, company and total discounted spendi
+   TH4-005 0.27 | What is a view, and when can you update through it?
+28. [ddl-ctas] Make an archive table of the orders placed before March
+   TH-79 0.26 | Which is faster: JOIN or subquery, and what makes a query slow?
+   TH4-009 0.24 | Is a CHECK constraint enforced in MySQL 8.0.28?
+   SQL4-054 0.22 CRIT | Create a table orders_archive containing all orders placed before March 2006.
+29. [dml-upsert] Insert the shipper, or change its name if that ID already exists
+   SQL4-052 0.64 | Insert the shippers (1, 'Renamed Co') and (4, 'New Co'): update the Company if the ID already e
+   TH-66 0.24 | INSERT ... ON DUPLICATE KEY UPDATE vs REPLACE?
+30. [dml-dups] Remove the extra rows that share a product code, keeping the lowest id
+   SQL4-053 0.75 | Remove duplicate products that share a Product Code, keeping the product with the smallest ID f

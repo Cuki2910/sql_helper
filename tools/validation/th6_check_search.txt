@@ -1,0 +1,2 @@
+Synthetic normalization, quantifier scope, quarter and query-kind checks: PASS
+exit=0

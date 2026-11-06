@@ -1,0 +1,84 @@
+1. Which customers have placed orders handled by more than three different employees?
+   SQL3-012 | Find customers handled by the highest number of different employees; show customer ID, company and distinct em
+   VAR-104 | Return the customers who placed orders handled by fewer than 3 different employees.
+   VAR-103 | Return the customers who placed orders handled by at least 3 different employees.
+2. Running total of sales amount per month during 2006
+   NONE
+3. For each product category, list the three most expensive products, with ties broken by product id
+   LAB-15 | Using a correlated subquery, find the most expensive product in each category (if several products tie, show a
+   MOCK-10 | You need to retrieve the top 10 most expensive products in the Northwind Database. Which query is better? Expl
+4. Find employees who have never handled an order
+   VAR-010 | Find employees who have never processed an order.
+   MOCK-08 | Which employees have never processed an order for a customer from the same city they are based in?
+   COMBO-1688 | Find the employees that processed no orders.
+5. Percentage of total revenue contributed by each customer
+   SQL3-092 | For each employee find the customer or customers contributing their highest discounted revenue, returning empl
+   SQL3-091 | For each customer with sales details show customer ID, city, discounted line revenue and percentage of the rev
+6. Show products that were never sold
+   LAB-21 | Find the products that were bought from suppliers but never sold to customers. Write it with EXCEPT, then rewr
+   VAR-014 | Find products that have never been ordered.
+7. Customers whose latest order is older than all other customers' latest orders
+   MOCK-01 | Return the list of customers (Last Name, First Name, Job Title), sort them by Last Name, then First Name, both
+   SQL3-096 | Return each customer active in at least two different order months, with the number of active year-months and 
+   TH-58 | How does ORDER BY treat NULL?
+8. Rank suppliers by total purchase value and show the position next to each name
+   SQL3-004 | For each supplier and product actually procured, show supplier ID/company, product ID/name and total purchase 
+9. List months of 2006 in which no order was placed, including the empty ones
+   SQL3-018 | For each purchase order show counts of received and not-yet-received detail lines, including purchase orders w
+   SQL3-043 | Return all twelve months of 2006 as YYYY-MM with order counts, including months with zero orders.
+10. Orders whose total value is higher than the average order total
+   SQL3-058 | Find orders with gross line totals above their employee own average order gross total; show employee ID, order
+   SQL3-036 | Compute each observed order gross line total and its moving average over that order and the previous two obser
+   LAB-03 | Using `order details`, compute the line value of each row as Quantity * `Unit Price` * (1 - Discount). Return 
+11. Compare each order's date with the date of the same customer's previous order and show the number of days between them
+   A4-20 | Retrieve information of orders with the following columns: Customer's Company, Employee's Last Name, Order Dat
+12. Which customers bought every product that customer 5 bought?
+   TH3-007 | Why do sums inflate when order details and invoices are both joined to orders?
+13. Number of orders shipped late versus on time per shipper
+   VAR-039 | Count the number of orders per shipper.
+   LAB-26 | For shipped orders, the lead time is the number of days between `Order Date` and `Shipped Date`. For each ship
+14. Second highest priced product in every category
+   SQL3-031 | Return every product at the second highest distinct non-NULL standard cost within its category, retaining ties
+   MOCK-10 | You need to retrieve the top 10 most expensive products in the Northwind Database. Which query is better? Expl
+   MOCK-11 | Return all the Product Code, Product Name, Category, List Price, Standard Cost and Profit Margin (which can be
+15. Products ordered by clients from more than one country
+   COMBO-1356 | Find the products whose number of different customers served is more than 2.
+   COMBO-1361 | Find the products whose number of different customers served is more than 3.
+   TH-76 | EXISTS vs COUNT(*) > 0, and why SELECT 1 inside EXISTS?
+16. Pivot order counts by year as columns for each employee
+   NONE
+17. Employees whose sales exceed the average sales of all employees
+   TH-76 | EXISTS vs COUNT(*) > 0, and why SELECT 1 inside EXISTS?
+   TH-19 | What are aggregate functions and which ignore NULL?
+   TH3-025 | When does COALESCE(SUM(value),0) conceal missing data rather than merely display an empty total?
+18. Orders that include both a discounted line and a non-discounted line
+   A3-11 | Compute the value of each line of table Order Details. The results should have two columns: OrderDetailID, and
+   SQL3-080 | For each invoice show discounted order-line subtotal and its difference from stored Amount Due, rounding final
+   LAB-03 | Using `order details`, compute the line value of each row as Quantity * `Unit Price` * (1 - Discount). Return 
+19. Show the shortest and longest gap in days between consecutive orders overall
+   NONE
+20. For each purchase order list received quantity versus ordered quantity and flag shortfalls
+   NONE
+21. Top selling product by quantity within each quarter of 2006
+   SQL3-095 | For each product return selling-price gross-margin percentage and cost-based markup percentage, both rounded t
+22. Customers with no orders in the first half of 2006 but with orders afterwards
+   NONE
+23. Remove duplicate customer records keeping the one with the smallest id
+   TH-54 | How do you find duplicate rows?
+   TH-07 | UNION vs UNION ALL?
+24. Average number of line items per order for each employee
+   NONE
+25. Three-month moving average of monthly order totals
+   NONE
+26. Which shipper handled the largest freight cost in total?
+   NONE
+27. Customers located in the same city as at least one supplier
+   NONE
+28. Share of orders with a null shipped date per employee
+   SQL3-077 | Return order IDs and customer companies for orders already invoiced but still missing Shipped Date, once per o
+29. Products whose reorder level is above the quantity currently in stock
+   SQL3-081 | For each product appearing in sales details show ordered quantity, Sold inventory quantity and ordered-minus-S
+30. Lines where the unit price charged differs from the list price
+   A3-11 | Compute the value of each line of table Order Details. The results should have two columns: OrderDetailID, and
+   SQL3-008 | Find order lines with Unit Price below the current product List Price; show line ID, order date, customer comp
+   SQL3-062 | List purchase detail IDs where Unit Cost exceeds the current product Standard Cost, with product ID and both c

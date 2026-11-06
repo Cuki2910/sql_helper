@@ -1,0 +1,222 @@
+{
+  "SQL7-001": [
+    "How do I insert two shippers at once?",
+    "Adding two shipping companies with one INSERT.",
+    "Insert several delivery companies in a single multirow statement."
+  ],
+  "SQL7-002": [
+    "How can I insert old orders into an archive before March 2006?",
+    "Copy only orders earlier than March into another table using INSERT SELECT.",
+    "Inserting orders into an archive with a date cutoff before March."
+  ],
+  "SQL7-003": [
+    "Insert the April 2006 orders and everything later into an archive.",
+    "How do I save orders from April onward in another table?",
+    "Insert recent orders into another table starting from April 2006."
+  ],
+  "SQL7-004": [
+    "How do I update the price and reorder level for beverages together?",
+    "Updating beverage prices ten percent and setting reorder level to 30.",
+    "Updating two product fields together, price plus reorder point."
+  ],
+  "SQL7-005": [
+    "Update every product with CASE to choose reorder levels by price.",
+    "I need an update with different reorder levels for cheap and expensive products.",
+    "Can an update assign different stock levels depending on how expensive a product is?"
+  ],
+  "SQL7-006": [
+    "Update condiment prices down five percent and discontinue them.",
+    "How can I update both price and discontinued for condiments?",
+    "Updating condiments should lower prices and flag them as discontinued."
+  ],
+  "SQL7-007": [
+    "Update reorder levels for products sold before March 2006.",
+    "How do I update products using an order subquery?",
+    "Use a subquery to choose which products get their reorder level updated."
+  ],
+  "SQL7-008": [
+    "Update the target stock for products sold on at least three orders.",
+    "How can I update products from a grouped join of their orders?",
+    "Updating popular products based on the number of orders they appear in."
+  ],
+  "SQL7-009": [
+    "Update reorder levels to zero for unsold products.",
+    "How do I update products that are missing from order details?",
+    "Set a zero reorder point by updating items nobody ordered."
+  ],
+  "SQL7-010": [
+    "Delete January orders but leave the later ones.",
+    "How do I delete orders from before February 2006?",
+    "Deleting old orders while leaving everything from February onwards."
+  ],
+  "SQL7-011": [
+    "Remove products that have never been ordered.",
+    "Deleting products with no matching order lines.",
+    "Deleting catalogue items that never show up in an order."
+  ],
+  "SQL7-012": [
+    "Delete all shippers but keep the table.",
+    "How do I empty a carrier table using DELETE?",
+    "Deleting every row without dropping the table itself."
+  ],
+  "SQL7-013": [
+    "Replace an existing row and reset columns I left out.",
+    "What does REPLACE do when the key already exists?",
+    "Using REPLACE for a duplicate ID and restoring defaults for omitted fields."
+  ],
+  "SQL7-014": [
+    "Use REPLACE to add a carrier whose key is not there yet.",
+    "Will REPLACE insert a new shipper if its ID does not exist?",
+    "Inserting a brand new ID with REPLACE rather than overwriting an existing row."
+  ],
+  "SQL7-015": [
+    "Replace several shippers in one go, mixing old and new IDs.",
+    "How do I replace an existing carrier and add another in one statement?",
+    "A batch REPLACE that overwrites matching IDs and inserts unmatched ones."
+  ],
+  "SQL7-016": [
+    "How do I truncate a table and restart its IDs?",
+    "Empty the shipper table and reset auto increment using TRUNCATE.",
+    "Why do new IDs start over after truncating a table?"
+  ],
+  "SQL7-017": [
+    "A function that puts employee last name before first name.",
+    "How do I make a reusable employee full name function?",
+    "Name formatting function: surname, comma, then given name."
+  ],
+  "SQL7-018": [
+    "A function that labels a price as high, low or unknown.",
+    "How do I write a function with IF to classify product prices?",
+    "Function returning High for expensive prices, Low for cheap ones and Unknown for missing prices."
+  ],
+  "SQL7-019": [
+    "A function to work out the total value of an order.",
+    "How can a function sum order lines after discounts?",
+    "Function for a discounted order bill, returning zero when there are no order lines."
+  ],
+  "SQL7-020": [
+    "A trigger that fixes negative prices before inserting rows.",
+    "Before insert trigger to replace missing or negative prices with zero.",
+    "Trigger for cleaning up prices on newly inserted rows."
+  ],
+  "SQL7-021": [
+    "A trigger to reject bad prices when updating a product.",
+    "Block negative or missing prices with a before update trigger.",
+    "Trigger that refuses negative prices rather than silently fixing an update."
+  ],
+  "SQL7-022": [
+    "A trigger that records new prices in a log.",
+    "How do I log rows automatically after inserting them?",
+    "Record each inserted price automatically with a logging trigger."
+  ],
+  "SQL7-023": [
+    "A procedure that lists orders for a given employee.",
+    "How do I pass an employee number into a procedure?",
+    "Procedure taking a staff number and returning that persons assigned orders."
+  ],
+  "SQL7-024": [
+    "A procedure that gives an order total back through an output parameter.",
+    "How do I call a procedure with an IN order ID and an OUT amount?",
+    "Procedure with an input order number and an output total."
+  ],
+  "SQL7-025": [
+    "A procedure to add up sales for one employee.",
+    "Pass an employee ID to a procedure and get their sales total.",
+    "Procedure for calculating the sales made by a member of staff."
+  ],
+  "SQL7-026": [
+    "A cursor that adds up beverage prices.",
+    "How do I loop through product prices with a cursor and total them?",
+    "Cursor loop that accumulates catalogue prices for all beverages."
+  ],
+  "SQL7-027": [
+    "A cursor to total the item quantities in the first order.",
+    "Loop over an orders line quantities and return their sum.",
+    "Add up quantities one line at a time with a cursor for the earliest order."
+  ],
+  "SQL7-028": [
+    "A cursor counting an employees orders before March 2006.",
+    "Count early orders for employee 3 with a cursor loop.",
+    "Cursor counting orders for employee 3 with a date cutoff."
+  ],
+  "SQL7-029": [
+    "Create a child table with a generated ID and a foreign key that blocks parent deletion.",
+    "How do I create a table with primary key, default and a nonnegative check?",
+    "Create a table with an identity counter, required amount and restricted parent link."
+  ],
+  "SQL7-030": [
+    "Create a foreign key that deletes child rows when the parent is deleted.",
+    "How do I set up cascade delete between two tables?",
+    "Delete dependent rows automatically when their parent is removed using a cascading key."
+  ],
+  "SQL7-031": [
+    "Create a foreign key that clears the child reference when the parent is deleted.",
+    "How does ON DELETE SET NULL keep the child row?",
+    "Add a foreign key that preserves child records but nulls their parent reference."
+  ],
+  "SQL7-032": [
+    "Add an active column to shippers with default one.",
+    "How do I add a required column to a table that already has data?",
+    "Adding a required active flag to existing shipper records with a default."
+  ],
+  "SQL7-033": [
+    "Drop the company column but keep the shipper records.",
+    "How can I delete a column without deleting the rows?",
+    "Removing the Company field from shippers without removing any records."
+  ],
+  "SQL7-034": [
+    "Add a reorder column and remove the product category column.",
+    "How do I add one column and drop another with ALTER TABLE?",
+    "Adding one field while dropping another from products in one ALTER."
+  ],
+  "SQL7-035": [
+    "Add a check constraint so an amount cannot go negative.",
+    "How do I add a nonnegative check to a column?",
+    "Adding validation that forbids negative amounts with a CHECK constraint."
+  ],
+  "SQL7-036": [
+    "Drop a check constraint so negative amounts are allowed.",
+    "How do I remove a named check without removing the column?",
+    "Removing an amount check while leaving the amount data untouched."
+  ],
+  "SQL7-037": [
+    "Drop the foreign key but leave the parent ID column.",
+    "How do I remove a foreign key so unmatched IDs can be inserted?",
+    "Removing the reference rule so a parent ID no longer has to exist."
+  ],
+  "SQL7-038": [
+    "Transfer money between two accounts in a transaction and commit it.",
+    "How do I save both balance changes from a money transfer?",
+    "Make a debit and matching credit permanent by committing a transaction."
+  ],
+  "SQL7-039": [
+    "Transfer between two accounts then roll back both changes.",
+    "How can I cancel a money transfer transaction?",
+    "Undo an entire transfer by rolling back the transaction."
+  ],
+  "SQL7-040": [
+    "Use a savepoint to undo a failed second transfer but keep the first.",
+    "How can I roll back part of a transaction after insufficient funds?",
+    "Savepoint for keeping a successful transfer while undoing a later failure."
+  ],
+  "SQL7-041": [
+    "Count orders for each tax status, even unused ones.",
+    "Show tax status names and how many orders use each.",
+    "How many orders belong to each tax status name?"
+  ],
+  "SQL7-042": [
+    "Show the saved sales report definitions with the default first.",
+    "List report titles and their grouping fields.",
+    "Which sales reports are saved and which one is the default?"
+  ],
+  "SQL7-043": [
+    "List available privileges even if nobody has them.",
+    "Show all permission IDs and names alphabetically.",
+    "What permissions are defined, ordered by name?"
+  ],
+  "SQL7-044": [
+    "Count order lines in each detail status, including zero.",
+    "Show every order detail status with its line count.",
+    "How many lines have each order detail status?"
+  ]
+}

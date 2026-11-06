@@ -1,0 +1,15 @@
+mysql8028 8.0.28 : 20/20 tables, 511 rows and SHA-256 hashes unchanged
+shippers/products/orders: 3 45 48
+zz tables: 0
+triggers: 0
+functions: 0
+procedures: 0
+mysql97 9.7.2 : 20/20 tables, 511 rows and SHA-256 hashes unchanged
+shippers/products/orders: 3 45 48
+zz tables: 0
+triggers: 0
+functions: 0
+procedures: 0
+Existing question/answer content unchanged: 2284/2284 (related links and verification timestamps excluded)
+Preexisting practice-search test count mismatch: SQL6 entries before SQL7 = 14 ; test expects 4
+SQL7 hashes agree across MySQL 8.0.28 / 9.7.2: 44/44

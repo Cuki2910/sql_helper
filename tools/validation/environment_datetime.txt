@@ -1,0 +1,1 @@
+SYSTEM	SYSTEM	+07	2026-11-05	en_US	utf8mb4_0900_ai_ci

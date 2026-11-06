@@ -1,0 +1,1174 @@
+[
+ {
+  "cat": "paraphrase",
+  "q": "List customers with last name, first name and job title, sorted by last name descending and then first name descending",
+  "expected": [
+   "MOCK-01"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "For every employee, how many different countries have their orders been shipped to?",
+  "expected": [
+   "MOCK-02"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Average discount of the orders shipped to the USA",
+  "expected": [
+   "MOCK-03"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Which states have exactly one customer? Show the first and last name of that customer",
+  "expected": [
+   "MOCK-04"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Show all columns of the orders with the 6th, 7th and 8th highest shipping fee",
+  "expected": [
+   "MOCK-06"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Which employee handled the most orders in 2006 in total?",
+  "expected": [
+   "MOCK-07"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Employees who never handled an order of a customer located in their own city",
+  "expected": [
+   "MOCK-08"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Products with a profit margin of at least 50 percent: show code, name, category, list price, standard cost and the margin",
+  "expected": [
+   "MOCK-11"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Customers that ordered products belonging to more than 3 categories",
+  "expected": [
+   "MOCK-12",
+   "VAR-002"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Order ID, total value and shipping fee of orders where the shipping fee exceeds 15% of the total value, with the ratio rounded to 4 decimals",
+  "expected": [
+   "MOCK-13"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Total quantity sold per product per month (YYYY-MM) from the inventory transactions table, with product name",
+  "expected": [
+   "MOCK-14"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "paraphrase",
+  "q": "Which pairs of products are bought together in the same order most often? Use a self join",
+  "expected": [
+   "MOCK-15"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "reorder",
+  "q": "Shipped to USA orders: retrieve the average discount applied",
+  "expected": [
+   "MOCK-03"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "reorder",
+  "q": "More than 3 different categories: find customers who placed orders for products from them",
+  "expected": [
+   "MOCK-12",
+   "VAR-002"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "reorder",
+  "q": "In 2006, across all months combined, the employee who processed the highest number of orders",
+  "expected": [
+   "MOCK-07"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "typo",
+  "q": "Find customrs who placed orderrs for products from more than 3 diferent categories",
+  "expected": [
+   "MOCK-12",
+   "VAR-002"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "typo",
+  "q": "Retreive the avrage discount aplied to ordrs shipped to USA",
+  "expected": [
+   "MOCK-03"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "typo",
+  "q": "Which employes have never procesed an order for a customer from the same city",
+  "expected": [
+   "MOCK-08"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "operator",
+  "q": "Find customers who ordered products from at least 3 different categories",
+  "expected": [
+   "VAR-004"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "operator",
+  "q": "Find customers who ordered products from at most 3 different categories",
+  "expected": [
+   "VAR-008"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "operator",
+  "q": "Find customers who ordered products from exactly 3 different categories",
+  "expected": [
+   "VAR-006"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "operator",
+  "q": "Find customers who ordered products from fewer than 3 categories",
+  "expected": [
+   "VAR-007"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "operator",
+  "q": "Find customers who placed orders for products from more than 5 different categories",
+  "expected": [
+   "VAR-002",
+   "MOCK-12"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "operator",
+  "q": "Retrieve 3 orders which have the 6th, 7th and 8th lowest shipping fee",
+  "expected": [
+   "VAR-032"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "table",
+  "q": "Return the top 5 most expensive products",
+  "expected": [
+   "VAR-018"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "table",
+  "q": "Return the 5 cheapest products",
+  "expected": [
+   "VAR-019"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "table",
+  "q": "Find the 3 orders with the lowest shipping fee",
+  "expected": [
+   "VAR-025"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "table",
+  "q": "Count the number of orders per shipper",
+  "expected": [
+   "VAR-039"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "table",
+  "q": "Calculate the total sales value per product category",
+  "expected": [
+   "VAR-067"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "table",
+  "q": "Count the number of suppliers per city",
+  "expected": [],
+  "trap": true
+ },
+ {
+  "cat": "negation",
+  "q": "Customers who have placed at least one order",
+  "expected": [
+   "VAR-013"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "negation",
+  "q": "Customers who never placed an order",
+  "expected": [
+   "VAR-009"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "negation",
+  "q": "Products that were never ordered",
+  "expected": [
+   "VAR-014"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "negation",
+  "q": "Products that have been ordered at least once",
+  "expected": [
+   "VAR-015"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "negation",
+  "q": "Employees who have not processed any order",
+  "expected": [
+   "VAR-010"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "negation",
+  "q": "Orders whose payment type is not Check, including those with no payment type",
+  "expected": [
+   "VAR-097"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "negation",
+  "q": "Orders whose payment type is not Check, excluding NULL",
+  "expected": [
+   "VAR-096"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "trap",
+  "q": "Employee who processed the lowest number of orders across all months combined in 2006",
+  "expected": [],
+  "trap": true,
+  "avoid": [
+   "MOCK-07"
+  ]
+ },
+ {
+  "cat": "trap",
+  "q": "Employee who processed the highest number of orders in each month of 2006",
+  "expected": [],
+  "trap": true,
+  "avoid": [
+   "MOCK-07"
+  ]
+ },
+ {
+  "cat": "trap",
+  "q": "Employees who have always processed an order for a customer from the same city they are based in",
+  "expected": [],
+  "trap": true,
+  "avoid": [
+   "MOCK-08"
+  ]
+ },
+ {
+  "cat": "trap",
+  "q": "Retrieve 2 orders which have the 6th and 7th highest shipping fee, include ties",
+  "expected": [],
+  "trap": true,
+  "avoid": [
+   "MOCK-06"
+  ]
+ },
+ {
+  "cat": "sql",
+  "q": "Average shipping fee of all orders",
+  "expected": [
+   "VAR-049"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Total sales value per customer",
+  "expected": [
+   "VAR-059"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Number of orders per employee",
+  "expected": [
+   "VAR-036"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Employees who handled more than 5 orders, with their names",
+  "expected": [
+   "VAR-102"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Customers whose orders include all the Beverages products",
+  "expected": [
+   "VAR-091"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Products priced above the average price of their own category",
+  "expected": [
+   "VAR-088"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Products with a list price higher than every beverage",
+  "expected": [
+   "VAR-089"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Products with a list price higher than any beverage",
+  "expected": [
+   "VAR-090"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "sql",
+  "q": "Merge companies of customers and suppliers keeping the duplicates",
+  "expected": [
+   "VAR-101"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Difference between WHERE and HAVING",
+  "expected": [
+   "TH-02"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Which is better to get unique values: DISTINCT or GROUP BY?",
+  "expected": [
+   "TH-01",
+   "MOCK-05"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Explain EXISTS versus IN",
+  "expected": [
+   "TH-04"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Why is NOT IN dangerous when the subquery contains NULL?",
+  "expected": [
+   "TH-05"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "What is the difference between COUNT(*) and COUNT(column)?",
+  "expected": [
+   "TH-06"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "UNION or UNION ALL: which one is faster?",
+  "expected": [
+   "TH-07"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Why should I avoid SELECT * in queries?",
+  "expected": [
+   "TH-10",
+   "MOCK-09"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "How does pagination with LIMIT and OFFSET work?",
+  "expected": [
+   "TH-11"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "What does an index do and when does it help?",
+  "expected": [
+   "TH-09"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Subquery or JOIN, which one should I use?",
+  "expected": [
+   "TH-12"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Difference between RANK and DENSE_RANK",
+  "expected": [
+   "TH-15"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory",
+  "q": "Explain INNER JOIN versus LEFT JOIN",
+  "expected": [
+   "TH-03"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "unrelated",
+  "q": "Write a Python function that reverses a string",
+  "expected": [],
+  "trap": false
+ },
+ {
+  "cat": "unrelated",
+  "q": "What is the capital of France",
+  "expected": [],
+  "trap": false
+ },
+ {
+  "cat": "unrelated",
+  "q": "Explain photosynthesis in plants",
+  "expected": [],
+  "trap": false
+ },
+ {
+  "cat": "unrelated",
+  "q": "Design a REST API for user login",
+  "expected": [],
+  "trap": false
+ },
+ {
+  "cat": "unrelated",
+  "q": "How do I install Docker on Windows",
+  "expected": [],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Show every customer with the number of orders they placed, customers with zero orders must appear with 0",
+  "expected": [
+   "LAB-08"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Why does COUNT(*) give a wrong result when counting orders per customer with a LEFT JOIN?",
+  "expected": [
+   "LAB-08"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Find the employees that never created a purchase order, explain why NOT IN fails",
+  "expected": [
+   "LAB-17"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Emulate FULL OUTER JOIN of shippers and orders using LEFT JOIN, RIGHT JOIN and UNION",
+  "expected": [
+   "LAB-09"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "List pairs of customers in the same city, each pair only once",
+  "expected": [
+   "LAB-11",
+   "VAR-092"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Find duplicate product codes using a self join",
+  "expected": [
+   "LAB-12"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Show the most expensive product in every category, including ties, with a correlated subquery",
+  "expected": [
+   "LAB-15"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Customers who bought at least one Beverages product, write with IN and with EXISTS",
+  "expected": [
+   "LAB-16"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Find the orders of the same customer and same employee as order 30 using a row subquery",
+  "expected": [
+   "LAB-18"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Combine customers, employees and suppliers in one contact list with a contact_type column; compare UNION and UNION ALL row counts",
+  "expected": [
+   "LAB-19"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Products that are both sold and purchased from suppliers using INTERSECT and IN",
+  "expected": [
+   "LAB-20"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Products bought from suppliers but never sold, EXCEPT and NOT EXISTS",
+  "expected": [
+   "LAB-21"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Employee directory with upper-case last name, initials, lower-case email and email domain",
+  "expected": [
+   "LAB-22"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Split the Supplier IDs text column on semicolons and count how many suppliers each product has",
+  "expected": [
+   "LAB-24"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Invoice due date 30 days after the invoice date with DATE_ADD, formatted DD/MM/YYYY, and days since due with CURDATE",
+  "expected": [
+   "LAB-27"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Classify products into Budget, Standard and Premium price bands with CASE",
+  "expected": [
+   "LAB-28"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Per employee: total orders, orders per status as columns and percentage of closed orders, including employees without orders",
+  "expected": [
+   "LAB-30"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Top 5 customers by total sales with Gold, Silver and Bronze tier and why COUNT(DISTINCT) is needed",
+  "expected": [
+   "LAB-31"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Pivot of category sales per month from January to June 2006 with a half-year total",
+  "expected": [
+   "LAB-32"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Stock on hand report from inventory transactions with a Reorder or OK action",
+  "expected": [
+   "LAB-33"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Which condition goes in WHERE and which in HAVING: closed orders, customers with at least 3 of them",
+  "expected": [
+   "LAB-06"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Show the unique categories of the products table",
+  "expected": [
+   "A3-02",
+   "MOCK-05"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Suppliers whose last name starts with H",
+  "expected": [
+   "A3-04"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Give me the ten most recent purchase orders",
+  "expected": [
+   "A3-09"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Customers living in New York whose job title contains Manager",
+  "expected": [
+   "A3-15"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Products whose list price is greater than the average list price of their category, show the category average too",
+  "expected": [
+   "A4-18",
+   "VAR-088"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Which products were never ordered? List the product names",
+  "expected": [
+   "A4-08",
+   "VAR-014"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Average number of days from order date to shipped date for each employee",
+  "expected": [
+   "A4-19"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "lab",
+  "q": "Average shipping fee per ship city of closed orders, only averages of at least 100, ascending",
+  "expected": [
+   "A4-17"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "trap",
+  "q": "Find the employees that always created a purchase order",
+  "expected": [],
+  "trap": true,
+  "avoid": [
+   "LAB-17"
+  ]
+ },
+ {
+  "cat": "lab",
+  "q": "Products bought from suppliers and also sold, but not the ones only bought",
+  "expected": [
+   "LAB-20",
+   "LAB-21"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Customers with total sales value greater than 2400",
+  "expected": [
+   "@Find the customers whose total sales value is more than 2400."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Customers with total sales value of less than 2400",
+  "expected": [
+   "@Find the customers whose total sales value is fewer than 2400."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Product categories with a total ordered quantity of at least 100",
+  "expected": [
+   "@Find the product categories whose total quantity ordered is at least 100."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Which shipper handled the fewest orders? Keep ties",
+  "expected": [
+   "@Find the shipper with the lowest number of orders (include ties)."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Which shipper handled the most orders? Keep ties",
+  "expected": [
+   "@Find the shipper with the highest number of orders (include ties)."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Give the 3 product categories with the highest total sales value, exactly 3 rows",
+  "expected": [
+   "@Return the top 3 product categories with the highest total sales value (exactly 3 rows, break ties by category name)."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Give the 3 product categories with the lowest total sales value, exactly 3 rows",
+  "expected": [
+   "@Return the top 3 product categories with the lowest total sales value (exactly 3 rows, break ties by category name)."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "For each employee compute the total sales value, only orders from April to June 2006",
+  "expected": [
+   "@For each employee, calculate the total sales value. Consider only orders placed in the second quarter of 2006 (April to June)."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Ship cities where the number of orders is below 3",
+  "expected": [
+   "@Find the ship cities whose number of orders is fewer than 3."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Products that were ordered at least once in April 2006",
+  "expected": [
+   "@Find the products that were ordered at least once in April 2006."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Employees who processed no orders in March 2006",
+  "expected": [
+   "@Find the employees that processed no orders in March 2006."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Customers with exactly 2 orders",
+  "expected": [
+   "@Find the customers whose number of orders is exactly 2."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "combo",
+  "q": "Customers with at most 2 orders",
+  "expected": [
+   "@Find the customers whose number of orders is at most 2."
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is the difference between a clustered and a secondary index?",
+  "expected": [
+   "TH-27"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Explain the leftmost prefix rule of composite indexes",
+  "expected": [
+   "TH-28"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What does sargable mean?",
+  "expected": [
+   "TH-30"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Why does YEAR(date) = 2006 not use the index?",
+  "expected": [
+   "TH-30"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "How do you read EXPLAIN output?",
+  "expected": [
+   "TH-31"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What are the ACID properties of a transaction?",
+  "expected": [
+   "TH-33"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Explain dirty read, non-repeatable read and phantom read",
+  "expected": [
+   "TH-35"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is a deadlock and how do you avoid it?",
+  "expected": [
+   "TH-36"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Difference between CHAR and VARCHAR",
+  "expected": [
+   "TH-37"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Why should money be DECIMAL and not FLOAT?",
+  "expected": [
+   "TH-39"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Difference between NULL, empty string and zero",
+  "expected": [
+   "TH-40"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is the difference between IFNULL, COALESCE and NULLIF?",
+  "expected": [
+   "TH-41"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is a cross join and when would you use it?",
+  "expected": [
+   "TH-43"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Condition in ON versus WHERE with a LEFT JOIN",
+  "expected": [
+   "TH-46"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Can MySQL 8.0.28 run INTERSECT and EXCEPT?",
+  "expected": [
+   "TH-47"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Explain ANY and ALL with subqueries",
+  "expected": [
+   "TH-48"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Explain WITH RECURSIVE and when to use it",
+  "expected": [
+   "TH-50"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Window functions versus GROUP BY",
+  "expected": [
+   "TH-51"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "How to get the top 2 rows per group",
+  "expected": [
+   "TH-52"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "How to find the second highest salary or value",
+  "expected": [
+   "TH-53"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "How do you find duplicate rows in a table?",
+  "expected": [
+   "TH-54"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What does ONLY_FULL_GROUP_BY do?",
+  "expected": [
+   "TH-56"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "How does ORDER BY sort NULL values in MySQL?",
+  "expected": [
+   "TH-58"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "DATEDIFF versus TIMESTAMPDIFF",
+  "expected": [
+   "TH-62"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Which specifiers does DATE_FORMAT use for year month day?",
+  "expected": [
+   "TH-63"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is the difference between LENGTH and CHAR_LENGTH?",
+  "expected": [
+   "TH-64"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is first, second and third normal form?",
+  "expected": [
+   "TH-26"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Difference between primary key and unique key",
+  "expected": [
+   "TH-24"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What does ON DELETE CASCADE do?",
+  "expected": [
+   "TH-25"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "Best way to protect queries from injection attacks",
+  "expected": [
+   "TH-71"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is a stored procedure, a function and a trigger?",
+  "expected": [
+   "TH-69"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is the difference between DDL and DML?",
+  "expected": [
+   "TH-23"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What does a SQL aggregate return when there are no rows?",
+  "expected": [
+   "TH-75"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "What is the difference between a view and a table?",
+  "expected": [
+   "TH-70"
+  ],
+  "trap": false
+ },
+ {
+  "cat": "theory2",
+  "q": "How does upsert work with ON DUPLICATE KEY UPDATE?",
+  "expected": [
+   "TH-66"
+  ],
+  "trap": false
+ }
+]

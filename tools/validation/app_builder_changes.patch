@@ -1,0 +1,11 @@
+--- baseline/build_app.sh
++++ build_app.sh
+@@ -3,7 +3,7 @@
+ set -e
+ cd "$(dirname "$0")"
+ APP="SQL Reference Finder.app"
+-rm -rf "$APP"; mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources/site"
++mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources/site"
+ swiftc -O app/main.swift -o "$APP/Contents/MacOS/SQLFinder" -framework Cocoa -framework WebKit
+ cp -R index.html css js "$APP/Contents/Resources/site/"
+ cat > "$APP/Contents/Info.plist" <<P

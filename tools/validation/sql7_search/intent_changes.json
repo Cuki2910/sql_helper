@@ -1,0 +1,93 @@
+[
+  {
+    "id": "LAB-23",
+    "kind": "sql",
+    "before": false,
+    "after": true,
+    "question": "Product codes have the form PREFIX-NUMBER (e.g. NWTCFV-17). For each product, show the code, the prefix (the part before '-'), the number (the part after '-'), and a short name obtained by removing the text 'Northwind Traders ' from the product name. Then write a second query that counts products per prefix and shows only prefixes used by at least 3 products."
+  },
+  {
+    "id": "LAB-27",
+    "kind": "sql",
+    "before": false,
+    "after": true,
+    "question": "The `Due Date` column of invoices is empty. For the invoices, show the invoice ID, the order ID, the invoice date formatted as 'DD/MM/YYYY', the weekday of the invoice date, a computed due date 30 days after the invoice date (DATE_ADD, formatted as 'DD/MM/YYYY'), and how many whole days have passed between that computed due date and today (CURDATE). Show only the 5 earliest invoices. Note that the last column depends on the day you run the query."
+  },
+  {
+    "id": "LAB-30",
+    "kind": "sql",
+    "before": false,
+    "after": true,
+    "question": "Using conditional aggregation, produce one row per employee with the employee's full name, the total number of orders, and one column per order status (New, Invoiced, Shipped, Closed) holding the number of orders in that status. Add a column with the percentage of the employee's orders that are Closed (1 decimal). Include employees with no orders. Sort by total orders descending, then name."
+  },
+  {
+    "id": "SQL3-050",
+    "kind": "sql",
+    "before": false,
+    "after": true,
+    "question": "Return customer ID and Business Phone with parentheses, ASCII spaces, dots and hyphens removed; preserve other characters and NULL."
+  },
+  {
+    "id": "SQL4-038",
+    "kind": "sql",
+    "before": false,
+    "after": true,
+    "question": "Count orders per employee and add a final grand-total row labelled 'ALL' using GROUP BY ... WITH ROLLUP."
+  },
+  {
+    "id": "TH-69",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "Stored procedure vs function vs trigger?"
+  },
+  {
+    "id": "TH3-018",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "How does keyset pagination differ from OFFSET when concurrent inserts can move page boundaries?"
+  },
+  {
+    "id": "TH3-046",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "Can a functional index help a function-wrapped predicate on MySQL 8.0.28?"
+  },
+  {
+    "id": "TH4-007",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "What is a trigger, and what are NEW and OLD?"
+  },
+  {
+    "id": "TH4-008",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "How do stored procedures use IN, OUT and CALL?"
+  },
+  {
+    "id": "TH5-005",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "When should a database rule use a trigger rather than an explicitly called stored procedure?"
+  },
+  {
+    "id": "TH5-008",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "How does SIGNAL SQLSTATE 45000 reject an invalid value inside a trigger, and what does a handler change?"
+  },
+  {
+    "id": "TH5-009",
+    "kind": "theory",
+    "before": false,
+    "after": true,
+    "question": "Why must a cursor loop test its NOT FOUND handler flag immediately after FETCH, and when is SUM preferable?"
+  }
+]

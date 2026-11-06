@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/cuki2910/Desktop/sql_helper/tools/semantic_checks.py", line 93, in <module>
+    main()
+  File "/Users/cuki2910/Desktop/sql_helper/tools/semantic_checks.py", line 65, in main
+    check('SQL3-030','NULL costs do not count; duplicate cheaper products do',[products],[(4,6),(5,7)])
+  File "/Users/cuki2910/Desktop/sql_helper/tools/semantic_checks.py", line 58, in check
+    assert sorted(map(repr,actual)) == sorted(map(repr,expected)), (entry_id,label,field,actual,expected)
+AssertionError: ('SQL3-030', 'NULL costs do not count; duplicate cheaper products do', 'sql', [(Decimal('4'), Decimal('6.00000000000')), (Decimal('5'), Decimal('7.00000000000'))], [(Decimal('4'), Decimal('6')), (Decimal('5'), Decimal('7'))])
